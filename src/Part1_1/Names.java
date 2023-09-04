@@ -1,4 +1,4 @@
-package Part1;
+package Part1_1;
 
 public class Names {
     String surname, name, patronymic;
