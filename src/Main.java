@@ -47,6 +47,18 @@ public class Main {
         System.out.println(time2.conventTime());
         System.out.println(time3.conventTime());
         System.out.println();
+
+        // 1.1.5 Дом
+        Home home1 = new Home(1);
+        Home home2 = new Home(5);
+        Home home3 = new Home(23);
+
+        System.out.println("1.1.5 Дом");
+        System.out.println(home1);
+        System.out.println(home2);
+        System.out.println(home3);
+        System.out.println();
+
     }
 
 //    public static void humanTest(){
