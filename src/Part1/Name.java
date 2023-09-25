@@ -2,6 +2,7 @@ package Part1;
 // 1.1.3 Имена
 public class Name {
     String dataAboutPerson1, dataAboutPerson2, dataAboutPerson3;
+    String completeName;
 
     public Name(String firstName){
         this.dataAboutPerson1 = firstName;
@@ -18,7 +19,7 @@ public class Name {
     }
 
     public String toString() {
-        String completeName = this.dataAboutPerson1;
+        completeName = this.dataAboutPerson1;
 
         if (dataAboutPerson2 != null){
             completeName += " " + this.dataAboutPerson2;

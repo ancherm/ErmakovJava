@@ -14,14 +14,14 @@ public class Main {
         System.out.println();
 
         // 1.1.2 Человек
-        Person person1 = new Person("Клеопатра", 152);
-        Person person2 = new Person("Пушкин", 167);
-        Person person3 = new Person("Владимир", 189);
+        Person personCleopatra = new Person("Клеопатра", 152);
+        Person personPushkin = new Person("Пушкин", 167);
+        Person personMayakovsky = new Person("Владимир", 189);
 
         System.out.println("1.1.2 Человек");
-        System.out.println(person1);
-        System.out.println(person2);
-        System.out.println(person3);
+        System.out.println(personCleopatra);
+        System.out.println(personPushkin);
+        System.out.println(personMayakovsky);
         System.out.println();
 
         // 1.1.3 Имена
@@ -66,11 +66,22 @@ public class Main {
         Line line2 = new Line(new Point(10, 5), new Point(25, 5));
         Line line3 = new Line(line1.pointStart, line2.pointEnd);
 
+        System.out.println("1.2.1 Линия");
         System.out.println(line1);
         System.out.println(line2);
         System.out.println(line3);
+        System.out.println();
 
+        // 1.2.2
+        personCleopatra = new Person(name1, personCleopatra.height);
+        personPushkin = new Person(name2, personPushkin.height);
+        personMayakovsky = new Person(name3, personMayakovsky.height);
 
+        System.out.println("1.2.2 Человек с именем");
+        System.out.println(personCleopatra);
+        System.out.println(personPushkin);
+        System.out.println(personMayakovsky);
+        System.out.println();
 
     }
 
