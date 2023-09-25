@@ -1,20 +1,20 @@
 package Part1;
 
-public class Human {
+public class HumanTestFromVlad {
     String firstName;
     String lastName;
     String middleName;
 
-    private Human(){}
+    private HumanTestFromVlad(){}
 
 
 
      public static class HumanBuilder{
 
-        private Human human;
+        private HumanTestFromVlad human;
 
         public HumanBuilder(){
-            this.human = new Human();
+            this.human = new HumanTestFromVlad();
         }
 
 
@@ -33,7 +33,7 @@ public class Human {
             return this;
         }
 
-        public Human build(){
+        public HumanTestFromVlad build(){
             return this.human;
         }
 
@@ -41,7 +41,7 @@ public class Human {
 
     @Override
     public String toString() {
-        return "Human{" +
+        return "HumanTestFromVlad{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", middleName='" + middleName + '\'' +

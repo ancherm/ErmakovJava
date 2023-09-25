@@ -1,5 +1,5 @@
 package Part1;
-
+// 1.1.1 Точка координат
 public class Point {
     int x;
     int y;

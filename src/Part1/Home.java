@@ -1,5 +1,5 @@
 package Part1;
-
+// 1.1.5 Дом
 public class Home {
     int countFloor;
 

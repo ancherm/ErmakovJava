@@ -1,18 +1,18 @@
 package Part1;
-
-public class Names{
+// 1.1.3 Имена
+public class Name {
     String dataAboutPerson1, dataAboutPerson2, dataAboutPerson3;
 
-    public Names(String firstName){
+    public Name(String firstName){
         this.dataAboutPerson1 = firstName;
     }
 
-    public Names(String firstname, String lastName){
+    public Name(String firstname, String lastName){
         this(firstname);
         this.dataAboutPerson2 = lastName;
     }
 
-    public Names(String firstname, String lastName, String middleName){
+    public Name(String firstname, String lastName, String middleName){
         this(firstname, lastName);
         this.dataAboutPerson3 = middleName;
     }

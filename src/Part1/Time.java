@@ -1,5 +1,5 @@
 package Part1;
-
+// 1.1.4 Время
 public class Time {
     int seconds;
     public Time(int seconds){

@@ -25,9 +25,9 @@ public class Main {
         System.out.println();
 
         // 1.1.3 Имена
-        Names name1 = new Names("Клеопатра");
-        Names name2 = new Names("Пушкин", "Александр", "Сергеевич");
-        Names name3 = new Names("Маяковский", "Владимир");
+        Name name1 = new Name("Клеопатра");
+        Name name2 = new Name("Пушкин", "Александр", "Сергеевич");
+        Name name3 = new Name("Маяковский", "Владимир");
 
         System.out.println("1.1.3 Имена");
         System.out.println(name1);
@@ -75,8 +75,8 @@ public class Main {
     }
 
 //    public static void humanTest(){
-//        Human.HumanBuilder hb = new Human.HumanBuilder();
-//        Human h = hb.withLastName("asd").withFirstName("aa").build();
+//        HumanTestFromVlad.HumanBuilder hb = new HumanTestFromVlad.HumanBuilder();
+//        HumanTestFromVlad h = hb.withLastName("asd").withFirstName("aa").build();
 //        System.out.println(h);
 //    }
 

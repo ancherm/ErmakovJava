@@ -1,5 +1,5 @@
 package Part1;
-
+// 1.2.1 Прямая
 public class Line {
     public Point pointStart;
     public Point pointEnd;

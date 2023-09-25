@@ -1,5 +1,5 @@
 package Part1;
-
+// 1.1.2 Человек
 public class Person {
     String name;
     int height;
