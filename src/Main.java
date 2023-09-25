@@ -59,6 +59,19 @@ public class Main {
         System.out.println(home3);
         System.out.println();
 
+        ///////////////////////////////////////////////////////
+
+        // 1.2.1
+        Line line1 = new Line(new Point(1, 3), new Point(23, 8));
+        Line line2 = new Line(new Point(10, 5), new Point(25, 5));
+        Line line3 = new Line(line1.pointStart, line2.pointEnd);
+
+        System.out.println(line1);
+        System.out.println(line2);
+        System.out.println(line3);
+
+
+
     }
 
 //    public static void humanTest(){
