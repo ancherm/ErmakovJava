@@ -21,13 +21,17 @@ public class Main {
         // 1.1.5 Дом
         testCasesForFirst.toCallHomeTestCases();
 
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // 1.2.1
         testCasesForFirst.toCallLineTestCases();
 
         // 1.2.2
         testCasesForFirst.toCallPersonWithNameTestCases();
+
+
+        // 1.2.4
+        testCasesForFirst.toCallEmployeeAndDepartmentTestCases();
 
     }
 

@@ -67,18 +67,18 @@ public class TestCasesForFirst {
         System.out.println();
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // 1.2.1 Линия
     public void toCallLineTestCases(){
-        Line line1 = new Line(new Point(1, 3), new Point(23, 8));
-        Line line2 = new Line(new Point(10, 5), new Point(25, 5));
-        Line line3 = new Line(line1.pointStart, line2.pointEnd);
+        Line line1 = new Line(new Point(1, 2), new Point(3, 5));
+        Line line2 = new Line(line1.pointEnd, new Point(5, 4));
+//        Line line3 = new Line(line1.pointStart, line2.pointEnd);
 
         System.out.println("1.2.1 Линия");
         System.out.println(line1);
         System.out.println(line2);
-        System.out.println(line3);
+//        System.out.println(line3);
         System.out.println();
     }
 
@@ -93,5 +93,23 @@ public class TestCasesForFirst {
         System.out.println(personPushkin);
         System.out.println(personMayakovsky);
         System.out.println();*/
+    }
+
+
+
+    // 1.2.4
+    public void toCallEmployeeAndDepartmentTestCases(){
+        Department department = new Department("IT");
+        Employee employee1 = new Employee("Петров", department);
+        Employee employee2 = new Employee("Козлов", department);
+        Employee employee3 = new Employee("Сидоров", department);
+
+
+        department.boss = employee2;
+
+        System.out.println(employee1);
+        System.out.println(employee2);
+        System.out.println(employee3);
+
     }
 }

@@ -6,7 +6,7 @@ public class Person {
     public int height;
 
     public Person (String name, int height) {
-        this.name = name;
+        //this.name = new Name(name);
         this.height = height;
     }
     public Person (Name names, int height) {

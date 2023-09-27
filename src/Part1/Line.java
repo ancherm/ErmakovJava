@@ -1,8 +1,8 @@
 package Part1;
 // 1.2.1 Прямая
 public class Line {
-    public Point pointStart;
-    public Point pointEnd;
+    Point pointStart;
+    Point pointEnd;
 
     public Line(Point pointStart, Point pointEnd){
         this.pointStart = pointStart;
