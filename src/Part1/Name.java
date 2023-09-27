@@ -19,8 +19,6 @@ public class Name {
     }
 
     public String toString() {
-
-
         if (dataAboutPerson2 != null){
             dataAboutPerson1 += " " + this.dataAboutPerson2;
         }
