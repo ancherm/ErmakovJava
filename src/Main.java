@@ -5,33 +5,35 @@ public class Main {
         TestCasesForFirst testCasesForFirst = new TestCasesForFirst();
 
         // 1.1.1 Точка
-        testCasesForFirst.toCallPointTestCases();
+        testCasesForFirst.toCallPoint();
 
 
         // 1.1.2 Человек
-        testCasesForFirst.toCallPersonTestCases();
+        testCasesForFirst.toCallPerson();
 
         // 1.1.3 Имена
-        testCasesForFirst.toCallNameTestCases();
+        testCasesForFirst.toCallName();
 
 
         // 1.1.4 Время
-        testCasesForFirst.toCallTimeTestCases();
+        testCasesForFirst.toCallTime();
 
         // 1.1.5 Дом
-        testCasesForFirst.toCallHomeTestCases();
+        testCasesForFirst.toCallHome();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // 1.2.1
-        testCasesForFirst.toCallLineTestCases();
+        testCasesForFirst.toCallLine();
 
         // 1.2.2
-        testCasesForFirst.toCallPersonWithNameTestCases();
+        testCasesForFirst.toCallPersonWithName();
 
+        // 1.2.3
+        testCasesForFirst.toCallPersonWithFather();
 
         // 1.2.4
-        testCasesForFirst.toCallEmployeeAndDepartmentTestCases();
+        testCasesForFirst.toCallEmployeeAndDepartment();
 
     }
 

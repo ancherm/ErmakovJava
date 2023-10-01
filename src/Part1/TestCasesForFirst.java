@@ -31,9 +31,17 @@ public class TestCasesForFirst {
     Person personPushkinNew = new Person(namePushkin.toString(), personPushkin.height);
     Person personMayakovskyNew = new Person(nameMayakovsky.toString(), personMayakovsky.height);
 
+    Name ivan = new Name("Чудов", "Иван", null);
+    Name petr = new Name("Чудов", "Петр", null);
+    Name boris = new Name(null, "Борис", null);
+
+    Person personIvan = new Person(ivan);
+    Person personPetr = new Person(petr);
+    Person personBoris = new Person(boris);
+
 
     // 1.1.1 Точка
-    public void toCallPointTestCases(){
+    public void toCallPoint(){
         System.out.println("1.1.1 Точка");
         System.out.println(point1);
         System.out.println(point2);
@@ -42,7 +50,7 @@ public class TestCasesForFirst {
     }
 
     // 1.1.2 Человек
-    public void toCallPersonTestCases(){
+    public void toCallPerson(){
 
         System.out.println("1.1.2 Человек");
         System.out.println(personCleopatra);
@@ -52,7 +60,7 @@ public class TestCasesForFirst {
     }
 
     // 1.1.3 Имена
-    public void toCallNameTestCases(){
+    public void toCallName(){
 
         System.out.println("1.1.3 Имена");
         System.out.println(nameCleopatra);
@@ -63,7 +71,7 @@ public class TestCasesForFirst {
     }
 
     // 1.1.4 Время
-    public void toCallTimeTestCases(){
+    public void toCallTime(){
         System.out.println("1.1.4 Время");
         System.out.println(time1.conventTime());
         System.out.println(time2.conventTime());
@@ -72,7 +80,7 @@ public class TestCasesForFirst {
     }
 
     // 1.1.5 Дом
-    public void toCallHomeTestCases(){
+    public void toCallHome(){
         System.out.println("1.1.5 Дом");
         System.out.println(home1);
         System.out.println(home2);
@@ -83,7 +91,7 @@ public class TestCasesForFirst {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // 1.2.1 Линия
-    public void toCallLineTestCases(){
+    public void toCallLine(){
         System.out.println("1.2.1 Линия");
         System.out.println(line1);
         System.out.println(line2);
@@ -92,7 +100,7 @@ public class TestCasesForFirst {
     }
 
     // 1.2.2 Человек с именем
-    public void toCallPersonWithNameTestCases(){
+    public void toCallPersonWithName(){
 
 
         System.out.println("1.2.2 Человек с именем");
@@ -103,20 +111,37 @@ public class TestCasesForFirst {
     }
 
 
+    // 1.2.3
+    public void toCallPersonWithFather(){
+        personPetr.setFather(personIvan);
+        personBoris.setFather(personPetr);
+
+        personIvan.checkFather();
+        personPetr.checkFather();
+        personBoris.checkFather();
+
+        System.out.println("№ 1.2.3");
+        System.out.println(personIvan.printInfo());
+        System.out.println(personPetr.printInfo());
+        System.out.println(personBoris.printInfo());
+        System.out.println();
+    }
 
     // 1.2.4
-    public void toCallEmployeeAndDepartmentTestCases(){
-        Department department = new Department("IT");
-        Employee employee1 = new Employee("Петров", department);
-        Employee employee2 = new Employee("Козлов", department);
-        Employee employee3 = new Employee("Сидоров", department);
+    public void toCallEmployeeAndDepartment(){
+        Department departmentIT = new Department("IT");
 
+        Employee employee1 = new Employee("Петров", departmentIT);
+        Employee employee2 = new Employee("Козлов", departmentIT);
+        Employee employee3 = new Employee("Сидоров", departmentIT);
 
-        department.boss = employee2;
+        departmentIT.boss = employee2;
 
+        System.out.println("№ 1.2.4");
         System.out.println(employee1);
         System.out.println(employee2);
         System.out.println(employee3);
+        System.out.println();
 
     }
 }
