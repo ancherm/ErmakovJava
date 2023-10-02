@@ -62,6 +62,14 @@ public class TestCasesForFirst {
     BrokenLine brokenLineSecond = new BrokenLine(pointArrayListForSecond);
 
 
+    City cityA = new City("A");
+    City cityB = new City("B");
+    City cityC = new City("C");
+    City cityD = new City("D");
+    City cityE = new City("E");
+    City cityF = new City("F");
+
+
     // 1.1.1 Точка
     public void toCallPoint(){
         System.out.println("1.1.1 Точка");
@@ -196,6 +204,38 @@ public class TestCasesForFirst {
         System.out.println("№ 1.3.2 - Ломаная");
         System.out.println(brokenLineFirst);
         System.out.println(brokenLineSecond);
+        System.out.println();
     }
 
+    public void toCallCity(){
+        cityA.addPath(cityB, 5);
+        cityA.addPath(cityD, 6);
+        cityA.addPath(cityF, 1);
+
+        cityB.addPath(cityA, 5);
+        cityB.addPath(cityC, 3);
+
+        cityC.addPath(cityB, 3);
+        cityC.addPath(cityD, 4);
+
+        cityD.addPath(cityA, 6);
+        cityD.addPath(cityC, 4);
+        cityD.addPath(cityE, 2);
+
+        cityE.addPath(cityF, 2);
+
+        cityF.addPath(cityB, 1);
+        cityF.addPath(cityF, 2);
+
+        System.out.println("№ 1.3.3 Города");
+        System.out.println(cityA);
+        System.out.println(cityB);
+        System.out.println(cityC);
+        System.out.println(cityD);
+        System.out.println(cityE);
+        System.out.println(cityF);
+        System.out.println();
+
+
+    }
 }

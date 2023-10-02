@@ -42,6 +42,11 @@ public class Main {
 
         // 1.3.2
         testCasesForFirst.toCallBrokenLine();
+
+        // 1.3.3
+        testCasesForFirst.toCallCity();
+
+
     }
 
 //    public static void humanTest(){
