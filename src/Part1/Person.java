@@ -28,7 +28,7 @@ public class Person {
     public String toString() {
         return "Человек с именем " + name + " и ростом " + height;
     }
-    public String printInfo(){
+    public String toStringWithAdditionalInfo(){
         if (this.father != null){
             return this.name + ", отец - " + this.father.name;
         }

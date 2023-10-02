@@ -121,9 +121,9 @@ public class TestCasesForFirst {
         personBoris.checkFather();
 
         System.out.println("№ 1.2.3");
-        System.out.println(personIvan.printInfo());
-        System.out.println(personPetr.printInfo());
-        System.out.println(personBoris.printInfo());
+        System.out.println(personIvan.toStringWithAdditionalInfo());
+        System.out.println(personPetr.toStringWithAdditionalInfo());
+        System.out.println(personBoris.toStringWithAdditionalInfo());
         System.out.println();
     }
 
