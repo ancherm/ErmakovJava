@@ -56,6 +56,12 @@ public class TestCasesForFirst {
     Student studentAnrew = new Student("Андрей", marksAndrew);
 
 
+    ArrayList<Point> pointArrayListForFirst = new ArrayList<>();
+    ArrayList<Point> pointArrayListForSecond = new ArrayList<>();
+    BrokenLine brokenLineFirst = new BrokenLine(pointArrayListForFirst);
+    BrokenLine brokenLineSecond = new BrokenLine(pointArrayListForSecond);
+
+
     // 1.1.1 Точка
     public void toCallPoint(){
         System.out.println("1.1.1 Точка");
@@ -176,5 +182,20 @@ public class TestCasesForFirst {
         System.out.println();
     }
 
+    // 1.3.2
+    public void toCallBrokenLine(){
+        pointArrayListForFirst.add(new Point(10, -5));
+        pointArrayListForFirst.add(new Point(2, 8));
+        pointArrayListForFirst.add(new Point(5,3));
+
+        pointArrayListForSecond.add(pointArrayListForFirst.get(0));
+        pointArrayListForSecond.add(pointArrayListForFirst.get(2));
+        pointArrayListForSecond.add(1, new Point(2, -5));
+        pointArrayListForSecond.add(2, new Point(4, -8));
+
+        System.out.println("№ 1.3.2 - Ломаная");
+        System.out.println(brokenLineFirst);
+        System.out.println(brokenLineSecond);
+    }
 
 }

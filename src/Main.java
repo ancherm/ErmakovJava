@@ -40,7 +40,8 @@ public class Main {
         // 1.3.1
         testCasesForFirst.toCallStudent();
 
-
+        // 1.3.2
+        testCasesForFirst.toCallBrokenLine();
     }
 
 //    public static void humanTest(){
