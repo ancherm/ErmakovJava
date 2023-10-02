@@ -1,5 +1,7 @@
 package Part1;
 
+import java.util.ArrayList;
+
 public class TestCasesForFirst {
     Point point1 = new Point(1, 0);
     Point point2 = new Point(-4, 2);
@@ -38,6 +40,20 @@ public class TestCasesForFirst {
     Person personIvan = new Person(ivan);
     Person personPetr = new Person(petr);
     Person personBoris = new Person(boris);
+
+
+    Department departmentIT = new Department("IT");
+    Employee employeePetrov = new Employee("Петров", departmentIT);
+    Employee employeeKozlov = new Employee("Козлов", departmentIT);
+    Employee employeeSidorov = new Employee("Сидоров", departmentIT);
+
+    ArrayList<Integer> marksVasy = new ArrayList<>();
+    ArrayList<Integer> marksPety = new ArrayList<>();
+    ArrayList<Integer> marksAndrew = new ArrayList<>();
+
+    Student studentVasy = new Student("Вася", marksVasy);
+    Student studentPety = new Student("Петя", marksPety);
+    Student studentAnrew = new Student("Андрей", marksAndrew);
 
 
     // 1.1.1 Точка
@@ -129,19 +145,36 @@ public class TestCasesForFirst {
 
     // 1.2.4
     public void toCallEmployeeAndDepartment(){
-        Department departmentIT = new Department("IT");
 
-        Employee employee1 = new Employee("Петров", departmentIT);
-        Employee employee2 = new Employee("Козлов", departmentIT);
-        Employee employee3 = new Employee("Сидоров", departmentIT);
 
-        departmentIT.setBoss(employee2);
+        departmentIT.setBoss(employeeKozlov);
 
         System.out.println("№ 1.2.4");
-        System.out.println(employee1);
-        System.out.println(employee2);
-        System.out.println(employee3);
+        System.out.println(employeePetrov);
+        System.out.println(employeeKozlov);
+        System.out.println(employeeSidorov);
         System.out.println();
-
     }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //1.3.1
+    public void toCallStudent(){
+        marksVasy.add(3);
+        marksVasy.add(4);
+        marksVasy.add(5);
+
+        marksPety.addAll(marksVasy);
+        marksPety.set(0, 5);
+
+        marksAndrew.addAll(marksVasy);
+
+        System.out.println("№ 1.3.1");
+        System.out.println(studentVasy);
+        System.out.println(studentPety);
+        System.out.println(studentAnrew);
+        System.out.println();
+    }
+
+
 }

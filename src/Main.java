@@ -35,6 +35,12 @@ public class Main {
         // 1.2.4
         testCasesForFirst.toCallEmployeeAndDepartment();
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // 1.3.1
+        testCasesForFirst.toCallStudent();
+
+
     }
 
 //    public static void humanTest(){
