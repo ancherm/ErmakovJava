@@ -135,7 +135,7 @@ public class TestCasesForFirst {
         Employee employee2 = new Employee("Козлов", departmentIT);
         Employee employee3 = new Employee("Сидоров", departmentIT);
 
-        departmentIT.boss = employee2;
+        departmentIT.setBoss(employee2);
 
         System.out.println("№ 1.2.4");
         System.out.println(employee1);
