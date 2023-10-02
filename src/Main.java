@@ -1,5 +1,5 @@
 import Part1.*;
-// Создать тесты, не в main
+
 public class Main {
     public static void main(String[] args) {
         TestCasesForFirst testCasesForFirst = new TestCasesForFirst();
