@@ -43,9 +43,11 @@ public class TestCasesForFirst {
 
 
     Department departmentIT = new Department("IT");
+    Department departmentSales = new Department("Sales");
     Employee employeePetrov = new Employee("Петров", departmentIT);
     Employee employeeKozlov = new Employee("Козлов", departmentIT);
     Employee employeeSidorov = new Employee("Сидоров", departmentIT);
+    Employee employeeIvanov = new Employee("Иванов", departmentSales);
 
     ArrayList<Integer> marksVasy = new ArrayList<>();
     ArrayList<Integer> marksPety = new ArrayList<>();
@@ -162,11 +164,13 @@ public class TestCasesForFirst {
 
 
         departmentIT.setBoss(employeeKozlov);
+        departmentSales.setBoss(employeeIvanov);
 
         System.out.println("№ 1.2.4");
         System.out.println(employeePetrov);
         System.out.println(employeeKozlov);
         System.out.println(employeeSidorov);
+        System.out.println(employeeIvanov);
         System.out.println();
     }
 
@@ -235,7 +239,15 @@ public class TestCasesForFirst {
         System.out.println(cityE);
         System.out.println(cityF);
         System.out.println();
+    }
 
+    // 1.3.4
+    public void toCallEmployeesWithSameDepartment() {
+        System.out.println("№ 1.3.4 Сотрудники и отделы");
+        ArrayList<Employee> employees = employeeKozlov.findOutInfoAboutEmployees();
 
+        for (Employee employee : employees) {
+            System.out.println(employee.getName());
+        }
     }
 }

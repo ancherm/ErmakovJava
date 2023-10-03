@@ -4,11 +4,10 @@ import java.util.ArrayList;
 
 public class City {
     private String name;
-    private ArrayList<Path> paths;
+    private ArrayList<Path> paths = new ArrayList<>();;
 
     public City(String name) {
         this.name = name;
-        this.paths = new ArrayList<>();
     }
 
     public String getName() {
@@ -22,8 +21,8 @@ public class City {
 
     public String toString(){
         String s = name + ": ";
-        for (int i = 0; i < paths.size(); i++){
-            s = s + paths.get(i) + "  ";
+        for (Path path : paths){
+            s += path + "  ";
         }
         return s;
     }

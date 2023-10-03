@@ -46,6 +46,9 @@ public class Main {
         // 1.3.3
         testCasesForFirst.toCallCity();
 
+        // 1.3.4
+        testCasesForFirst.toCallEmployeesWithSameDepartment();
+
 
     }
 
