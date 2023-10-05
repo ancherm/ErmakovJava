@@ -21,14 +21,14 @@ public class Name {
         String fullName = "";
 
         if (surname != null){
-            fullName += surname;
+            fullName += surname + " ";
         }
         if (name != null){
-            fullName += " " + this.name;
+            fullName += this.name + " ";
         }
 
         if (lastName != null){
-            fullName += " " + this.lastName;
+            fullName += this.lastName;
         }
 
         return fullName;

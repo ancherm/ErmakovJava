@@ -33,21 +33,21 @@ public class Main {
         testCasesForFirst.toCallPersonWithFather();
 
         // 1.2.4 Сотрудники и отделы
-//        testCasesForFirst.toCallEmployeeAndDepartment();
-//
+        testCasesForFirst.toCallEmployeeAndDepartment();
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//        // 1.3.1 Студент
-//        testCasesForFirst.toCallStudent();
-//
-//        // 1.3.2 Ломаная
-//        testCasesForFirst.toCallBrokenLine();
-//
-//        // 1.3.3 Города
-//        testCasesForFirst.toCallCity();
-//
-//        // 1.3.4 Сотрудники и отделы
-//        testCasesForFirst.toCallEmployeesWithSameDepartment();
+
+        // 1.3.1 Студент
+        testCasesForFirst.toCallStudent();
+
+        // 1.3.2 Ломаная
+        testCasesForFirst.toCallBrokenLine();
+
+        // 1.3.3 Города
+        testCasesForFirst.toCallCity();
+
+        // 1.3.4 Сотрудники и отделы
+        testCasesForFirst.toCallEmployeesWithSameDepartment();
 
 
     }

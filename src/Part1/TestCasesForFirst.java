@@ -34,12 +34,14 @@ public class TestCasesForFirst {
     Person personMayakovskyNew = new Person(nameMayakovsky.toString(), personMayakovsky.height);
 
     Name ivan = new Name("Чудов", "Иван", null);
-    Name petr = new Name("Чудов", "Петр", null);
+    Name petr = new Name(null, "Петр", null);
     Name boris = new Name(null, "Борис", null);
+
 
     Person personIvan = new Person(ivan);
     Person personPetr = new Person(petr);
     Person personBoris = new Person(boris);
+
 
 
     Department departmentIT = new Department("IT");

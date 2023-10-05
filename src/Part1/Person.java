@@ -16,13 +16,25 @@ public class Person {
     public void setFather(Person father){
         this.father = father;
     }
-    public void checkFather(){
+
+    public void addSurname() {
         if (name.surname == null && father != null && father.name.surname != null) {
             name.surname = father.name.surname;
         }
+        else if (father != null && father.name.surname == null) {
+            father.addSurname();
+        }
+    }
+
+    public void addLastName() {
         if (name.lastName == null && father != null && father.name.name != null){
             name.lastName = father.name.name + "ович";
         }
+    }
+    public void checkFather(){
+        addSurname();
+
+        addLastName();
     }
 
     public String toString() {
@@ -32,6 +44,6 @@ public class Person {
         if (this.father != null){
             return this.name + ", отец - " + this.father.name;
         }
-        return this.name + "";
+        return this.name + " - самый старший родитель";
     }
 }
