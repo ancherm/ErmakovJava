@@ -3,7 +3,7 @@ package Part1;
 public class Person {
     Name name;
     Person father;
-    public int height;
+    int height;
 
     public Person(Name name){
         this.name = name;
@@ -17,7 +17,7 @@ public class Person {
         this.father = father;
     }
     public void checkFather(){
-        if (name.surname == null && father.name.surname != null) {
+        if (name.surname == null && father != null && father.name.surname != null) {
             name.surname = father.name.surname;
         }
         if (name.lastName == null && father != null && father.name.name != null){

@@ -23,31 +23,31 @@ public class Main {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        // 1.2.1
+        // 1.2.1 Прямая
         testCasesForFirst.toCallLine();
 
-        // 1.2.2
+        // 1.2.2 Человек с именем
         testCasesForFirst.toCallPersonWithName();
 
-        // 1.2.3
+        // 1.2.3 Человек с родителем
         testCasesForFirst.toCallPersonWithFather();
 
-        // 1.2.4
-        testCasesForFirst.toCallEmployeeAndDepartment();
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-        // 1.3.1
-        testCasesForFirst.toCallStudent();
-
-        // 1.3.2
-        testCasesForFirst.toCallBrokenLine();
-
-        // 1.3.3
-        testCasesForFirst.toCallCity();
-
-        // 1.3.4
-        testCasesForFirst.toCallEmployeesWithSameDepartment();
+        // 1.2.4 Сотрудники и отделы
+//        testCasesForFirst.toCallEmployeeAndDepartment();
+//
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+//        // 1.3.1 Студент
+//        testCasesForFirst.toCallStudent();
+//
+//        // 1.3.2 Ломаная
+//        testCasesForFirst.toCallBrokenLine();
+//
+//        // 1.3.3 Города
+//        testCasesForFirst.toCallCity();
+//
+//        // 1.3.4 Сотрудники и отделы
+//        testCasesForFirst.toCallEmployeesWithSameDepartment();
 
 
     }

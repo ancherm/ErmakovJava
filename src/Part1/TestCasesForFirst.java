@@ -182,10 +182,11 @@ public class TestCasesForFirst {
         marksVasy.add(4);
         marksVasy.add(5);
 
-        marksPety.addAll(marksVasy);
-        marksPety.set(0, 5);
 
-        marksAndrew.addAll(marksVasy);
+        studentPety.setMarks(studentVasy.getMarks());
+        studentPety.changeMark(0, 5);
+
+        studentAnrew.setMarks(studentVasy.getMarks());
 
         System.out.println("№ 1.3.1");
         System.out.println(studentVasy);
@@ -211,6 +212,7 @@ public class TestCasesForFirst {
         System.out.println();
     }
 
+    // 1.3.3
     public void toCallCity(){
         cityA.addPath(cityB, 5);
         cityA.addPath(cityD, 6);
@@ -250,4 +252,7 @@ public class TestCasesForFirst {
             System.out.println(employee.getName());
         }
     }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 }

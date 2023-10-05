@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class City {
     private String name;
-    private ArrayList<Path> paths = new ArrayList<>();;
+    private ArrayList<Path> paths = new ArrayList<>();
 
     public City(String name) {
         this.name = name;
