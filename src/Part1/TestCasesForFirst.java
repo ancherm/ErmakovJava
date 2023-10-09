@@ -3,9 +3,9 @@ package Part1;
 import java.util.ArrayList;
 
 public class TestCasesForFirst {
-    Point point1 = new Point(1, 0);
-    Point point2 = new Point(-4, 2);
-    Point point3 = new Point(8, -3);
+    Point point1 = new Point(3, 5);
+    Point point2 = new Point(25, 6);
+    Point point3 = new Point(7, 8);
 
     Person personCleopatra = new Person("Клеопатра", 152);
     Person personPushkin = new Person("Пушкин", 167);
@@ -24,9 +24,9 @@ public class TestCasesForFirst {
     Home home3 = new Home(23);
 
 
-    Line line1 = new Line(new Point(1, 2), new Point(3, 5));
-    Line line2 = new Line(line1.pointEnd, new Point(5, 4));
-    //        Line line3 = new Line(line1.pointStart, line2.pointEnd);
+    Line line1 = new Line(1, 3, 23, 8);
+    Line line2 = new Line(new Point(5, 10), new Point(25, 10));
+    Line line3 = new Line(line1.getPointStart(), line2.getPointEnd());
 
 
     Person personCleopatraNew = new Person(nameCleopatra.toString(), personCleopatra.height);
@@ -129,7 +129,7 @@ public class TestCasesForFirst {
         System.out.println("1.2.1 Линия");
         System.out.println(line1);
         System.out.println(line2);
-//        System.out.println(line3);
+        System.out.println(line3);
         System.out.println();
     }
 
