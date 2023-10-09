@@ -1,9 +1,12 @@
 package Part1;
 // 1.1.4 Время
 public class Time {
-    int seconds;
+    private int seconds;
     public Time(int seconds){
-        this.seconds = seconds;
+        this(0, 0, seconds);
+    }
+    public Time(int hours, int minutes, int seconds) {
+        this.seconds = hours * 3600 + minutes * 60 + seconds;
     }
 
     public String conventTime(){
@@ -14,6 +17,8 @@ public class Time {
         if (hours >= 24){
             hours %= 24;
         }
+
         return hours + ":" + minutes + ":" + remainingSeconds;
     }
+
 }

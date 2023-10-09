@@ -18,6 +18,7 @@ public class TestCasesForFirst {
     Time time1 = new Time(10);
     Time time2 = new Time(10000);
     Time time3 = new Time(100000);
+    Time time4 = new Time(2, 3, 5);
 
     Home home1 = new Home(1);
     Home home2 = new Home(5);
@@ -110,6 +111,7 @@ public class TestCasesForFirst {
         System.out.println(time1.conventTime());
         System.out.println(time2.conventTime());
         System.out.println(time3.conventTime());
+        System.out.println(time4.conventTime());
         System.out.println();
     }
 
