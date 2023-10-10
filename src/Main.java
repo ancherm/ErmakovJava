@@ -49,7 +49,9 @@ public class Main {
         // 1.3.4 Сотрудники и отделы
         testCasesForFirst.toCallEmployeesWithSameDepartment();
 
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // 1.4.6 Создаем человека
+        testCasesForFirst.toCreatePerson();
     }
 
 //    public static void humanTest(){

@@ -1,7 +1,7 @@
 package Part1;
 // 1.1.3 Имена
 public class Name {
-    String surname, name, lastName;
+    private String surname, name, lastName;
 
     public Name(String surname){
         this.surname = surname;
@@ -15,6 +15,26 @@ public class Name {
     public Name(String surname, String name, String lastName){
         this(surname, name);
         this.lastName = lastName;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getLastName() {
+        return lastName;
     }
 
     public String toString() {

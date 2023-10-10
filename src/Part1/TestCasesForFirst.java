@@ -30,9 +30,9 @@ public class TestCasesForFirst {
     Line line3 = new Line(line1.getPointStart(), line2.getPointEnd());
 
 
-    Person personCleopatraNew = new Person(nameCleopatra.toString(), personCleopatra.height);
-    Person personPushkinNew = new Person(namePushkin.toString(), personPushkin.height);
-    Person personMayakovskyNew = new Person(nameMayakovsky.toString(), personMayakovsky.height);
+    Person personCleopatraNew = new Person(nameCleopatra.toString(), personCleopatra.getHeight());
+    Person personPushkinNew = new Person(namePushkin.toString(), personPushkin.getHeight());
+    Person personMayakovskyNew = new Person(nameMayakovsky.toString(), personMayakovsky.getHeight());
 
     Name ivan = new Name("Чудов", "Иван", null);
     Name petr = new Name(null, "Петр", null);
@@ -73,6 +73,8 @@ public class TestCasesForFirst {
     City cityD = new City("D");
     City cityE = new City("E");
     City cityF = new City("F");
+
+
 
 
     // 1.1.1 Точка
@@ -163,10 +165,9 @@ public class TestCasesForFirst {
         System.out.println();
     }
 
+
     // 1.2.4
     public void toCallEmployeeAndDepartment(){
-
-
         departmentIT.setBoss(employeeKozlov);
         departmentSales.setBoss(employeeIvanov);
 
@@ -176,6 +177,8 @@ public class TestCasesForFirst {
         System.out.println(employeeSidorov);
         System.out.println(employeeIvanov);
         System.out.println();
+
+
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -258,5 +261,21 @@ public class TestCasesForFirst {
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Person personLev = new Person("Лев", 170);
+    Name nameSergeyPushkin = new Name("Пушкин", "Сергей");
+    Person personSergeyPushkin = new Person(nameSergeyPushkin, 168, personLev);
+    Person personSergey = new Person("Александр", 167, personSergeyPushkin);
+    // 1.4.6
+    public void toCreatePerson() {
+        personLev.checkFather();
+        personSergeyPushkin.checkFather();
+        personSergey.checkFather();
+
+        System.out.println("№ 1.4.6");
+        System.out.println(personLev + "   " + personLev.toStringWithAdditionalInfo());
+        System.out.println(personSergeyPushkin + "    " + personSergeyPushkin.toStringWithAdditionalInfo());
+        System.out.println(personSergey + "    " + personSergey.toStringWithAdditionalInfo());
+    }
 
 }
