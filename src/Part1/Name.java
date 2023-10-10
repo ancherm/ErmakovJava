@@ -1,7 +1,7 @@
 package Part1;
 // 1.1.3 Имена
 public class Name {
-    String surname, name, lastName;
+    private String surname, name, lastName;
 
     public Name(String name){
         this.name = name;

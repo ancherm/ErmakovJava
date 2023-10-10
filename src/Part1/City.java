@@ -3,17 +3,19 @@ package Part1;
 import java.util.ArrayList;
 
 public class City {
-    private String name;
+    private final String name;
     private ArrayList<Path> paths = new ArrayList<>();
+    City city;
+    int cost;
 
     public City(String name) {
         this.name = name;
     }
 
-    public City(String name, ArrayList<Path> paths) {
-        this.name = name;
-        this.paths = paths;
-    }
+//    public City(String name, ArrayList<Path> paths) {
+//        this.name = name;
+//        this.paths.addAll(paths);
+//    }
 
     public String getName() {
         return name;

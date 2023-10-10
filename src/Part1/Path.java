@@ -1,8 +1,8 @@
 package Part1;
 
 public class Path {
-    private City city;
-    private int cost;
+    private final City city;
+    private final int cost;
 
     public Path(City city, int cost) {
         this.city = city;

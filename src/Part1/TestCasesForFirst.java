@@ -220,6 +220,7 @@ public class TestCasesForFirst {
     }
 
     ArrayList<Path> pathsFromCityA = new ArrayList<>();
+//    City ct = new City("AAA", pathsFromCityA);
     // 1.3.3
     public void toCallCity(){
         cityA.addPath(cityB, 5);
@@ -249,6 +250,7 @@ public class TestCasesForFirst {
         System.out.println(cityE);
         System.out.println(cityF);
         System.out.println();
+//        System.out.println(ct);
     }
 
     // 1.3.4
