@@ -1,19 +1,20 @@
 package Part1;
 // 1.1.3 Имена
 public class Name {
-    private String surname, name, lastName;
+    String surname, name, lastName;
 
-    public Name(String surname){
-        this.surname = surname;
+    public Name(String name){
+        this.name = name;
     }
 
     public Name(String surname, String name){
-        this(surname);
+        this.surname = surname;
         this.name = name;
     }
 
     public Name(String surname, String name, String lastName){
-        this(surname, name);
+        this.surname = surname;
+        this.name = name;
         this.lastName = lastName;
     }
 

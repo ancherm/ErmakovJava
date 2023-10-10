@@ -52,6 +52,9 @@ public class Main {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // 1.4.6 Создаем человека
         testCasesForFirst.toCreatePerson();
+
+        // 1.4.7 Создаем студента
+        testCasesForFirst.toCreateStudent();
     }
 
 //    public static void humanTest(){

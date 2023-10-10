@@ -219,6 +219,7 @@ public class TestCasesForFirst {
         System.out.println();
     }
 
+    ArrayList<Path> pathsFromCityA = new ArrayList<>();
     // 1.3.3
     public void toCallCity(){
         cityA.addPath(cityB, 5);
@@ -278,4 +279,9 @@ public class TestCasesForFirst {
         System.out.println(personSergey + "    " + personSergey.toStringWithAdditionalInfo());
     }
 
+    Student studentMaksim = new Student("Максим", null);
+    public void toCreateStudent() {
+        System.out.println("№ 1,4,7");
+        System.out.println(studentMaksim);
+    }
 }

@@ -26,6 +26,7 @@ public class Student {
 
     @Override
     public String toString() {
+        if (marks == null)  return name + ": []";
         return name + ": " + marks;
     }
 }

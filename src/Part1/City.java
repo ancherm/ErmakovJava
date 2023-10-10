@@ -10,6 +10,11 @@ public class City {
         this.name = name;
     }
 
+    public City(String name, ArrayList<Path> paths) {
+        this.name = name;
+        this.paths = paths;
+    }
+
     public String getName() {
         return name;
     }
