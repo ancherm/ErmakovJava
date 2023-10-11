@@ -63,6 +63,12 @@ public class Main {
 
         // 1.5.2 Кот мяукает
         testCasesForFirst.toCatMeowing();
+
+        // 1.5.3
+        testCasesForFirst.toCallLineLength();
+
+        //1.5.4
+        testCasesForFirst.toCallHowNowTime();
     }
 
 //    public static void humanTest(){

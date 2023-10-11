@@ -1,6 +1,8 @@
 package Part1;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class TestCasesForFirst {
     Point point1 = new Point(3, 5);
@@ -44,7 +46,6 @@ public class TestCasesForFirst {
     Person personBoris = new Person(boris);
 
 
-
     Department departmentIT = new Department("IT");
     Department departmentSales = new Department("Sales");
     Employee employeePetrov = new Employee("Петров", departmentIT);
@@ -77,7 +78,7 @@ public class TestCasesForFirst {
 
 
     // 1.1.1 Точка
-    public void toCallPoint(){
+    public void toCallPoint() {
         System.out.println("1.1.1 Точка");
         System.out.println(point1);
         System.out.println(point2);
@@ -86,7 +87,7 @@ public class TestCasesForFirst {
     }
 
     // 1.1.2 Человек
-    public void toCallPerson(){
+    public void toCallPerson() {
 
         System.out.println("1.1.2 Человек");
         System.out.println(personCleopatra);
@@ -96,7 +97,7 @@ public class TestCasesForFirst {
     }
 
     // 1.1.3 Имена
-    public void toCallName(){
+    public void toCallName() {
 
         System.out.println("1.1.3 Имена");
         System.out.println(nameCleopatra);
@@ -107,7 +108,7 @@ public class TestCasesForFirst {
     }
 
     // 1.1.4 Время
-    public void toCallTime(){
+    public void toCallTime() {
         System.out.println("1.1.4 Время");
         System.out.println(time1.conventTime());
         System.out.println(time2.conventTime());
@@ -117,7 +118,7 @@ public class TestCasesForFirst {
     }
 
     // 1.1.5 Дом
-    public void toCallHome(){
+    public void toCallHome() {
         System.out.println("1.1.5 Дом");
         System.out.println(home1);
         System.out.println(home2);
@@ -128,7 +129,7 @@ public class TestCasesForFirst {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // 1.2.1 Линия
-    public void toCallLine(){
+    public void toCallLine() {
         System.out.println("1.2.1 Линия");
         System.out.println(line1);
         System.out.println(line2);
@@ -137,7 +138,7 @@ public class TestCasesForFirst {
     }
 
     // 1.2.2 Человек с именем
-    public void toCallPersonWithName(){
+    public void toCallPersonWithName() {
 
 
         System.out.println("1.2.2 Человек с именем");
@@ -149,7 +150,7 @@ public class TestCasesForFirst {
 
 
     // 1.2.3
-    public void toCallPersonWithFather(){
+    public void toCallPersonWithFather() {
         personPetr.setFather(personIvan);
         personBoris.setFather(personPetr);
 
@@ -166,7 +167,7 @@ public class TestCasesForFirst {
 
 
     // 1.2.4
-    public void toCallEmployeeAndDepartment(){
+    public void toCallEmployeeAndDepartment() {
         departmentIT.setBoss(employeeKozlov);
         departmentSales.setBoss(employeeIvanov);
 
@@ -182,30 +183,38 @@ public class TestCasesForFirst {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    Student st = new Student("St", 2, 4);
+
     //1.3.1
-    public void toCallStudent(){
-        studentVasy.addMark(3);
-        studentVasy.addMark(4);
-        studentVasy.addMark(5);
+    public void toCallStudent() {
+        studentVasy.addMark(List.of(3));
+        studentVasy.addMark(List.of(4));
+        studentVasy.addMark(List.of(5));
+//        st.addMark(9);
 //        studentVasy.addMark(6);
 
-        studentPety.setMarks(studentVasy.getMarks());
+        List<Integer> ls = studentVasy.getMarks();
+        ls.add(3);
+
+        System.out.println("LS: " + ls);
+        studentPety.addMark(studentVasy.getMarks());
         studentPety.changeMark(0, 5);
 
-        studentAnrew.setMarks(studentVasy.getMarks());
+        studentAnrew.addMark(studentVasy.getMarks());
 
         System.out.println("№ 1.3.1");
         System.out.println(studentVasy);
         System.out.println(studentPety);
         System.out.println(studentAnrew);
+        System.out.println(st);
         System.out.println();
     }
 
     // 1.3.2
-    public void toCallBrokenLine(){
+    public void toCallBrokenLine() {
         pointArrayListForFirst.add(new Point(10, -5));
         pointArrayListForFirst.add(new Point(2, 8));
-        pointArrayListForFirst.add(new Point(5,3));
+        pointArrayListForFirst.add(new Point(5, 3));
 
         pointArrayListForSecond.add(pointArrayListForFirst.get(0));
         pointArrayListForSecond.add(pointArrayListForFirst.get(2));
@@ -219,9 +228,10 @@ public class TestCasesForFirst {
     }
 
     ArrayList<Path> pathsFromCityA = new ArrayList<>();
-//    City ct = new City("AAA", pathsFromCityA);
+
+    //    City ct = new City("AAA", pathsFromCityA);
     // 1.3.3
-    public void toCallCity(){
+    public void toCallCity() {
         cityA.addPath(cityB, 5);
         cityA.addPath(cityD, 6);
         cityA.addPath(cityF, 1);
@@ -268,6 +278,7 @@ public class TestCasesForFirst {
     Name nameSergeyPushkin = new Name("Пушкин", "Сергей");
     Person personSergeyPushkin = new Person(nameSergeyPushkin, 168, personLev);
     Person personSergey = new Person("Александр", 167, personSergeyPushkin);
+
     // 1.4.6
     public void toCreatePerson() {
         personLev.checkFather();
@@ -280,22 +291,48 @@ public class TestCasesForFirst {
         System.out.println(personSergey + "    " + personSergey.toStringWithAdditionalInfo());
     }
 
-    Student studentMaksim = new Student("Максим", null);
+    Student studentMaksim = new Student("Максим");
+
     public void toCreateStudent() {
         System.out.println("№ 1.4.7");
         System.out.println(studentMaksim);
     }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // 1.5.1
-    public void toGunShooting(){
+    public void toGunShooting() {
         System.out.println("№ 1.5.1");
 
         for (int i = 5; i > 0; i--) gun.toShoot();
         System.out.println();
     }
+
+    // 1.5.2
     public void toCatMeowing() {
-        System.out.println("№ 1.5.1");
+        System.out.println("№ 1.5.2");
         catBarsik.toMeow();
         catBarsik.toMeow(3);
+        catBarsik.toMeow();
+    }
+
+    Line lineLength = new Line(new Point(1, 1), new Point(10, 15));
+
+    // 1.5.3 Длина линии
+    public void toCallLineLength() {
+        System.out.println("№ 1.5.3");
+        System.out.println(lineLength.calculateLineLength());
+        System.out.println();
+    }
+
+    Time howTime = new Time(34056);
+
+    // 1.5.4
+    public void toCallHowNowTime() {
+        System.out.println("№ 1.5.4");
+//        System.out.println(howTime.conventTime()); // 9 27 36
+        System.out.println(howTime.getHours());
+        System.out.println(howTime.getMinutes(new Time(4532).getHours()));
+        System.out.println(howTime.getSeconds(new Time(123).getMinutes()));
+        System.out.println();
     }
 }

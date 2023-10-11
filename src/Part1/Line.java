@@ -1,10 +1,11 @@
 package Part1;
+
 // 1.2.1 Прямая
 public class Line {
     private Point pointStart;
     private Point pointEnd;
 
-    public Line(Point pointStart, Point pointEnd){
+    public Line(Point pointStart, Point pointEnd) {
         this.pointStart = pointStart;
         this.pointEnd = pointEnd;
     }
@@ -21,7 +22,11 @@ public class Line {
         return pointEnd;
     }
 
-    public String toString(){
+    public int calculateLineLength() {
+        return (int) Math.sqrt(Math.pow(pointEnd.getX() - pointStart.getX(), 2) + Math.pow(pointEnd.getY() - pointStart.getY(), 2));
+    }
+
+    public String toString() {
         return "Линия от " + pointStart + " до " + pointEnd;
     }
 }
