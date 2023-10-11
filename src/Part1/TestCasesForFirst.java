@@ -52,13 +52,10 @@ public class TestCasesForFirst {
     Employee employeeSidorov = new Employee("Сидоров", departmentIT);
     Employee employeeIvanov = new Employee("Иванов", departmentSales);
 
-    ArrayList<Integer> marksVasy = new ArrayList<>();
-    ArrayList<Integer> marksPety = new ArrayList<>();
-    ArrayList<Integer> marksAndrew = new ArrayList<>();
 
-    Student studentVasy = new Student("Вася", marksVasy);
-    Student studentPety = new Student("Петя", marksPety);
-    Student studentAnrew = new Student("Андрей", marksAndrew);
+    Student studentVasy = new Student("Вася", new ArrayList<>());
+    Student studentPety = new Student("Петя", new ArrayList<>());
+    Student studentAnrew = new Student("Андрей", new ArrayList<>());
 
 
     ArrayList<Point> pointArrayListForFirst = new ArrayList<>();
@@ -75,6 +72,8 @@ public class TestCasesForFirst {
     City cityF = new City("F");
 
 
+    Gun gun = new Gun();
+    Cat catBarsik = new Cat("Барсик");
 
 
     // 1.1.1 Точка
@@ -185,10 +184,10 @@ public class TestCasesForFirst {
 
     //1.3.1
     public void toCallStudent(){
-        marksVasy.add(3);
-        marksVasy.add(4);
-        marksVasy.add(5);
-
+        studentVasy.addMark(3);
+        studentVasy.addMark(4);
+        studentVasy.addMark(5);
+//        studentVasy.addMark(6);
 
         studentPety.setMarks(studentVasy.getMarks());
         studentPety.changeMark(0, 5);
@@ -283,7 +282,20 @@ public class TestCasesForFirst {
 
     Student studentMaksim = new Student("Максим", null);
     public void toCreateStudent() {
-        System.out.println("№ 1,4,7");
+        System.out.println("№ 1.4.7");
         System.out.println(studentMaksim);
+    }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // 1.5.1
+    public void toGunShooting(){
+        System.out.println("№ 1.5.1");
+
+        for (int i = 5; i > 0; i--) gun.toShoot();
+        System.out.println();
+    }
+    public void toCatMeowing() {
+        System.out.println("№ 1.5.1");
+        catBarsik.toMeow();
+        catBarsik.toMeow(3);
     }
 }

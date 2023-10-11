@@ -20,6 +20,12 @@ public class Student {
         return marks;
     }
 
+    public void addMark(Integer mark){
+        if (mark < 2 || mark > 5) {
+            throw new IllegalArgumentException("Это не оценка");
+        }
+        else this.marks.add(mark);
+    }
     public void changeMark(int index, int mark) {
         marks.set(index, mark);
     }
