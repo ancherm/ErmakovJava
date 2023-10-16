@@ -46,6 +46,26 @@ public class Student {
         if (isCheckingMarks(List.of(mark)))  this.marks.set(index, mark);
     }
 
+
+    public double averageMarks() {
+        double sumOfMarks = 0;
+        for (Integer mark : marks) {
+            sumOfMarks += mark;
+        }
+        return marks.size() > 0 ? sumOfMarks / marks.size() : 0;
+    }
+
+    public boolean isExcellentStudent() {
+        if (marks.size() > 0){
+            for (Integer mark : marks) {
+                if (mark != 5)  return false;
+            }
+        }
+        else return false;
+
+        return true;
+    }
+
     @Override
     public String toString() {
         if (marks == null) return name + ": []";

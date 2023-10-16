@@ -69,6 +69,13 @@ public class Main {
 
         //1.5.4
         testCasesForFirst.toCallHowNowTime();
+
+        // 1.5.5
+        testCasesForFirst.toCallFraction();
+
+        // 1.5.6
+        testCasesForFirst.toCallExcellentStudent();
+
     }
 
 //    public static void humanTest(){

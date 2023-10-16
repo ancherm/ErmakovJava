@@ -190,8 +190,6 @@ public class TestCasesForFirst {
         studentVasy.addMark(List.of(3));
         studentVasy.addMark(List.of(4));
         studentVasy.addMark(List.of(5));
-//        st.addMark(9);
-//        studentVasy.addMark(6);
 
         List<Integer> ls = studentVasy.getMarks();
         ls.add(3);
@@ -333,6 +331,41 @@ public class TestCasesForFirst {
         System.out.println(howTime.getHours());
         System.out.println(howTime.getMinutes(new Time(4532).getHours()));
         System.out.println(howTime.getSeconds(new Time(123).getMinutes()));
+        System.out.println();
+    }
+
+    Fraction fraction1 = new Fraction(1, 2);
+    Fraction fraction2 = new Fraction(2, 5);
+    Fraction fraction3 = new Fraction(8, 9);
+    Fraction fraction4 = new Fraction(5, 1);
+
+    // 1.5.5
+    public void toCallFraction() {
+        System.out.println("№ 1.5.5");
+        System.out.println(fraction1.printWhitPlus(fraction2));
+        System.out.println(fraction1.printWhitMinus(fraction2));
+        System.out.println(fraction1.printWhitMultiplication(fraction2));
+        System.out.println(fraction1.printWhitDivision(fraction2));
+        System.out.println(fraction1.plus(fraction2).division(fraction3).minus(5));
+        System.out.println();
+    }
+
+
+    Student studentVany = new Student("Ваня", new ArrayList<>());
+    // 1.5.6
+    public void toCallExcellentStudent() {
+        studentVany.addMark(List.of(5));
+        studentVany.addMark(List.of(5));
+        studentVany.addMark(List.of(5));
+
+        System.out.println("№ 1.5.5");
+        System.out.print(studentVasy + " ");
+        System.out.print(studentVasy.averageMarks() + " ");
+        System.out.println(studentVasy.isExcellentStudent());
+
+        System.out.print(studentVany + " ");
+        System.out.print(studentVany.averageMarks() + " ");
+        System.out.println(studentVany.isExcellentStudent());
         System.out.println();
     }
 }
