@@ -386,4 +386,17 @@ public class TestCasesForFirst {
 
     }
 
+    Square square = new Square(new Point(5, 3), 23);
+
+    // 1.5.8
+    public void toCallSquare() {
+        BrokenLine brokenLineForSquare = square.toBrokenLine();
+
+        System.out.println("№ 1.5.8");
+        System.out.println(brokenLineForSquare.lengthOfBrokenLine());
+        brokenLineForSquare.moveLastPoint(new Point(15, 25));
+        System.out.println(brokenLineForSquare.lengthOfBrokenLine());
+        System.out.println();
+    }
+
 }

@@ -79,6 +79,9 @@ public class Main {
         // 1.5.7
         testCasesForFirst.toCallLengthOfBrokenLine();
 
+        // 1.5.8
+        testCasesForFirst.toCallSquare();
+
     }
 
 //    public static void humanTest(){

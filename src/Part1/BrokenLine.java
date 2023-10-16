@@ -26,6 +26,10 @@ public class BrokenLine {
         }
         return length;
     }
+    public void moveLastPoint(Point point) {
+        pointList.set(pointList.size() - 1, new Point(point.getX(), point.getY()));
+    }
+
     @Override
     public String toString() {
         return "Ломаная " + pointList;
