@@ -1,21 +1,33 @@
 package Part1;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class BrokenLine {
-//    Point[] pointArrayList;
-    ArrayList<Point> pointArrayList;
+    private List<Point> pointList = new ArrayList<>();
 
     public BrokenLine(){}
-    public BrokenLine(ArrayList<Point> pointArrayList) {
-        this.pointArrayList = pointArrayList;
+    public BrokenLine(List<Point> pointList) {
+        addPoints(pointList);
     }
-//    public BrokenLine(Point...pointArrayList){
-//        this.pointArrayList = pointArrayList;
-//    }
+    public BrokenLine(Point...pointList) {
+        this(List.of(pointList));
+    }
 
+    public void addPoints(List<Point> pointList) {
+        this.pointList.addAll(pointList);
+    }
+
+    public double lengthOfBrokenLine() {
+        double length = 0;
+        for (int i = 0; i < pointList.size() - 1; i++) {
+            length += Math.sqrt(Math.pow(pointList.get(i+1).getX() - pointList.get(i).getX(), 2) +
+                    Math.pow(pointList.get(i+1).getY() - pointList.get(i).getY(), 2));
+        }
+        return length;
+    }
     @Override
     public String toString() {
-        return "Ломаная " + pointArrayList;
+        return "Ломаная " + pointList;
     }
 }

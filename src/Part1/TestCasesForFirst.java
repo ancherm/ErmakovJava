@@ -358,7 +358,7 @@ public class TestCasesForFirst {
         studentVany.addMark(List.of(5));
         studentVany.addMark(List.of(5));
 
-        System.out.println("№ 1.5.5");
+        System.out.println("№ 1.5.6");
         System.out.print(studentVasy + " ");
         System.out.print(studentVasy.averageMarks() + " ");
         System.out.println(studentVasy.isExcellentStudent());
@@ -368,4 +368,22 @@ public class TestCasesForFirst {
         System.out.println(studentVany.isExcellentStudent());
         System.out.println();
     }
+
+
+    BrokenLine brokenLine2 = new BrokenLine(new Point(1, 5), new Point(2, 8), new Point(5, 3));
+    // 1.5.7
+    public void toCallLengthOfBrokenLine() {
+        List<Point> pointList1 = new ArrayList<>(List.of(new Point(5, 15), new Point(8, 10)));
+
+        System.out.println("№ 1.5.7");
+        System.out.println(brokenLine2.lengthOfBrokenLine());
+
+        brokenLine2.addPoints(pointList1);
+//        pointList.add(new Point(5, 15));
+//        pointList.add(new Point(8, 10));
+        System.out.println(brokenLine2.lengthOfBrokenLine());
+        System.out.println();
+
+    }
+
 }

@@ -76,6 +76,9 @@ public class Main {
         // 1.5.6
         testCasesForFirst.toCallExcellentStudent();
 
+        // 1.5.7
+        testCasesForFirst.toCallLengthOfBrokenLine();
+
     }
 
 //    public static void humanTest(){
