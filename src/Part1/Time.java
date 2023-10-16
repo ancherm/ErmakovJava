@@ -6,7 +6,12 @@ public class Time {
         this(0, 0, seconds);
     }
     public Time(int hours, int minutes, int seconds) {
-        this.seconds = hours * 3600 + minutes * 60 + seconds;
+        if (hours >= 24 || minutes >= 60 || seconds >= 60) {
+            this.seconds = 24 * 3600;
+        }
+        else {
+            this.seconds = hours * 3600 + minutes * 60 + seconds;
+        }
     }
 
     public int getHours() {

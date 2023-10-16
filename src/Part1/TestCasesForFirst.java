@@ -296,7 +296,7 @@ public class TestCasesForFirst {
         System.out.println(studentMaksim);
     }
 
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // 1.5.1
     public void toGunShooting() {
         System.out.println("№ 1.5.1");
@@ -394,9 +394,41 @@ public class TestCasesForFirst {
 
         System.out.println("№ 1.5.8");
         System.out.println(brokenLineForSquare.lengthOfBrokenLine());
+//        square.setSideLength(3);
+        brokenLineForSquare = square.getBrokenLine();
         brokenLineForSquare.moveLastPoint(new Point(15, 25));
         System.out.println(brokenLineForSquare.lengthOfBrokenLine());
         System.out.println();
     }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    Home homeAboveGround1 = new Home(3);
+//    Home homeAboveGround2 = new Home(-3);
+    // 1.6.1
+    public void toCallHomeAboveGround() {
+        System.out.println("№ 1.6.1");
+        System.out.println(homeAboveGround1);
+//        System.out.println(homeAboveGround2);
+        System.out.println();
+    }
+
+    Time rightTime1 = new Time(23, 59, 75);
+    // 1.6.2
+    public void toCallRightTime() {
+        System.out.println("№ 1.6.2");
+        System.out.println(rightTime1.conventTime());
+        System.out.println();
+    }
+
+
+    Square sq = new Square(point1, 5);
+    Square sq2 = new Square(point1, 10);
+    // 1.6.3
+    public void toCallSideSquare() {
+        sq.setSideLength(3);
+        System.out.println("№ 1.6.2");
+        System.out.println(sq);
+        System.out.println(sq.getSideLength());
+        System.out.println();
+    }
 }

@@ -5,14 +5,40 @@ import java.util.List;
 
 public class Square {
     private Point leftTopPoint;
+    private BrokenLine brokenLine;
     private int sideLength;
 
     public Square(Point leftTopPoint, int sideLength) {
+        if (checkSideLength(sideLength))  this.sideLength = sideLength;
         this.leftTopPoint = leftTopPoint;
-        this.sideLength = sideLength;
+
     }
+
     public Square(int x, int y, int sideLength) {
         this(new Point(x, y), sideLength);
+    }
+
+    public int getSideLength() {
+        return sideLength;
+    }
+
+    public BrokenLine getBrokenLine() {
+        return brokenLine;
+    }
+
+    public void setSideLength(int sideLength) {
+        if (checkSideLength(sideLength)) {
+            this.sideLength = sideLength;
+            brokenLine = toBrokenLine();
+        }
+
+    }
+
+    private boolean checkSideLength(int sideLength) {
+        if (sideLength <= 0) {
+            throw new IllegalArgumentException("Длина равна нулю или меньше");
+        }
+        return true;
     }
 
     public BrokenLine toBrokenLine() {
@@ -21,7 +47,8 @@ public class Square {
         Point rightTopPoint = new Point(rightBottomPoint.getX(), rightBottomPoint.getY() + sideLength);
 
         List<Point> points = new ArrayList<>(List.of(leftTopPoint, leftBottomPoint, rightBottomPoint, rightTopPoint));
-        return new BrokenLine(points);
+        brokenLine = new BrokenLine(points);
+        return brokenLine;
     }
 
     @Override

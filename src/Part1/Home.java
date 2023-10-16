@@ -4,6 +4,7 @@ public class Home {
     private final int countFloor;
 
     public Home(int countFloor) {
+        if (countFloor <= 0)    throw new IllegalArgumentException("Отрицательное количество этажей");
         this.countFloor = countFloor;
     }
 

@@ -82,6 +82,16 @@ public class Main {
         // 1.5.8
         testCasesForFirst.toCallSquare();
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // 1.6.1
+        testCasesForFirst.toCallHomeAboveGround();
+
+        // 1.6.2
+        testCasesForFirst.toCallRightTime();
+
+        // 1.6.3
+        testCasesForFirst.toCallSideSquare();
     }
 
 //    public static void humanTest(){
