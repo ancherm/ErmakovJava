@@ -1,7 +1,6 @@
 package Part1;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class TestCasesForFirst {
@@ -29,7 +28,7 @@ public class TestCasesForFirst {
 
     Line line1 = new Line(75, 3, 23, 8);
     Line line2 = new Line(new Point(5, 10), new Point(25, 10));
-    Line line3 = new Line(line1.getPointStart(), line2.getPointEnd());
+    Line line3 = new Line(line1.getStart(), line2.getEnd());
 
 
     Person personCleopatraNew = new Person(nameCleopatra.toString(), personCleopatra.getHeight());
@@ -41,9 +40,9 @@ public class TestCasesForFirst {
     Name boris = new Name(null, "Борис", null);
 
 
-    Person personIvan = new Person(ivan);
-    Person personPetr = new Person(petr);
-    Person personBoris = new Person(boris);
+//    Person personIvan = new Person(ivan);
+//    Person personPetr = new Person(petr, personIvan);
+//    Person personBoris = new Person(boris, personPetr);
 
 
     Department departmentIT = new Department("IT");
@@ -131,6 +130,7 @@ public class TestCasesForFirst {
     // 1.2.1 Линия
     public void toCallLine() {
         System.out.println("1.2.1 Линия");
+//        line2.setEnd(new Point(5, 10));
         System.out.println(line1);
         System.out.println(line2);
         System.out.println(line3);
@@ -151,18 +151,18 @@ public class TestCasesForFirst {
 
     // 1.2.3
     public void toCallPersonWithFather() {
-        personPetr.setFather(personIvan);
-        personBoris.setFather(personPetr);
+//        personPetr.setFather(personIvan);
+//        personBoris.setFather(personPetr);
 
-        personIvan.checkFather();
-        personPetr.checkFather();
-        personBoris.checkFather();
-
-        System.out.println("№ 1.2.3");
-        System.out.println(personIvan.toStringWithAdditionalInfo());
-        System.out.println(personPetr.toStringWithAdditionalInfo());
-        System.out.println(personBoris.toStringWithAdditionalInfo());
-        System.out.println();
+//        personIvan.checkFather();
+//        personPetr.checkFather();
+//        personBoris.checkFather();
+//
+//        System.out.println("№ 1.2.3");
+//        System.out.println(personIvan.toStringWithAdditionalInfo());
+//        System.out.println(personPetr.toStringWithAdditionalInfo());
+//        System.out.println(personBoris.toStringWithAdditionalInfo());
+//        System.out.println();
     }
 
 
@@ -289,11 +289,13 @@ public class TestCasesForFirst {
         System.out.println(personSergey + "    " + personSergey.toStringWithAdditionalInfo());
     }
 
-    Student studentMaksim = new Student("Максим");
-
+    List<Integer> marksMaks = new ArrayList<>(List.of(5, 3));
+    Student studentMaksim = new Student("Максим", marksMaks);
     public void toCreateStudent() {
         System.out.println("№ 1.4.7");
+
         System.out.println(studentMaksim);
+        System.out.println(studentMaksim.getMarks());
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -462,6 +464,38 @@ public class TestCasesForFirst {
         reloadGun.unload();
         reloadGun.shoot();
         System.out.println();
+
+    }
+
+
+    Point p1 = new Point(1, 2);
+    Point p2 = new Point(4, 2);
+    Point p3 = new Point(1, 3);
+    Point p4 = new Point(1, 1);
+
+    Line l1 = new Line(p1, p2);
+    Line l2 = new Line(p3, p4);
+
+    // 1.6.6
+    public void toCallDifferentLines() {
+        System.out.println("№ 1.6.6");
+        System.out.println(l1);
+        System.out.println(l2);
+        System.out.println();
+    }
+
+
+    Person personTest1 = new Person("Name", 180, personLev);
+    // 1.6.7
+    public void toCallPersonChange() {
+        System.out.println("№ 1.6.7");
+        System.out.println(personTest1);
+        personTest1.setHeight(200);
+        System.out.println(personTest1.getHeight());
+        System.out.println(personTest1.getFather());
+        System.out.println(personTest1.getName());
+        System.out.println();
+
 
     }
 }

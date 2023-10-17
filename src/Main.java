@@ -98,6 +98,12 @@ public class Main {
 
         // 1.6.5
         testCasesForFirst.toCallReloadGun();
+
+        //1.6.6
+        testCasesForFirst.toCallDifferentLines();
+
+        // 1.6.7
+        testCasesForFirst.toCallPersonChange();
     }
 
 //    public static void humanTest(){

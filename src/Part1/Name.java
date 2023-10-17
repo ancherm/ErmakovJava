@@ -1,21 +1,25 @@
 package Part1;
 // 1.1.3 Имена
 public class Name {
-    private String surname, name, lastName;
+    private String surname;
+    private String name;
+    private String lastName;
+
 
     public Name(String name){
-        this.name = name;
+        this(null, name);
     }
 
     public Name(String surname, String name){
-        this.surname = surname;
-        this.name = name;
+        this(surname, name, null);
     }
 
     public Name(String surname, String name, String lastName){
-        this.surname = surname;
-        this.name = name;
-        this.lastName = lastName;
+        if (isCheckOneParameters(surname, name, lastName)) {
+            this.surname = surname;
+            this.name = name;
+            this.lastName = lastName;
+        }
     }
 
     public void setSurname(String surname) {
@@ -37,6 +41,12 @@ public class Name {
     public String getLastName() {
         return lastName;
     }
+
+    private boolean isCheckOneParameters(String surname, String name, String lastName) {
+        if (surname == null && name.isBlank() && lastName.isBlank())   throw new IllegalArgumentException("Все параметры null или пустые строчки");
+        return true;
+    }
+
 
     public String toString() {
         String fullName = "";

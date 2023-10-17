@@ -3,11 +3,14 @@ package Part1;
 public class Person {
     private Name name;
     private Person father;
-    private final int height;
+    private int height;
 
     public Person(Name name){
         this(name, 0);
     }
+//    public Person(Name name, Person father) {
+//        this(name, 0,father);
+//    }
     // 1
     public Person (String name, int height) {
         this(new Name(name), height);
@@ -22,16 +25,29 @@ public class Person {
     }
     //4
     public Person(Name name, int height, Person father){
+        if (isRightHeight(height)) {
+            this.height = height;
+        }
         this.name = name;
-        this.height = height;
-        setFather(father);
-    }
-    public void setFather(Person father){
         this.father = father;
     }
 
+
     public int getHeight() {
         return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public Person getFather() {
+        return father;
+    }
+
+    public Name getName() {
+//        return new Name(name);
+        return name;
     }
 
     public void addSurname() {
@@ -52,6 +68,11 @@ public class Person {
         addSurname();
 
         addLastName();
+    }
+
+    private boolean isRightHeight(int height) {
+        if (height < 0 || height > 500) throw new IllegalArgumentException("Неправильный рост");
+        return true;
     }
 
     public String toString() {
