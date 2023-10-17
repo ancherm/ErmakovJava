@@ -1,12 +1,13 @@
 package Part1;
 
 public class Fraction {
-    private int num;
-    private int denum;
-    int newNum;
-    int newDenum;
+    private final int num;
+    private final int denum;
 
     public Fraction(int num, int denum) {
+        if (denum <= 0) {
+            throw new IllegalArgumentException("Числитель равен нулю или отрицателен");
+        }
         this.num = num;
         this.denum = denum;
     }
@@ -15,17 +16,18 @@ public class Fraction {
         return num;
     }
 
-    public void setNum(int num) {
-        this.num = num;
-    }
+//    public void setNum(int num) {
+//        this.num = num;
+//    }
 
     public int getDenum() {
         return denum;
     }
 
-    public void setDenum(int denum) {
-        this.denum = denum;
-    }
+//    public void setDenum(int denum) {
+//        this.denum = denum;
+//    }
+
 
     public Fraction plus(Fraction fraction) {
         int newNum = this.num * fraction.denum + this.denum * fraction.num;
@@ -52,40 +54,52 @@ public class Fraction {
     }
 
     public Fraction plus(int number) {
-        int newNum = this.num + this.denum * number;
-        int newDenum = this.denum;
-        return new Fraction(newNum, newDenum);
+        return plus(new Fraction(number, 1));
     }
 
     public Fraction minus(int number) {
-        int newNum = this.num - this.denum * number;
-        int newDenum = this.denum;
-        return new Fraction(newNum, newDenum);
+
+        return minus(new Fraction(number, 1));
     }
 
     public Fraction multiplication(int number) {
-        int newNum = this.num * number;
-        int newDenum = this.denum;
-        return new Fraction(newNum, newDenum);
+        return multiplication(new Fraction(number, 1));
     }
 
     public Fraction division(int number) {
-        int newNum = this.denum * number;
-        int newDenum = this.num;
-        return new Fraction(newNum, newDenum);
+        return division(new Fraction(number, 1));
     }
 
     public String printWhitPlus(Fraction fraction) {
         return this + " + " + fraction + " = " + plus(fraction);
     }
+
     public String printWhitMinus(Fraction fraction) {
         return this + " - " + fraction + " = " + minus(fraction);
     }
+
     public String printWhitMultiplication(Fraction fraction) {
         return this + " * " + fraction + " = " + multiplication(fraction);
     }
+
     public String printWhitDivision(Fraction fraction) {
         return this + " : " + fraction + " = " + division(fraction);
+    }
+
+    public String printWhitPlus(int number) {
+        return printWhitPlus(new Fraction(number, 1));
+    }
+
+    public String printWhitMinus(int number) {
+        return printWhitMinus(new Fraction(number, 1));
+    }
+
+    public String printWhitMultiplication(int number) {
+        return printWhitMultiplication(new Fraction(number, 1));
+    }
+
+    public String printWhitDivision(int number) {
+        return printWhitDivision(new Fraction(number, 1));
     }
 
     @Override

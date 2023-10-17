@@ -1,20 +1,49 @@
 package Part1;
 
 public class Gun {
-    private int countAmmo;
+    private int currentCountAmmo;
+    private final int maxCountAmmo;
 
-    public Gun() {
-        this.countAmmo = 5;
+    public Gun(int maxCountAmmo) {
+        this(5, maxCountAmmo);
     }
-    public Gun(int countAmmo) {
-        this.countAmmo = countAmmo;
+    public Gun(int countAmmo, int maxCountAmmo) {
+        this.currentCountAmmo = countAmmo;
+        this.maxCountAmmo = maxCountAmmo;
     }
 
-    public void toShoot() {
-        if (countAmmo > 0) {
+    public int getCurrentCountAmmo() {
+        return currentCountAmmo;
+    }
+
+    public void shoot() {
+        if (currentCountAmmo > 0) {
             System.out.println("Бах");
-            countAmmo--;
+            currentCountAmmo--;
         }
         else System.out.println("Клац");
+    }
+
+    public void reload(int countReloadAmmo) {
+        if (countReloadAmmo < 0) {
+            throw new IllegalArgumentException("Отрицательное количество патронов");
+        }
+        else if (countReloadAmmo > maxCountAmmo) {
+            countReloadAmmo = maxCountAmmo;
+        }
+        currentCountAmmo = countReloadAmmo;
+    }
+    public int unload() {
+        int countAmmoBeforeUnload = currentCountAmmo;
+        currentCountAmmo = 0;
+
+        return countAmmoBeforeUnload;
+    }
+    public int howManyPatrons() {
+        return currentCountAmmo;
+    }
+    public String conditionOfGun() {
+        if (currentCountAmmo > 0)   return "Пистолет заряжен, количество патронов: " + currentCountAmmo;
+        return "Пистолет разряжен";
     }
 }

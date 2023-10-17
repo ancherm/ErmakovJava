@@ -27,7 +27,7 @@ public class TestCasesForFirst {
     Home home3 = new Home(23);
 
 
-    Line line1 = new Line(1, 3, 23, 8);
+    Line line1 = new Line(75, 3, 23, 8);
     Line line2 = new Line(new Point(5, 10), new Point(25, 10));
     Line line3 = new Line(line1.getPointStart(), line2.getPointEnd());
 
@@ -73,7 +73,7 @@ public class TestCasesForFirst {
     City cityF = new City("F");
 
 
-    Gun gun = new Gun();
+//    Gun gun = new Gun();
     Cat catBarsik = new Cat("Барсик");
 
 
@@ -298,12 +298,13 @@ public class TestCasesForFirst {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // 1.5.1
-    public void toGunShooting() {
-        System.out.println("№ 1.5.1");
+//    public void toGunShooting() {
+//        System.out.println("№ 1.5.1");
+//
+//        for (int i = 5; i > 0; i--) gun.toShoot();
+//        System.out.println();
+//    }
 
-        for (int i = 5; i > 0; i--) gun.toShoot();
-        System.out.println();
-    }
 
     // 1.5.2
     public void toCatMeowing() {
@@ -412,11 +413,13 @@ public class TestCasesForFirst {
         System.out.println();
     }
 
-    Time rightTime1 = new Time(23, 59, 75);
+    Time rightTime1 = new Time(10, 10, 70);
+    Time rightTime2 = new Time(25 * 3600);
     // 1.6.2
     public void toCallRightTime() {
         System.out.println("№ 1.6.2");
         System.out.println(rightTime1.conventTime());
+        System.out.println(rightTime2.conventTime());
         System.out.println();
     }
 
@@ -426,9 +429,39 @@ public class TestCasesForFirst {
     // 1.6.3
     public void toCallSideSquare() {
         sq.setSideLength(3);
-        System.out.println("№ 1.6.2");
+        System.out.println("№ 1.6.3");
         System.out.println(sq);
         System.out.println(sq.getSideLength());
         System.out.println();
+    }
+
+
+    Fraction fr1 = new Fraction(-5,2);
+    // 1.6.4
+    public void toCallFraction2() {
+        System.out.println("№ 1.6.4");
+        System.out.println(fraction1.printWhitPlus(fr1));
+        System.out.println();
+    }
+
+    Gun reloadGun = new Gun(3,7);
+    //1.6.5
+    public void toCallReloadGun() {
+        System.out.println("№ 1.6.5");
+
+        for (int i = 0; i < 5; i++) {
+            reloadGun.shoot();
+        }
+
+        reloadGun.reload(8);
+
+        for (int i = 0; i < 2; i++) {
+            reloadGun.shoot();
+        }
+
+        reloadGun.unload();
+        reloadGun.shoot();
+        System.out.println();
+
     }
 }

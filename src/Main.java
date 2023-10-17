@@ -59,7 +59,7 @@ public class Main {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // 1.5.1 Пистолет стреляет
-        testCasesForFirst.toGunShooting();
+//        testCasesForFirst.toGunShooting();
 
         // 1.5.2 Кот мяукает
         testCasesForFirst.toCatMeowing();
@@ -92,6 +92,12 @@ public class Main {
 
         // 1.6.3
         testCasesForFirst.toCallSideSquare();
+
+        // 1.6.4
+        testCasesForFirst.toCallFraction2();
+
+        // 1.6.5
+        testCasesForFirst.toCallReloadGun();
     }
 
 //    public static void humanTest(){
