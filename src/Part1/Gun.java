@@ -39,9 +39,7 @@ public class Gun {
 
         return countAmmoBeforeUnload;
     }
-    public int howManyPatrons() {
-        return currentCountAmmo;
-    }
+
     public String conditionOfGun() {
         if (currentCountAmmo > 0)   return "Пистолет заряжен, количество патронов: " + currentCountAmmo;
         return "Пистолет разряжен";

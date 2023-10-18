@@ -43,7 +43,7 @@ public class Student {
     }
 
     public void changeMark(int index, Integer mark) {
-        if (isCheckingMarks(List.of(mark)))  this.marks.set(index, mark);
+        if (isCheckingMarks(List.of(mark))) this.marks.set(index, mark);
     }
 
 
@@ -56,12 +56,11 @@ public class Student {
     }
 
     public boolean isExcellentStudent() {
-        if (marks.size() > 0){
+        if (marks.size() > 0) {
             for (Integer mark : marks) {
-                if (mark != 5)  return false;
+                if (mark != 5) return false;
             }
-        }
-        else return false;
+        } else return false;
 
         return true;
     }
