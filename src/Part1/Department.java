@@ -1,11 +1,12 @@
 package Part1;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Department {
     private String name;
     private Employee boss;
-    private ArrayList<Employee> employees;
+    private List<Employee> employees;
 
     public Department(String name){
         this.name = name;
@@ -22,7 +23,7 @@ public class Department {
         return boss;
     }
 
-    public ArrayList<Employee> getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 
@@ -31,7 +32,10 @@ public class Department {
     }
 
     public void addEmployee(Employee employee){
-        employees.add(employee);
+        this.employees.add(employee);
+        if (employee.getDepartment() != this) {
+            employee.setDepartment(this);
+        }
     }
 
     @Override

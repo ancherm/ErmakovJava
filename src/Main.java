@@ -104,6 +104,9 @@ public class Main {
 
         // 1.6.7
         testCasesForFirst.toCallPersonChange();
+
+        // 1.6.11
+        testCasesForFirst.toCallBossOfDepartment();
     }
 
 //    public static void humanTest(){

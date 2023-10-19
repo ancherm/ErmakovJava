@@ -45,12 +45,7 @@ public class TestCasesForFirst {
 //    Person personBoris = new Person(boris, personPetr);
 
 
-    Department departmentIT = new Department("IT");
-    Department departmentSales = new Department("Sales");
-    Employee employeePetrov = new Employee("Петров", departmentIT);
-    Employee employeeKozlov = new Employee("Козлов", departmentIT);
-    Employee employeeSidorov = new Employee("Сидоров", departmentIT);
-    Employee employeeIvanov = new Employee("Иванов", departmentSales);
+
 
 
     Student studentVasy = new Student("Вася", new ArrayList<>());
@@ -168,15 +163,15 @@ public class TestCasesForFirst {
 
     // 1.2.4
     public void toCallEmployeeAndDepartment() {
-        departmentIT.setBoss(employeeKozlov);
-        departmentSales.setBoss(employeeIvanov);
-
-        System.out.println("№ 1.2.4");
-        System.out.println(employeePetrov);
-        System.out.println(employeeKozlov);
-        System.out.println(employeeSidorov);
-        System.out.println(employeeIvanov);
-        System.out.println();
+//        departmentIT.setBoss(employeeKozlov);
+//        departmentSales.setBoss(employeeIvanov);
+//
+//        System.out.println("№ 1.2.4");
+//        System.out.println(employeePetrov);
+//        System.out.println(employeeKozlov);
+//        System.out.println(employeeSidorov);
+//        System.out.println(employeeIvanov);
+//        System.out.println();
 
 
     }
@@ -262,12 +257,12 @@ public class TestCasesForFirst {
 
     // 1.3.4
     public void toCallEmployeesWithSameDepartment() {
-        System.out.println("№ 1.3.4 Сотрудники и отделы");
-        ArrayList<Employee> employees = employeeKozlov.findOutInfoAboutEmployees();
-
-        for (Employee employee : employees) {
-            System.out.println(employee.getName());
-        }
+//        System.out.println("№ 1.3.4 Сотрудники и отделы");
+//        List<Employee> employees = employeeKozlov.findOutInfoAboutEmployees();
+//
+//        for (Employee employee : employees) {
+//            System.out.println(employee.getName());
+//        }
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -497,5 +492,22 @@ public class TestCasesForFirst {
         System.out.println();
 
 
+    }
+
+    Department departmentIT = new Department("IT");
+    Department departmentSales = new Department("Sales");
+    Employee employeePetrov = new Employee("Петров");
+    Employee employeeKozlov = new Employee("Козлов");
+    Employee employeeSidorov = new Employee("Сидоров");
+    Employee employeeIvanov = new Employee("Иванов");
+
+    Employee e1 = new Employee("An");
+    Department IT = new Department("IT");
+
+    // 1.6.11
+    public void toCallBossOfDepartment() {
+        e1.setDepartment(IT);
+        IT.addEmployee(e1);
+//        System.out.println(e1);
     }
 }

@@ -1,22 +1,37 @@
 package Part1;
 
+// Проблемы:
+// 1. Null pointer
+// 2. Два раза можно добавить сотрудника
+// 3. Убрать из старых листов
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class Employee {
     private String name;
     private Department department;
 
-    public Employee(String name, Department department){
+    public Employee(String name){
         this.name = name;
-        this.department = department;
-        department.addEmployee(this);
     }
 
     public String getName() {
         return name;
     }
 
-    public ArrayList<Employee> findOutInfoAboutEmployees() {
+    public void setDepartment(Department department) {
+        this.department = department;
+        if (!department.getEmployees().contains(this)){
+            department.addEmployee(this);
+        }
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public List<Employee> findOutInfoAboutEmployees() {
         return department.getEmployees();
     }
     public String toString() {
