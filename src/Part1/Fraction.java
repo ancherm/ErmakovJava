@@ -1,6 +1,6 @@
 package Part1;
 
-public class Fraction {
+public final class Fraction {
     private final int num;
     private final int denum;
 
@@ -16,17 +16,10 @@ public class Fraction {
         return num;
     }
 
-//    public void setNum(int num) {
-//        this.num = num;
-//    }
 
     public int getDenum() {
         return denum;
     }
-
-//    public void setDenum(int denum) {
-//        this.denum = denum;
-//    }
 
 
     public Fraction plus(Fraction fraction) {
@@ -69,6 +62,7 @@ public class Fraction {
     public Fraction division(int number) {
         return division(new Fraction(number, 1));
     }
+
 
     public String printWhitPlus(Fraction fraction) {
         return this + " + " + fraction + " = " + plus(fraction);
