@@ -16,6 +16,10 @@ public class Gun {
         return currentCountAmmo;
     }
 
+    public int getMaxCountAmmo() {
+        return maxCountAmmo;
+    }
+
     public void shoot() {
         if (currentCountAmmo > 0) {
             System.out.println("Бах");

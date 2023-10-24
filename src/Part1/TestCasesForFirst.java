@@ -576,4 +576,25 @@ public class TestCasesForFirst {
         System.out.println(cityA);
         System.out.println();
     }
+
+    AutomaticGun automaticGun = new AutomaticGun(12, 2);
+    AutomaticGun automaticGun2 = new AutomaticGun(7);
+
+    // 3.1.4
+    public void callAutomaticGun() {
+        System.out.println("№ 3.1.4");
+        automaticGun.shoot();
+        System.out.println();
+        automaticGun.shootPerSecond(2);
+        System.out.println();
+    }
+
+
+    Point3D point3D = new Point3D(2, 8, -9);
+    // 3.1.5
+    public void callPoint3D() {
+        System.out.println("№ 3.1.5");
+        System.out.println(point3D);
+        System.out.println();
+    }
 }

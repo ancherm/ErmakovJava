@@ -123,6 +123,12 @@ public class Main {
 
         // 3.1.3
         testCasesForFirst.callCityWithTwoPaths();
+
+        // 3.1.4
+        testCasesForFirst.callAutomaticGun();
+
+        // 3.1.5
+        testCasesForFirst.callPoint3D();
     }
 
 //    public static void humanTest(){
