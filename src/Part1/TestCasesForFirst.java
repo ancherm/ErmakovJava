@@ -1,5 +1,7 @@
 package Part1;
 
+import Part2.ImmutableValueList;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -535,15 +537,31 @@ public class TestCasesForFirst {
         System.out.println("ddd  " + e2);
         System.out.println(sale.getEmployees());
         System.out.println(IT.getEmployees());
-
+        System.out.println();
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    // 2.1.1
+    int[] arr = new int[] {1,3,4};
+    ImmutableValueList list1 = new ImmutableValueList(arr);
+    ImmutableValueList list2 = new ImmutableValueList(1);
+    ImmutableValueList list3 = new ImmutableValueList(1,2,3);
+    ImmutableValueList list4 = new ImmutableValueList(list3);
 
+
+    // 2.1.1
+    public void callImmutableValueList() {
+        System.out.println("№ 2.1.1");
+        System.out.println(list1);
+        System.out.println(list1.getValue(0));
+        list1.changeValue(3, 0);
+        System.out.println(list1.getCurrentLength());
+        System.out.println(list1.isEmpty());
+        System.out.println(list1);
+        System.out.println();
+    }
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
