@@ -24,22 +24,34 @@ public class Department {
     }
 
     public List<Employee> getEmployees() {
-        return employees;
+        return new ArrayList<>(employees);
     }
 
-    public void setBoss(Employee boss) {
-        this.boss = boss;
+    public void setBoss(Employee employee) {
+        if (!employees.contains(employee)) {
+            throw new IllegalArgumentException("Данного работника нельзя сделать боссом этого отдела, " +
+                    "так как он не работает в данном отделе");
+        }
+        this.boss = employee;
     }
 
     public void addEmployee(Employee employee){
-        this.employees.add(employee);
+        if (!this.employees.contains(employee)) {
+            this.employees.add(employee);
+        }
         if (employee.getDepartment() != this) {
             employee.setDepartment(this);
         }
     }
 
+    public void deleteEmployee(Employee employee) {
+        employees.remove(employee);
+//        return new ArrayList<>(employees);
+    }
+
     @Override
     public String toString() {
+        if (boss == null)   throw new IllegalArgumentException("Boss == null");
         return boss.getName() + " - начальник отдела " + name;
     }
 }

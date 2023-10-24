@@ -5,14 +5,13 @@ package Part1;
 // 2. Два раза можно добавить сотрудника
 // 3. Убрать из старых листов
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Employee {
     private String name;
     private Department department;
 
-    public Employee(String name){
+    public Employee(String name) {
         this.name = name;
     }
 
@@ -21,8 +20,11 @@ public class Employee {
     }
 
     public void setDepartment(Department department) {
+        if (this.department != null && this.department != department){
+            this.department.deleteEmployee(this);
+        }
         this.department = department;
-        if (!department.getEmployees().contains(this)){
+        if (!department.getEmployees().contains(this)) {
             department.addEmployee(this);
         }
     }
@@ -34,10 +36,12 @@ public class Employee {
     public List<Employee> findOutInfoAboutEmployees() {
         return department.getEmployees();
     }
+
     public String toString() {
-        if (this != department.getBoss()){
+        if (department.getBoss() != null && this != department.getBoss()) {
             return name + " работает в отделе " + department.getName() + ", начальник которого " + department.getBoss().name;
         }
         return department.toString();
     }
 }
+// TODO boss

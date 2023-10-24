@@ -504,15 +504,34 @@ public class TestCasesForFirst {
     Employee employeeIvanov = new Employee("Иванов");
 
     Employee e1 = new Employee("An");
+    Employee e2 = new Employee("Вася");
+    Employee e3 = new Employee("Петя");
     Department IT = new Department("IT");
+    Department sale = new Department("Sale");
 
     // 1.6.11
     public void toCallBossOfDepartment() {
         e1.setDepartment(IT);
         IT.addEmployee(e1);
+        IT.setBoss(e1);
+
+        IT.addEmployee(e2);
+
 //        System.out.println(e1);
-        System.out.println("№ 1.6.7");
+        System.out.println("№ 1.6.11");
+        System.out.println(e1);
+        System.out.println(e2);
         System.out.println();
+        System.out.println(IT.getEmployees());
+        System.out.println();
+
+//        sale.addEmployee(e2);
+//        e2.setDepartment(sale);
+        sale.setBoss(e2);
+        System.out.println("ddd  " + e2);
+        System.out.println(sale.getEmployees());
+        System.out.println(IT.getEmployees());
+
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -530,11 +549,11 @@ public class TestCasesForFirst {
     List<Point> closedBrokenLineList = new ArrayList<>(List.of(new Point(3, 1), new Point(5, 2), new Point(4, 5)));
     ClosedBrokenLine closedBrokenLine = new ClosedBrokenLine(closedBrokenLineList);
     BrokenLine brokenLine = new BrokenLine(closedBrokenLineList);
-    // 3.1.1
+    // 3.1.2
     public void callClosedBrokenLine() {
 //        closedBrokenLine.addPoints(List.of(new Point(3, 1)));
 
-        System.out.println("№ 1.6.7");
+        System.out.println("№ 3.1.2");
         System.out.println(closedBrokenLine.lengthOfBrokenLine());
         System.out.println(brokenLine.lengthOfBrokenLine());
         System.out.println();
