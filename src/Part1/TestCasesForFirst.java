@@ -1,5 +1,6 @@
 package Part1;
 
+import Part2.FixedValueList;
 import Part2.ImmutableValueList;
 
 import java.util.ArrayList;
@@ -563,6 +564,14 @@ public class TestCasesForFirst {
         System.out.println();
     }
 
+    FixedValueList fixedValueList = new FixedValueList(2);
+
+    // 2.1.2
+    public void callFixedValueList() {
+        fixedValueList.append(3);
+        System.out.println(fixedValueList.getCurrentLength());
+    }
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -614,5 +623,6 @@ public class TestCasesForFirst {
         System.out.println("№ 3.1.5");
         System.out.println(point3D);
         System.out.println();
+
     }
 }

@@ -15,7 +15,7 @@ public class ImmutableValueList {
     }
 
 
-    private void isRightIndex(int index) {
+    protected void isRightIndex(int index) {
         if (index < 0 || index > array.length-1)    throw new IndexOutOfBoundsException("Выход за пределы массива");
     }
 
