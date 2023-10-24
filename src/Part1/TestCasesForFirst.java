@@ -224,6 +224,7 @@ public class TestCasesForFirst {
 
     ArrayList<Path> pathsFromCityA = new ArrayList<>();
 
+    City addCity = new City("AddCity", new ArrayList<>(List.of(new Path(cityA, 100))));
     //    City ct = new City("AAA", pathsFromCityA);
     // 1.3.3
     public void toCallCity() {
@@ -246,6 +247,9 @@ public class TestCasesForFirst {
         cityF.addPath(cityB, 1);
         cityF.addPath(cityF, 2);
 
+        cityA.deletePath(cityB);
+//        cityA.deletePath(cityC);
+
         System.out.println("№ 1.3.3 Города");
         System.out.println(cityA);
         System.out.println(cityB);
@@ -253,6 +257,7 @@ public class TestCasesForFirst {
         System.out.println(cityD);
         System.out.println(cityE);
         System.out.println(cityF);
+        System.out.println(addCity);
         System.out.println();
 //        System.out.println(ct);
     }
@@ -525,9 +530,10 @@ public class TestCasesForFirst {
         System.out.println(IT.getEmployees());
         System.out.println();
 
-//        sale.addEmployee(e2);
-//        e2.setDepartment(sale);
+        sale.addEmployee(e2);
+        e2.setDepartment(sale);
         sale.setBoss(e2);
+//        IT.deleteEmployee(e2);
         System.out.println("ddd  " + e2);
         System.out.println(sale.getEmployees());
         System.out.println(IT.getEmployees());

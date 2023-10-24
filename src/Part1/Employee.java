@@ -5,6 +5,7 @@ package Part1;
 // 2. Два раза можно добавить сотрудника
 // 3. Убрать из старых листов
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Employee {
@@ -37,6 +38,12 @@ public class Employee {
         return department.getEmployees();
     }
 
+//    public List<Employee> deleteEmployee(Employee employee) {
+//        List<Employee> employeeList = new ArrayList<>(department.getEmployees());
+//        employeeList.remove(employee);
+//        return employeeList;
+//    }
+
     public String toString() {
         if (department.getBoss() != null && this != department.getBoss()) {
             return name + " работает в отделе " + department.getName() + ", начальник которого " + department.getBoss().name;
@@ -44,4 +51,3 @@ public class Employee {
         return department.toString();
     }
 }
-// TODO boss
