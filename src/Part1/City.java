@@ -5,11 +5,10 @@ import java.util.List;
 
 public class City {
     private final String name;
-    private List<Path> paths;
+    private List<Path> paths = new ArrayList<>();
 
     public City(String name) {
-        this.name = name;
-        this.paths = new ArrayList<>();
+        this(name, null);
     }
 
     public City(String name, List<Path> paths) {
@@ -27,7 +26,7 @@ public class City {
         return paths;
     }
 
-    private boolean isStraightPath(City city) {
+    protected boolean isStraightPath(City city) {
         for (Path path : paths) {
             if (path.getCity().equals(city)) return true;
         }

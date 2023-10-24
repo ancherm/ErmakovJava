@@ -1,4 +1,4 @@
-package Part3;
+package Part1;
 
 import Part1.BrokenLine;
 import Part1.Point;

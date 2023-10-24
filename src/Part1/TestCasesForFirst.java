@@ -1,7 +1,5 @@
 package Part1;
 
-import Part3.ClosedBrokenLine;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -564,6 +562,18 @@ public class TestCasesForFirst {
         System.out.println(brokenLine.lengthOfBrokenLine());
         System.out.println();
         closedBrokenLine.printList();
+        System.out.println();
+    }
+
+    CityWithTwoPaths cityZ = new CityWithTwoPaths("Z");
+
+    // 3.1.3
+    public void callCityWithTwoPaths() {
+        cityZ.addPath(cityA, 66);
+
+        System.out.println("№ 3.1.3");
+        System.out.println(cityZ);
+        System.out.println(cityA);
         System.out.println();
     }
 }
