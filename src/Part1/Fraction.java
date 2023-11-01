@@ -1,6 +1,6 @@
 package Part1;
 
-public final class Fraction {
+public final class Fraction extends Number{
     private final int num;
     private final int denum;
 
@@ -94,6 +94,26 @@ public final class Fraction {
 
     public String printWhitDivision(int number) {
         return printWhitDivision(new Fraction(number, 1));
+    }
+
+    @Override
+    public int intValue() {
+        return num / denum;
+    }
+
+    @Override
+    public long longValue() {
+        return num / denum;
+    }
+
+    @Override
+    public float floatValue() {
+        return (float) num / (float) denum;
+    }
+
+    @Override
+    public double doubleValue() {
+        return (float) num / (float) denum;
     }
 
     @Override

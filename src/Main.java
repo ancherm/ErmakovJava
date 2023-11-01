@@ -137,7 +137,10 @@ public class Main {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // 3.2.1
-        testCasesForFirst.callTest();
+        testCasesForFirst.callGun();
+
+        // 3.2.2
+        testCasesForFirst.callFractionAsNumber();
     }
 
 //    public static void humanTest(){

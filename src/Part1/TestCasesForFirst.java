@@ -634,10 +634,22 @@ public class TestCasesForFirst {
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-    public void callTest() {
+    //3.2.1
+    public void callGun() {
 //        AutomaticGun automaticGun1 = new AutomaticGun(5, 1);
+        System.out.println("№ 3.2.1");
 //        System.out.println(automaticGun1);
 //        System.out.println(automaticGun2);
+    }
+
+    // 3.2.2
+    public void callFractionAsNumber() {
+        System.out.println("№ 3.2.2");
+        System.out.println(fraction1);
+        System.out.println(fraction1.intValue());
+        System.out.println(fraction1.longValue());
+        System.out.println(fraction1.floatValue());
+        System.out.println(fraction1.doubleValue());
+        System.out.println();
     }
 }
