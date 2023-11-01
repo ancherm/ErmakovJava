@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BrokenLine {
-    private List<Point> pointList = new ArrayList<>();
+    protected List<Point> pointList = new ArrayList<>();
 
     public BrokenLine() {
     }

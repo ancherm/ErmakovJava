@@ -134,6 +134,10 @@ public class Main {
 
         // 3.1.5
         testCasesForFirst.callPoint3D();
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // 3.2.1
+        testCasesForFirst.callTest();
     }
 
 //    public static void humanTest(){

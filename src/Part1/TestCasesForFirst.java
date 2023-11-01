@@ -181,7 +181,7 @@ public class TestCasesForFirst {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    Student st = new Student("St", 2, 4);
+//    Student st = new Student("St", 2, 4);
 
     //1.3.1
     public void toCallStudent() {
@@ -193,6 +193,7 @@ public class TestCasesForFirst {
         ls.add(3);
 
         System.out.println("LS: " + ls);
+
         studentPety.addMark(studentVasy.getMarks());
         studentPety.changeMark(0, 5);
 
@@ -202,7 +203,7 @@ public class TestCasesForFirst {
         System.out.println(studentVasy);
         System.out.println(studentPety);
         System.out.println(studentAnrew);
-        System.out.println(st);
+//        System.out.println(st);
         System.out.println();
     }
 
@@ -265,12 +266,18 @@ public class TestCasesForFirst {
 
     // 1.3.4
     public void toCallEmployeesWithSameDepartment() {
-//        System.out.println("№ 1.3.4 Сотрудники и отделы");
-//        List<Employee> employees = employeeKozlov.findOutInfoAboutEmployees();
-//
-//        for (Employee employee : employees) {
-//            System.out.println(employee.getName());
-//        }
+        employeeKozlov.setDepartment(IT);
+        employeeIvanov.setDepartment(IT);
+
+        IT.setBoss(employeeKozlov);
+
+        System.out.println("№ 1.3.4 Сотрудники и отделы");
+        List<Employee> employeesWithKozlov = employeeKozlov.findOutInfoAboutEmployees();
+
+        for (Employee employee : employeesWithKozlov) {
+            System.out.println(employee.getName());
+        }
+        System.out.println();
     }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -544,7 +551,7 @@ public class TestCasesForFirst {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    // 2.1
     int[] arr = new int[] {1,3,4};
     ImmutableValueList list1 = new ImmutableValueList(arr);
     ImmutableValueList list2 = new ImmutableValueList(1);
@@ -568,8 +575,10 @@ public class TestCasesForFirst {
 
     // 2.1.2
     public void callFixedValueList() {
+        System.out.println("№ 2.1.1");
         fixedValueList.append(3);
         System.out.println(fixedValueList.getCurrentLength());
+        System.out.println();
     }
 
 
@@ -587,8 +596,6 @@ public class TestCasesForFirst {
         System.out.println("№ 3.1.2");
         System.out.println(closedBrokenLine.lengthOfBrokenLine());
         System.out.println(brokenLine.lengthOfBrokenLine());
-        System.out.println();
-        closedBrokenLine.printList();
         System.out.println();
     }
 
@@ -624,5 +631,13 @@ public class TestCasesForFirst {
         System.out.println(point3D);
         System.out.println();
 
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void callTest() {
+//        AutomaticGun automaticGun1 = new AutomaticGun(5, 1);
+//        System.out.println(automaticGun1);
+//        System.out.println(automaticGun2);
     }
 }

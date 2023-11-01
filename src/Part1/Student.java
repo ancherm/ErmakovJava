@@ -8,13 +8,13 @@ public class Student {
     private String name;
     private List<Integer> marks = new ArrayList<>();
 
+    public Student(String name) {
+        this(name, null);
+    }
+
     public Student(String name, List<Integer> marks) {
         this.name = name;
         addMark(marks);
-    }
-
-    public Student(String name, Integer... marks) {
-        this(name, List.of(marks));
     }
 
     public String getName() {

@@ -15,6 +15,8 @@ public class City {
         this.name = name;
         if (paths != null){
             this.paths = paths;
+            //TODO
+            // одинаковые названия городов
         }
     }
 
