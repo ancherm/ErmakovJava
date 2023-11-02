@@ -652,4 +652,17 @@ public class TestCasesForFirst {
         System.out.println(fraction1.doubleValue());
         System.out.println();
     }
+
+    Sparrow sparrow = new Sparrow();
+    Cuckoo cuckoo = new Cuckoo();
+    Parrot parrot = new Parrot("камыш");
+
+    // 3.2.3
+    public void callBird() {
+        System.out.println("№ 3.2.3");
+        sparrow.sing();
+        cuckoo.sing();
+        parrot.sing();
+        System.out.println();
+    }
 }

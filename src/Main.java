@@ -141,6 +141,9 @@ public class Main {
 
         // 3.2.2
         testCasesForFirst.callFractionAsNumber();
+
+        // 3.2.3
+        testCasesForFirst.callBird();
     }
 
 //    public static void humanTest(){
