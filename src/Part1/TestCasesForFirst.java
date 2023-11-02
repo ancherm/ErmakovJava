@@ -665,4 +665,21 @@ public class TestCasesForFirst {
         parrot.sing();
         System.out.println();
     }
+
+    Circle circle = new Circle(new Point(0, 0), 3);
+    Square squareNew = new Square(new Point(0, 0), 2);
+    Rectangle rectangle = new Rectangle(new Point(0, 0), 3, 2);
+    Triangle triangle = new Triangle(new Point(0, 0), new Point(1, 6), new Point(-3, 5));
+
+
+    // 3.2.4
+    public void callFigure() {
+        System.out.println("№ 3.2.4");
+        System.out.println(circle.area());
+        System.out.println(squareNew.area());
+        System.out.println(rectangle.area());
+        System.out.println(triangle.area());
+        System.out.println();
+    }
+
 }

@@ -144,6 +144,9 @@ public class Main {
 
         // 3.2.3
         testCasesForFirst.callBird();
+
+        // 3.2.4
+        testCasesForFirst.callFigure();
     }
 
 //    public static void humanTest(){

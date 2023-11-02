@@ -3,19 +3,24 @@ package Part1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Square {
-    private Point leftTopPoint;
+public class Square extends Figure{
+    private Point leftTop;
     private BrokenLine brokenLine;
     private int sideLength;
 
-    public Square(Point leftTopPoint, int sideLength) {
+    public Square(Point leftTop, int sideLength) {
         if (checkSideLength(sideLength))  this.sideLength = sideLength;
-        this.leftTopPoint = leftTopPoint;
+        this.leftTop = leftTop;
 
     }
 
     public Square(int x, int y, int sideLength) {
         this(new Point(x, y), sideLength);
+    }
+
+
+    public Point getLeftTop() {
+        return super.getPoint(leftTop);
     }
 
     public int getSideLength() {
@@ -42,17 +47,23 @@ public class Square {
     }
 
     public BrokenLine toBrokenLine() {
-        Point leftBottomPoint = new Point(leftTopPoint.getX(), leftTopPoint.getY() - sideLength);
+        Point leftBottomPoint = new Point(leftTop.getX(), leftTop.getY() - sideLength);
         Point rightBottomPoint = new Point(leftBottomPoint.getX() + sideLength, leftBottomPoint.getY());
         Point rightTopPoint = new Point(rightBottomPoint.getX(), rightBottomPoint.getY() + sideLength);
 
-        List<Point> points = new ArrayList<>(List.of(leftTopPoint, leftBottomPoint, rightBottomPoint, rightTopPoint));
+        List<Point> points = new ArrayList<>(List.of(leftTop, leftBottomPoint, rightBottomPoint, rightTopPoint));
+
         brokenLine = new BrokenLine(points);
         return brokenLine;
     }
 
     @Override
     public String toString() {
-        return "Квадрат в точке " + leftTopPoint + " со стороной " + sideLength;
+        return "Квадрат в точке " + leftTop + " со стороной " + sideLength;
+    }
+
+    @Override
+    public double area() {
+        return Math.pow(sideLength, 2);
     }
 }
