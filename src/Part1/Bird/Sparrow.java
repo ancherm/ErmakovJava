@@ -1,8 +1,8 @@
-package Part1;
+package Part1.Bird;
 
 public class Sparrow extends Bird{
     @Override
-    void sing() {
+    public void sing() {
         System.out.println("Чырык");
     }
 }

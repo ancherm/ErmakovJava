@@ -1,4 +1,4 @@
-package Part1;
+package Part1.Bird;
 
 public class Parrot extends Bird{
     private String text;
@@ -11,7 +11,7 @@ public class Parrot extends Bird{
     }
 
     @Override
-    void sing() {
+    public void sing() {
         char[] textAsChars = text.toCharArray();
 
         char tempChar;

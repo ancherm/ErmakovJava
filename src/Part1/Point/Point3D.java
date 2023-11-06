@@ -1,7 +1,7 @@
-package Part1;
+package Part1.Point;
 
-public class Point3D extends Point{
-    private int z;
+public class Point3D extends Point2D {
+    private final int z;
 
     public Point3D(){
         this(0, 0, 0);

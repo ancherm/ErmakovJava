@@ -1,8 +1,8 @@
-package Part1;
+package Part1.Bird;
 
 public class Cuckoo extends Bird{
     @Override
-    void sing() {
+    public void sing() {
         for (int time = 0; time < (int) (Math.random() * 10) + 1; time++) {
             System.out.println("Ку-ку");
         }

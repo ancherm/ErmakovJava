@@ -1,11 +1,13 @@
 package Part1;
 
+import Part1.Point.Point2D;
+
 import java.util.List;
 
 public class ClosedBrokenLine extends BrokenLine {
 
-    public ClosedBrokenLine(List<Point> points) {
-        super(points);
+    public ClosedBrokenLine(List<Point2D> point2DS) {
+        super(point2DS);
     }
 
     @Override
@@ -15,8 +17,8 @@ public class ClosedBrokenLine extends BrokenLine {
     }
 
     public void printList() {
-        for (Point point : getPointList()) {
-            System.out.println(point);
+        for (Point2D point2D : getPointList()) {
+            System.out.println(point2D);
         }
     }
 }

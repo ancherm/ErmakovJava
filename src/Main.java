@@ -147,6 +147,9 @@ public class Main {
 
         // 3.2.4
         testCasesForFirst.callFigure();
+
+        // 3.2.5
+        testCasesForFirst.callPoints();
     }
 
 //    public static void humanTest(){

@@ -1,25 +1,27 @@
 package Part1;
 
+import Part1.Point.Point2D;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Square extends Figure{
-    private Point leftTop;
+    private Point2D leftTop;
     private BrokenLine brokenLine;
     private int sideLength;
 
-    public Square(Point leftTop, int sideLength) {
+    public Square(Point2D leftTop, int sideLength) {
         if (checkSideLength(sideLength))  this.sideLength = sideLength;
         this.leftTop = leftTop;
 
     }
 
     public Square(int x, int y, int sideLength) {
-        this(new Point(x, y), sideLength);
+        this(new Point2D(x, y), sideLength);
     }
 
 
-    public Point getLeftTop() {
+    public Point2D getLeftTop() {
         return super.getPoint(leftTop);
     }
 
@@ -47,13 +49,13 @@ public class Square extends Figure{
     }
 
     public BrokenLine toBrokenLine() {
-        Point leftBottomPoint = new Point(leftTop.getX(), leftTop.getY() - sideLength);
-        Point rightBottomPoint = new Point(leftBottomPoint.getX() + sideLength, leftBottomPoint.getY());
-        Point rightTopPoint = new Point(rightBottomPoint.getX(), rightBottomPoint.getY() + sideLength);
+        Point2D leftBottomPoint2D = new Point2D(leftTop.getX(), leftTop.getY() - sideLength);
+        Point2D rightBottomPoint2D = new Point2D(leftBottomPoint2D.getX() + sideLength, leftBottomPoint2D.getY());
+        Point2D rightTopPoint2D = new Point2D(rightBottomPoint2D.getX(), rightBottomPoint2D.getY() + sideLength);
 
-        List<Point> points = new ArrayList<>(List.of(leftTop, leftBottomPoint, rightBottomPoint, rightTopPoint));
+        List<Point2D> point2DS = new ArrayList<>(List.of(leftTop, leftBottomPoint2D, rightBottomPoint2D, rightTopPoint2D));
 
-        brokenLine = new BrokenLine(points);
+        brokenLine = new BrokenLine(point2DS);
         return brokenLine;
     }
 

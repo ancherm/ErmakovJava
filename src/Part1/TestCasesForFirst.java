@@ -1,5 +1,12 @@
 package Part1;
 
+import Part1.Bird.Cuckoo;
+import Part1.Bird.Parrot;
+import Part1.Bird.Sparrow;
+import Part1.Point.Characteristic;
+import Part1.Point.Point2D;
+import Part1.Point.Point3D;
+import Part1.Point.PointUniversal;
 import Part2.FixedValueList;
 import Part2.ImmutableValueList;
 
@@ -7,9 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestCasesForFirst {
-    Point point1 = new Point(3, 5);
-    Point point2 = new Point(25, 6);
-    Point point3 = new Point(7, 8);
+    Point2D point2D1 = new Point2D(3, 5);
+    Point2D point2D2 = new Point2D(25, 6);
+    Point2D point2D3 = new Point2D(7, 8);
 
     Person personCleopatra = new Person("Клеопатра", 152);
     Person personPushkin = new Person("Пушкин", 167);
@@ -30,7 +37,7 @@ public class TestCasesForFirst {
 
 
     Line line1 = new Line(75, 3, 23, 8);
-    Line line2 = new Line(new Point(5, 10), new Point(25, 10));
+    Line line2 = new Line(new Point2D(5, 10), new Point2D(25, 10));
     Line line3 = new Line(line1.getStart(), line2.getEnd());
 
 
@@ -56,10 +63,10 @@ public class TestCasesForFirst {
     Student studentAnrew = new Student("Андрей", new ArrayList<>());
 
 
-    ArrayList<Point> pointArrayListForFirst = new ArrayList<>();
-    ArrayList<Point> pointArrayListForSecond = new ArrayList<>();
-    BrokenLine brokenLineFirst = new BrokenLine(pointArrayListForFirst);
-    BrokenLine brokenLineSecond = new BrokenLine(pointArrayListForSecond);
+    ArrayList<Point2D> point2DArrayListForFirst = new ArrayList<>();
+    ArrayList<Point2D> point2DArrayListForSecond = new ArrayList<>();
+    BrokenLine brokenLineFirst = new BrokenLine(point2DArrayListForFirst);
+    BrokenLine brokenLineSecond = new BrokenLine(point2DArrayListForSecond);
 
 
     City cityA = new City("A");
@@ -77,9 +84,9 @@ public class TestCasesForFirst {
     // 1.1.1 Точка
     public void toCallPoint() {
         System.out.println("1.1.1 Точка");
-        System.out.println(point1);
-        System.out.println(point2);
-        System.out.println(point3);
+        System.out.println(point2D1);
+        System.out.println(point2D2);
+        System.out.println(point2D3);
         System.out.println();
     }
 
@@ -107,10 +114,10 @@ public class TestCasesForFirst {
     // 1.1.4 Время
     public void toCallTime() {
         System.out.println("1.1.4 Время");
-        System.out.println(time1.conventTime());
-        System.out.println(time2.conventTime());
-        System.out.println(time3.conventTime());
-        System.out.println(time4.conventTime());
+        System.out.println(time1.toString());
+        System.out.println(time2.toString());
+        System.out.println(time3.toString());
+        System.out.println(time4.toString());
         System.out.println();
     }
 
@@ -128,7 +135,7 @@ public class TestCasesForFirst {
     // 1.2.1 Линия
     public void toCallLine() {
         System.out.println("1.2.1 Линия");
-//        line2.setEnd(new Point(5, 10));
+//        line2.setEnd(new Point2D(5, 10));
         System.out.println(line1);
         System.out.println(line2);
         System.out.println(line3);
@@ -209,14 +216,14 @@ public class TestCasesForFirst {
 
     // 1.3.2
     public void toCallBrokenLine() {
-        pointArrayListForFirst.add(new Point(10, -5));
-        pointArrayListForFirst.add(new Point(2, 8));
-        pointArrayListForFirst.add(new Point(5, 3));
+        point2DArrayListForFirst.add(new Point2D(10, -5));
+        point2DArrayListForFirst.add(new Point2D(2, 8));
+        point2DArrayListForFirst.add(new Point2D(5, 3));
 
-        pointArrayListForSecond.add(pointArrayListForFirst.get(0));
-        pointArrayListForSecond.add(pointArrayListForFirst.get(2));
-        pointArrayListForSecond.add(1, new Point(2, -5));
-        pointArrayListForSecond.add(2, new Point(4, -8));
+        point2DArrayListForSecond.add(point2DArrayListForFirst.get(0));
+        point2DArrayListForSecond.add(point2DArrayListForFirst.get(2));
+        point2DArrayListForSecond.add(1, new Point2D(2, -5));
+        point2DArrayListForSecond.add(2, new Point2D(4, -8));
 
         System.out.println("№ 1.3.2 - Ломаная");
         System.out.println(brokenLineFirst);
@@ -326,7 +333,7 @@ public class TestCasesForFirst {
         catBarsik.toMeow();
     }
 
-    Line lineLength = new Line(new Point(1, 1), new Point(10, 15));
+    Line lineLength = new Line(new Point2D(1, 1), new Point2D(10, 15));
 
     // 1.5.3 Длина линии
     public void toCallLineLength() {
@@ -383,23 +390,23 @@ public class TestCasesForFirst {
     }
 
 
-    BrokenLine brokenLine2 = new BrokenLine(new Point(1, 5), new Point(2, 8), new Point(5, 3));
+    BrokenLine brokenLine2 = new BrokenLine(new Point2D(1, 5), new Point2D(2, 8), new Point2D(5, 3));
     // 1.5.7
     public void toCallLengthOfBrokenLine() {
-        List<Point> pointList1 = new ArrayList<>(List.of(new Point(5, 15), new Point(8, 10)));
+        List<Point2D> point2DList1 = new ArrayList<>(List.of(new Point2D(5, 15), new Point2D(8, 10)));
 
         System.out.println("№ 1.5.7");
         System.out.println(brokenLine2.lengthOfBrokenLine());
 
-        brokenLine2.addPoints(pointList1);
-//        pointList.add(new Point(5, 15));
-//        pointList.add(new Point(8, 10));
+        brokenLine2.addPoints(point2DList1);
+//        point2DList.add(new Point2D(5, 15));
+//        point2DList.add(new Point2D(8, 10));
         System.out.println(brokenLine2.lengthOfBrokenLine());
         System.out.println();
 
     }
 
-    Square square = new Square(new Point(5, 3), 23);
+    Square square = new Square(new Point2D(5, 3), 23);
 
     // 1.5.8
     public void toCallSquare() {
@@ -409,7 +416,7 @@ public class TestCasesForFirst {
         System.out.println(brokenLineForSquare.lengthOfBrokenLine());
 //        square.setSideLength(3);
         brokenLineForSquare = square.getBrokenLine();
-        brokenLineForSquare.moveLastPoint(new Point(15, 25));
+        brokenLineForSquare.moveLastPoint(new Point2D(15, 25));
         System.out.println(brokenLineForSquare.lengthOfBrokenLine());
         System.out.println();
     }
@@ -430,14 +437,14 @@ public class TestCasesForFirst {
     // 1.6.2
     public void toCallRightTime() {
         System.out.println("№ 1.6.2");
-        System.out.println(rightTime1.conventTime());
-        System.out.println(rightTime2.conventTime());
+        System.out.println(rightTime1.toString());
+        System.out.println(rightTime2.toString());
         System.out.println();
     }
 
 
-    Square sq = new Square(point1, 5);
-    Square sq2 = new Square(point1, 10);
+    Square sq = new Square(point2D1, 5);
+    Square sq2 = new Square(point2D1, 10);
     // 1.6.3
     public void toCallSideSquare() {
         sq.setSideLength(3);
@@ -478,10 +485,10 @@ public class TestCasesForFirst {
     }
 
 
-    Point p1 = new Point(1, 2);
-    Point p2 = new Point(4, 2);
-    Point p3 = new Point(1, 3);
-    Point p4 = new Point(1, 1);
+    Point2D p1 = new Point2D(1, 2);
+    Point2D p2 = new Point2D(4, 2);
+    Point2D p3 = new Point2D(1, 3);
+    Point2D p4 = new Point2D(1, 1);
 
     Line l1 = new Line(p1, p2);
     Line l2 = new Line(p3, p4);
@@ -586,12 +593,12 @@ public class TestCasesForFirst {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    List<Point> closedBrokenLineList = new ArrayList<>(List.of(new Point(3, 1), new Point(5, 2), new Point(4, 5)));
+    List<Point2D> closedBrokenLineList = new ArrayList<>(List.of(new Point2D(3, 1), new Point2D(5, 2), new Point2D(4, 5)));
     ClosedBrokenLine closedBrokenLine = new ClosedBrokenLine(closedBrokenLineList);
     BrokenLine brokenLine = new BrokenLine(closedBrokenLineList);
     // 3.1.2
     public void callClosedBrokenLine() {
-//        closedBrokenLine.addPoints(List.of(new Point(3, 1)));
+//        closedBrokenLine.addPoints(List.of(new Point2D(3, 1)));
 
         System.out.println("№ 3.1.2");
         System.out.println(closedBrokenLine.lengthOfBrokenLine());
@@ -666,10 +673,10 @@ public class TestCasesForFirst {
         System.out.println();
     }
 
-    Circle circle = new Circle(new Point(0, 0), 3);
-    Square squareNew = new Square(new Point(0, 0), 2);
-    Rectangle rectangle = new Rectangle(new Point(0, 0), 3, 2);
-    Triangle triangle = new Triangle(new Point(0, 0), new Point(1, 6), new Point(-3, 5));
+    Circle circle = new Circle(new Point2D(0, 0), 3);
+    Square squareNew = new Square(new Point2D(0, 0), 2);
+    Rectangle rectangle = new Rectangle(new Point2D(0, 0), 3, 2);
+    Triangle triangle = new Triangle(new Point2D(0, 0), new Point2D(1, 6), new Point2D(-3, 5));
 
 
     // 3.2.4
@@ -681,5 +688,19 @@ public class TestCasesForFirst {
         System.out.println(triangle.area());
         System.out.println();
     }
+
+
+    PointUniversal pointUniversal1 = new PointUniversal(List.of(new Characteristic("Точка", new Point2D(2, 3)), new Characteristic("Время", new Time(11, 0, 0))));
+    // 3.2.5
+    public void callPoints() {
+        System.out.println("№ 3.2.5");
+        System.out.println(pointUniversal1);
+        System.out.println();
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // 3.3.1
+
 
 }

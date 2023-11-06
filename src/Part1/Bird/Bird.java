@@ -1,4 +1,4 @@
-package Part1;
+package Part1.Bird;
 
 abstract class Bird {
 //    private final String textSong;
@@ -11,5 +11,5 @@ abstract class Bird {
 //        return textSong;
 //    }
 
-    abstract void sing();
+    abstract public void sing();
 }

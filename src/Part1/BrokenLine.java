@@ -1,52 +1,54 @@
 package Part1;
 
+import Part1.Point.Point2D;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class BrokenLine {
-    protected List<Point> pointList = new ArrayList<>();
+    protected List<Point2D> point2DList = new ArrayList<>();
 
     public BrokenLine() {
     }
 
-    public BrokenLine(List<Point> pointList) {
-        addPoints(pointList);
+    public BrokenLine(List<Point2D> point2DList) {
+        addPoints(point2DList);
     }
 
-    public BrokenLine(Point... pointList) {
-        this(List.of(pointList));
-    }
-
-
-    public List<Point> getPointList() {
-        return new ArrayList<>(pointList);
+    public BrokenLine(Point2D... point2DList) {
+        this(List.of(point2DList));
     }
 
 
-    public void addPoints(List<Point> pointList) {
-        this.pointList.addAll(pointList);
+    public List<Point2D> getPointList() {
+        return new ArrayList<>(point2DList);
+    }
+
+
+    public void addPoints(List<Point2D> point2DList) {
+        this.point2DList.addAll(point2DList);
     }
 
 
     public double lengthOfBrokenLine() {
-        return lengthOfBrokenLine(pointList);
+        return lengthOfBrokenLine(point2DList);
     }
 
-    protected double lengthOfBrokenLine(List<Point> pointList) {
+    protected double lengthOfBrokenLine(List<Point2D> point2DList) {
         double length = 0;
-        for (int i = 0; i < pointList.size() - 1; i++) {
-            length += Math.sqrt(Math.pow(pointList.get(i + 1).getX() - pointList.get(i).getX(), 2) +
-                    Math.pow(pointList.get(i + 1).getY() - pointList.get(i).getY(), 2));
+        for (int i = 0; i < point2DList.size() - 1; i++) {
+            length += Math.sqrt(Math.pow(point2DList.get(i + 1).getX() - point2DList.get(i).getX(), 2) +
+                    Math.pow(point2DList.get(i + 1).getY() - point2DList.get(i).getY(), 2));
         }
         return length;
     }
 
-    public void moveLastPoint(Point point) {
-        pointList.set(pointList.size() - 1, new Point(point.getX(), point.getY()));
+    public void moveLastPoint(Point2D point2D) {
+        point2DList.set(point2DList.size() - 1, new Point2D(point2D.getX(), point2D.getY()));
     }
 
     @Override
     public String toString() {
-        return "Ломаная " + pointList;
+        return "Ломаная " + point2DList;
     }
 }

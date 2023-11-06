@@ -1,11 +1,13 @@
 package Part1;
 
+import Part1.Point.Point2D;
+
 public class Circle extends Figure{
 
-    private Point center;
+    private Point2D center;
     private float radius;
 
-    public Circle(Point center, float radius) {
+    public Circle(Point2D center, float radius) {
         if (radius <= 0) {
             throw new IllegalArgumentException("Радиус не может быть меньше нуля");
         }
@@ -14,7 +16,7 @@ public class Circle extends Figure{
         this.radius = radius;
     }
 
-    public Point getCenter() {
+    public Point2D getCenter() {
         return super.getPoint(center);
     }
 

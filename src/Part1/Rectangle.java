@@ -1,11 +1,13 @@
 package Part1;
 
+import Part1.Point.Point2D;
+
 public class Rectangle extends Figure{
-    private Point leftTopCorner;
+    private Point2D leftTopCorner;
     private int length;
     private int width;
 
-    public Rectangle(Point leftTopCorner, int length, int width) {
+    public Rectangle(Point2D leftTopCorner, int length, int width) {
         if (length <= 0 || width <= 0) {
             throw new IllegalArgumentException("Длина или ширина меньше 0");
         }
@@ -15,7 +17,7 @@ public class Rectangle extends Figure{
         this.width = width;
     }
 
-    public Point getLeftTopCorner() {
+    public Point2D getLeftTopCorner() {
         return super.getPoint(leftTopCorner);
     }
 

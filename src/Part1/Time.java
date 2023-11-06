@@ -38,7 +38,7 @@ public class Time {
         return seconds;
     }
 
-    public String conventTime(){
+    public String toString(){
         return getHours() + ":" + getMinutes() + ":" + getSeconds();
     }
 

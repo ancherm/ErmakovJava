@@ -1,23 +1,25 @@
 package Part1;
 
-public class Triangle extends Figure{
-    private Point a, b, c;
+import Part1.Point.Point2D;
 
-    public Triangle(Point a, Point b, Point c) {
+public class Triangle extends Figure{
+    private Point2D a, b, c;
+
+    public Triangle(Point2D a, Point2D b, Point2D c) {
         this.a = a;
         this.b = b;
         this.c = c;
     }
 
-    public Point getPointA() {
+    public Point2D getPointA() {
         return super.getPoint(a);
     }
 
-    public Point getPointB() {
+    public Point2D getPointB() {
         return super.getPoint(b);
     }
 
-    public Point getPointC() {
+    public Point2D getPointC() {
         return super.getPoint(c);
     }
 
