@@ -1,28 +1,21 @@
-package part1;
+package part1.gun;
 
-public class Gun extends Weapon{
-//    private int currentCountAmmo;
+public class Gun extends Weapon implements IGun{
     private final int maxCountAmmo;
 
     public Gun(int maxCountAmmo) {
         this(5, maxCountAmmo);
     }
     public Gun(int countAmmo, int maxCountAmmo) {
-//        if (maxCountAmmo < 0 || countAmmo < 0) {
-//            throw new IllegalArgumentException("Не может быть отрицательное количество патронов");
-//        }
         super(countAmmo);
         this.maxCountAmmo = maxCountAmmo;
     }
-
-//    public int getCurrentCountAmmo() {
-//        return currentCountAmmo;
-//    }
 
     public int getMaxCountAmmo() {
         return maxCountAmmo;
     }
 
+    @Override
     public void shoot() {
         if (super.ammo() > 0) {
             System.out.println("Бах");
@@ -40,6 +33,7 @@ public class Gun extends Weapon{
         }
         setAmmo(countReloadAmmo);
     }
+
     public int unload() {
         int countAmmoBeforeUnload = super.ammo();
         setAmmo(0);

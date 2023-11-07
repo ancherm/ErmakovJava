@@ -8,10 +8,11 @@ import part1.cat.Cat;
 import part1.cat.CatTest;
 import part1.cat.ICat;
 import part1.figure.*;
-import part1.line.BrokenLine;
-import part1.line.ClosedBrokenLine;
-import part1.line.ILine;
-import part1.line.Line;
+import part1.gun.AutomaticGun;
+import part1.gun.Gun;
+import part1.gun.IGun;
+import part1.gun.Shooter;
+import part1.line.*;
 import part1.point.*;
 import part2.FixedValueList;
 import part2.ImmutableValueList;
@@ -792,5 +793,41 @@ public class TestCasesForFirst {
         System.out.println("№ 3.3.5");
         System.out.println(calculateLength(line1, line2, brokenLine, brokenLine2));
         System.out.println();
+    }
+
+
+    // 3.3.7
+    private BrokenLine brokeMeFull(IBrokenLine...objects) {
+        BrokenLine line = new BrokenLine();
+
+        for (IBrokenLine brokenLine: objects) {
+            line.addPoints(brokenLine.getBrokenLine().getPointList());
+        }
+        return line;
+    }
+
+    public void callBrokeMeFull() {
+        System.out.println("№ 3.3.7");
+        System.out.println(brokeMeFull(line1, brokenLine2, triangle));
+        System.out.println();
+    }
+
+    // 3.3.8
+    Shooter shooter1 = new Shooter("Петя");
+    Shooter shooter2 = new Shooter("Ваня");
+    Shooter shooter3 = new Shooter("Миша");
+
+    Gun gun = new Gun(1);
+    AutomaticGun autoGun = new AutomaticGun(1);
+    public void callShooters() {
+        shooter2.setGun(gun);
+        shooter3.setGun(autoGun);
+
+        shooter1.callShoot();
+        System.out.println(shooter2.getName());
+        shooter2.callShoot();
+        System.out.println(shooter3.getName());
+        shooter3.callShoot();
+
     }
 }

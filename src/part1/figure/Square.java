@@ -2,12 +2,13 @@ package part1.figure;
 
 import part1.line.BrokenLine;
 import part1.line.ClosedBrokenLine;
+import part1.line.IBrokenLine;
 import part1.point.Point2D;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Square extends Figure{
+public class Square extends Figure implements IBrokenLine {
     private final Point2D leftTop;
     private BrokenLine brokenLine;
     private int side;
@@ -33,6 +34,7 @@ public class Square extends Figure{
         return side;
     }
 
+    @Override
     public BrokenLine getBrokenLine() {
         return brokenLine;
     }

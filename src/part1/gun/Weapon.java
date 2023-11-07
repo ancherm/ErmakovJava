@@ -1,4 +1,4 @@
-package part1;
+package part1.gun;
 
 abstract class Weapon {
     private int ammo;

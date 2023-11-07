@@ -1,8 +1,13 @@
 package part1.figure;
 
+import part1.line.BrokenLine;
+import part1.line.ClosedBrokenLine;
+import part1.line.IBrokenLine;
 import part1.point.Point2D;
 
-public class Triangle extends Figure{
+import java.util.List;
+
+public class Triangle extends Figure implements IBrokenLine {
     private Point2D a, b, c;
 
     public Triangle(Point2D a, Point2D b, Point2D c) {
@@ -21,6 +26,11 @@ public class Triangle extends Figure{
 
     public Point2D getPointC() {
         return super.getPoint(c);
+    }
+
+    @Override
+    public BrokenLine getBrokenLine() {
+        return new ClosedBrokenLine(List.of(a, b, c));
     }
 
     @Override

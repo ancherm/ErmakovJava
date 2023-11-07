@@ -177,6 +177,11 @@ public class Main {
         // 3.3.5
         testCasesForFirst.callCalculateLength();
 
+        // 3.3.6
+        testCasesForFirst.callBrokeMeFull();
+
+        // 3.3.7
+        testCasesForFirst.callShooters();
 
 
     }

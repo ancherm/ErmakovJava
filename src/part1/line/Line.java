@@ -3,7 +3,7 @@ package part1.line;
 import part1.point.Point2D;
 
 // 1.2.1 Прямая
-public class Line implements ILine{
+public class Line implements ILine, IBrokenLine{
     private Point2D start;
     private Point2D end;
 
@@ -40,9 +40,13 @@ public class Line implements ILine{
         return Math.sqrt(Math.pow(end.getX() - start.getX(), 2) + Math.pow(end.getY() - start.getY(), 2));
     }
 
+    @Override
+    public BrokenLine getBrokenLine() {
+        return new BrokenLine(start, end);
+    }
+
     public String toString() {
         return "Линия от " + start + " до " + end;
     }
-
 
 }

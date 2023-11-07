@@ -1,13 +1,13 @@
-package part1;
+package part1.gun;
 
-public class AutomaticGun extends Gun{
+public class AutomaticGun extends Gun implements IGun{
     private final int rateOfFire;
 
     public AutomaticGun() {
         this(30, 30);
     }
     public AutomaticGun(int maxCountAmmo) {
-        this(maxCountAmmo, maxCountAmmo/2);
+        this(maxCountAmmo, maxCountAmmo/2 + 1);
     }
     public AutomaticGun(int maxCountAmmo, int rateOfFire) {
         super(maxCountAmmo);
