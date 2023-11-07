@@ -1,19 +1,10 @@
 package part1;
 
-import part1.bird.Bird;
-import part1.bird.Cuckoo;
-import part1.bird.Parrot;
-import part1.bird.Sparrow;
-import part1.cat.Cat;
-import part1.cat.CatTest;
-import part1.cat.ICat;
-import part1.city.City;
-import part1.city.CityWithTwoPaths;
-import part1.city.Path;
+import part1.bird.*;
+import part1.cat.*;
+import part1.city.*;
 import part1.figure.*;
-import part1.gun.AutomaticGun;
-import part1.gun.Gun;
-import part1.gun.Shooter;
+import part1.gun.*;
 import part1.line.*;
 import part1.point.*;
 import part2.FixedValueList;
@@ -825,6 +816,7 @@ public class TestCasesForFirst {
         System.out.println("№ 3.3.8");
         shooter2.setGun(gun);
         shooter3.setGun(autoGun);
+        System.out.println(shooter2.getGun());
 
         shooter1.callShoot();
         System.out.println(shooter2.getName());
