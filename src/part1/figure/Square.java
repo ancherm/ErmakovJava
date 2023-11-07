@@ -8,16 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Square extends Figure{
-    private Point2D leftTop;
+    private final Point2D leftTop;
     private BrokenLine brokenLine;
     private int side;
 
     public Square(Point2D leftTop, int side) {
+        this.leftTop = leftTop;
+
         if (checkSideLength(side)) {
             sideAndLine(side);
         }
-        this.leftTop = leftTop;
-
     }
 
     public Square(int x, int y, int side) {
