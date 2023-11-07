@@ -1,4 +1,13 @@
-import Part1.*;
+import part1.*;
+import part1.bird.Cuckoo;
+import part1.bird.Parrot;
+import part1.bird.Sparrow;
+import part1.figure.Circle;
+import part1.figure.Rectangle;
+import part1.figure.Square;
+import part1.figure.Triangle;
+import part1.point.Point;
+import part1.point.Point2D;
 
 public class Main {
     public static void main(String[] args) {
@@ -150,6 +159,26 @@ public class Main {
 
         // 3.2.5
         testCasesForFirst.callPoints();
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // 3.3.1
+        testCasesForFirst.callAddition();
+
+        // 3.3.2
+        testCasesForFirst.callBirdMarket();
+
+        // 3.3.3
+        testCasesForFirst.callTotalArea();
+
+        // 3.3.4
+        testCasesForFirst.callMeowing();
+
+        // 3.3.5
+        testCasesForFirst.callCalculateLength();
+
+
+
     }
 
 //    public static void humanTest(){
