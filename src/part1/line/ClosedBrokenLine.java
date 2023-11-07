@@ -6,8 +6,8 @@ import java.util.List;
 
 public class ClosedBrokenLine extends BrokenLine {
 
-    public ClosedBrokenLine(List<Point2D> point2DS) {
-        super(point2DS);
+    public ClosedBrokenLine(List<Point2D> points) {
+        super(points);
     }
 
     @Override

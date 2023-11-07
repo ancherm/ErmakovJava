@@ -1,6 +1,7 @@
 package part1.figure;
 
 import part1.line.BrokenLine;
+import part1.line.ClosedBrokenLine;
 import part1.point.Point2D;
 
 import java.util.ArrayList;
@@ -12,7 +13,9 @@ public class Square extends Figure{
     private int side;
 
     public Square(Point2D leftTop, int side) {
-        if (checkSideLength(side))  this.side = side;
+        if (checkSideLength(side)) {
+            sideAndLine(side);
+        }
         this.leftTop = leftTop;
 
     }
@@ -36,37 +39,41 @@ public class Square extends Figure{
 
     public void setSide(int side) {
         if (checkSideLength(side)) {
-            this.side = side;
-            brokenLine = toBrokenLine();
+            sideAndLine(side);
         }
 
     }
 
-    private boolean checkSideLength(int sideLength) {
-        if (sideLength <= 0) {
+    private void sideAndLine(int side) {
+        this.side = side;
+        brokenLine = toBrokenLine();
+    }
+
+    @Override
+    public double area() {
+        return Math.pow(side, 2);
+    }
+
+    private boolean checkSideLength(int side) {
+        if (side <= 0) {
             throw new IllegalArgumentException("Длина равна нулю или меньше");
         }
         return true;
     }
 
     public BrokenLine toBrokenLine() {
-        Point2D leftBottomPoint2D = new Point2D(leftTop.getX(), leftTop.getY() - side);
-        Point2D rightBottomPoint2D = new Point2D(leftBottomPoint2D.getX() + side, leftBottomPoint2D.getY());
-        Point2D rightTopPoint2D = new Point2D(rightBottomPoint2D.getX(), rightBottomPoint2D.getY() + side);
+        Point2D leftBottom = new Point2D(leftTop.getX(), leftTop.getY() - side);
+        Point2D rightBottom = new Point2D(leftBottom.getX() + side, leftBottom.getY());
+        Point2D rightTop = new Point2D(rightBottom.getX(), rightBottom.getY() + side);
 
-        List<Point2D> point2DS = new ArrayList<>(List.of(leftTop, leftBottomPoint2D, rightBottomPoint2D, rightTopPoint2D));
+        List<Point2D> points = new ArrayList<>(List.of(leftTop, leftBottom, rightBottom, rightTop));
 
-        brokenLine = new BrokenLine(point2DS);
+        brokenLine = new ClosedBrokenLine(points);
         return brokenLine;
     }
 
     @Override
     public String toString() {
         return "Квадрат в точке " + leftTop + " со стороной " + side;
-    }
-
-    @Override
-    public double area() {
-        return Math.pow(side, 2);
     }
 }

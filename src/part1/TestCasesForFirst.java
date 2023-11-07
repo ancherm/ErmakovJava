@@ -412,19 +412,19 @@ public class TestCasesForFirst {
 
     }
 
-    Square square = new Square(new Point2D(5, 3), 23);
+//    Square square = new Square(new Point2D(5, 3), 23);
 
     // 1.5.8
     public void toCallSquare() {
-        BrokenLine brokenLineForSquare = square.toBrokenLine();
-
-        System.out.println("№ 1.5.8");
-        System.out.println(brokenLineForSquare.length());
-//        square.setSideLength(3);
-        brokenLineForSquare = square.getBrokenLine();
-        brokenLineForSquare.moveLastPoint(new Point2D(15, 25));
-        System.out.println(brokenLineForSquare.length());
-        System.out.println();
+//        BrokenLine brokenLineForSquare = square.toBrokenLine();
+//
+//        System.out.println("№ 1.5.8");
+//        System.out.println(brokenLineForSquare.length());
+////        square.setSideLength(3);
+//        brokenLineForSquare = square.getBrokenLine();
+//        brokenLineForSquare.moveLastPoint(new Point2D(15, 25));
+//        System.out.println(brokenLineForSquare.length());
+//        System.out.println();
     }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
