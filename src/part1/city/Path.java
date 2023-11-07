@@ -1,4 +1,4 @@
-package part1;
+package part1.city;
 
 public class Path {
     private final City city;

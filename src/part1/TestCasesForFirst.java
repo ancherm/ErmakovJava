@@ -7,10 +7,12 @@ import part1.bird.Sparrow;
 import part1.cat.Cat;
 import part1.cat.CatTest;
 import part1.cat.ICat;
+import part1.city.City;
+import part1.city.CityWithTwoPaths;
+import part1.city.Path;
 import part1.figure.*;
 import part1.gun.AutomaticGun;
 import part1.gun.Gun;
-import part1.gun.IGun;
 import part1.gun.Shooter;
 import part1.line.*;
 import part1.point.*;
@@ -820,6 +822,7 @@ public class TestCasesForFirst {
     Gun gun = new Gun(1);
     AutomaticGun autoGun = new AutomaticGun(1);
     public void callShooters() {
+        System.out.println("№ 3.3.8");
         shooter2.setGun(gun);
         shooter3.setGun(autoGun);
 
@@ -828,6 +831,30 @@ public class TestCasesForFirst {
         shooter2.callShoot();
         System.out.println(shooter3.getName());
         shooter3.callShoot();
+        System.out.println();
+    }
 
+    // 3.3.9
+
+
+    public void linkingCities() {
+        cityA = new CityWithTwoPaths("A");
+        cityB = new City("B");
+        cityC = new CityWithTwoPaths("C");
+        cityD = new CityWithTwoPaths("D");
+        cityE = new City("E");
+
+        cityA.addPath(cityB, cityC);
+        cityB.addPath(cityC);
+        cityD.addPath(cityB, cityE);
+        cityE.addPath(cityC);
+
+        System.out.println("№ 3.3.9");
+        System.out.println(cityA);
+        System.out.println(cityB);
+        System.out.println(cityC);
+        System.out.println(cityD);
+        System.out.println(cityE);
+        System.out.println();
     }
 }

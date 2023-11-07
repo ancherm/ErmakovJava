@@ -1,4 +1,4 @@
-package part1;
+package part1.city;
 
 import java.util.List;
 
@@ -15,6 +15,11 @@ public class CityWithTwoPaths extends City {
         super.addPath(city, cost);
         if (!city.isStraightPath(this)) {
             city.addPath(this, cost);
+        }
+    }
+    public void addPath(City...city) {
+        for (City c : city) {
+            addPath(c, 0);
         }
     }
 }

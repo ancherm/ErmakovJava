@@ -177,11 +177,14 @@ public class Main {
         // 3.3.5
         testCasesForFirst.callCalculateLength();
 
-        // 3.3.6
+        // 3.3.7
         testCasesForFirst.callBrokeMeFull();
 
-        // 3.3.7
+        // 3.3.8
         testCasesForFirst.callShooters();
+
+        // 3.3.9
+        testCasesForFirst.linkingCities();
 
 
     }

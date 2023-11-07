@@ -1,4 +1,4 @@
-package part1;
+package part1.city;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,12 +35,16 @@ public class City {
         return false;
     }
 
+    public void addPath(City...city) {
+        for (City c : city) {
+            addPath(c, 0);
+        }
+    }
     public void addPath(City city, int cost){
         if (!isStraightPath(city)) {
             paths.add(new Path(city, cost));
         }
     }
-
     public void deletePath(City city) {
         Path pathForDelete = null;
         for (Path path : paths) {
