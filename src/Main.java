@@ -1,13 +1,4 @@
-import part1.*;
-import part1.bird.Cuckoo;
-import part1.bird.Parrot;
-import part1.bird.Sparrow;
-import part1.figure.Circle;
-import part1.figure.Rectangle;
-import part1.figure.Square;
-import part1.figure.Triangle;
-import part1.point.Point;
-import part1.point.Point2D;
+import ru.chermashentsev.etc.TestCasesForFirst;
 
 public class Main {
     public static void main(String[] args) {
