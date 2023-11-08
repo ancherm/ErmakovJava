@@ -1,6 +1,6 @@
 package ru.chermashentsev.figure;
 
-import ru.chermashentsev.point.Point2D;
+import ru.chermashentsev.geometry.point.Point2D;
 
 public abstract class Figure {
 

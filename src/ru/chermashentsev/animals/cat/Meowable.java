@@ -1,4 +1,4 @@
-package ru.chermashentsev.cat;
+package ru.chermashentsev.animals.cat;
 
 public interface Meowable {
     void meow();

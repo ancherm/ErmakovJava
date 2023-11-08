@@ -1,4 +1,4 @@
-package ru.chermashentsev.point;
+package ru.chermashentsev.geometry.point;
 // 1.1.1 Точка координат
 public class Point2D extends Point{
     private final int y;

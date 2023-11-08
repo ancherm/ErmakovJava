@@ -1,18 +1,18 @@
 package ru.chermashentsev.etc;
 
 import ru.chermashentsev.department.*;
-import ru.chermashentsev.bird.*;
-import ru.chermashentsev.cat.*;
+import ru.chermashentsev.animals.bird.*;
+import ru.chermashentsev.animals.cat.*;
 import ru.chermashentsev.city.*;
 import ru.chermashentsev.figure.*;
 import ru.chermashentsev.gun.*;
-import ru.chermashentsev.line.*;
+import ru.chermashentsev.geometry.line.*;
 import ru.chermashentsev.list.FixedValueList;
 import ru.chermashentsev.list.ImmutableValueList;
 import ru.chermashentsev.person.Name;
 import ru.chermashentsev.person.Person;
 import ru.chermashentsev.person.Student;
-import ru.chermashentsev.point.*;
+import ru.chermashentsev.geometry.point.*;
 
 import java.util.ArrayList;
 import java.util.List;

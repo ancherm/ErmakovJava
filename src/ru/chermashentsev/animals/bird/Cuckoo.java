@@ -1,4 +1,4 @@
-package ru.chermashentsev.bird;
+package ru.chermashentsev.animals.bird;
 
 public class Cuckoo extends Bird{
     @Override

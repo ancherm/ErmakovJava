@@ -1,4 +1,4 @@
-package ru.chermashentsev.point;
+package ru.chermashentsev.geometry.point;
 
 import java.util.ArrayList;
 import java.util.List;

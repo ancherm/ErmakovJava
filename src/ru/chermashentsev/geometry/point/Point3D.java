@@ -1,4 +1,4 @@
-package ru.chermashentsev.point;
+package ru.chermashentsev.geometry.point;
 
 public class Point3D extends Point2D {
     private final int z;

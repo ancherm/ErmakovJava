@@ -1,9 +1,9 @@
 package ru.chermashentsev.figure;
 
-import ru.chermashentsev.line.BrokenLine;
-import ru.chermashentsev.line.ClosedBrokenLine;
-import ru.chermashentsev.line.BrokenLineAble;
-import ru.chermashentsev.point.Point2D;
+import ru.chermashentsev.geometry.line.BrokenLine;
+import ru.chermashentsev.geometry.line.ClosedBrokenLine;
+import ru.chermashentsev.geometry.line.BrokenLineAble;
+import ru.chermashentsev.geometry.point.Point2D;
 
 import java.util.ArrayList;
 import java.util.List;

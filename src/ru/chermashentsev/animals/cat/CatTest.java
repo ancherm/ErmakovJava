@@ -1,4 +1,4 @@
-package ru.chermashentsev.cat;
+package ru.chermashentsev.animals.cat;
 
 public class CatTest implements Meowable {
 

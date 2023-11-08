@@ -1,4 +1,4 @@
-package ru.chermashentsev.bird;
+package ru.chermashentsev.animals.bird;
 
 public class Parrot extends Bird{
     private String text;

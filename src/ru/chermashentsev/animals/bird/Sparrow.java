@@ -1,4 +1,4 @@
-package ru.chermashentsev.bird;
+package ru.chermashentsev.animals.bird;
 
 public class Sparrow extends Bird{
     @Override

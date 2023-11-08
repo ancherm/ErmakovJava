@@ -1,6 +1,6 @@
-package ru.chermashentsev.line;
+package ru.chermashentsev.geometry.line;
 
-import ru.chermashentsev.point.Point2D;
+import ru.chermashentsev.geometry.point.Point2D;
 
 import java.util.ArrayList;
 import java.util.List;

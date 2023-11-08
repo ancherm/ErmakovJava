@@ -1,4 +1,4 @@
-package ru.chermashentsev.point;
+package ru.chermashentsev.geometry.point;
 
 public class Characteristic {
     private final NameEnum title;
