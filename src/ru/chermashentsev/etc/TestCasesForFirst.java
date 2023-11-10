@@ -867,12 +867,23 @@ public class TestCasesForFirst {
 
 
     Fraction f1 = new Fraction(2, 3);
-    Fraction f2 = new Fraction(2, 3);
+    Fraction f2 = new Fraction(4, 6);
 
-    public boolean printer() {
-        if (f1.getNum() == f2.getNum() && f1.getDenum() == f2.getDenum()) {
-            return true;
-        }
-        return false;
+//    public boolean printer() {
+//        if (f1.getNum() == f2.getNum() && f1.getDenum() == f2.getDenum()) {
+//            return true;
+//        }
+//        return false;
+//    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    public void callEqualFraction() {
+        System.out.println("№ 3.3.9");
+        System.out.println(f2);
+        System.out.println(f2.simplifyFraction());
+        System.out.println(f1.equals(f2));
+//        System.out.println(f2.equals(f1));
+        System.out.println();
     }
+
 }

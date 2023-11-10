@@ -193,7 +193,12 @@ public class Main {
         System.out.println(name2);
 
 
-        testCasesForFirst.printer();
+//        testCasesForFirst.printer();
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // 3.4.1
+        testCasesForFirst.callEqualFraction();
     }
 
 

@@ -3,6 +3,9 @@ package ru.chermashentsev.etc;
 
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public final class Fraction extends Number{
     private final int num;
     private final int denum;
@@ -103,6 +106,23 @@ public final class Fraction extends Number{
         return printWhitDivision(new Fraction(number, 1));
     }
 
+    public Fraction simplifyFraction() {
+        int gcd = euclideanAlgorithm(Math.abs(num), Math.abs(denum));
+
+        int simplifiedNum = num / gcd;
+        int simplifiedDenum = denum / gcd;
+
+        return new Fraction(simplifiedNum, simplifiedDenum);
+    }
+
+    private int euclideanAlgorithm(int a, int b) {
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
     @Override
     public int intValue() {
         return num / denum;
@@ -121,6 +141,20 @@ public final class Fraction extends Number{
     @Override
     public double doubleValue() {
         return (float) num / (float) denum;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+
+        Fraction fraction = (Fraction) obj;
+
+        Fraction fractionThis = this.simplifyFraction();
+        Fraction fractionObj = fraction.simplifyFraction();
+
+        return fractionThis.num == fractionObj.num && fractionThis.denum == fractionObj.denum;
     }
 
     @Override
