@@ -1,12 +1,25 @@
 package ru.chermashentsev.etc;
 
 import ru.chermashentsev.department.*;
-import ru.chermashentsev.animals.bird.*;
+import ru.chermashentsev.animals.bird.Bird;
+import ru.chermashentsev.animals.bird.Cuckoo;
+import ru.chermashentsev.animals.bird.Sparrow;
+import ru.chermashentsev.animals.bird.Parrot;
 import ru.chermashentsev.animals.cat.*;
 import ru.chermashentsev.city.*;
 import ru.chermashentsev.figure.*;
 import ru.chermashentsev.gun.*;
-import ru.chermashentsev.geometry.line.*;
+import ru.chermashentsev.geometry.line.BrokenLine;
+import ru.chermashentsev.geometry.line.ClosedBrokenLine;
+import ru.chermashentsev.geometry.line.Line;
+import ru.chermashentsev.geometry.line.BrokenLineAble;
+import ru.chermashentsev.geometry.line.Lengthable;
+import ru.chermashentsev.geometry.point.Characteristic;
+import ru.chermashentsev.geometry.point.NameEnum;
+import ru.chermashentsev.geometry.point.Point2D;
+import ru.chermashentsev.geometry.point.Point3D;
+import ru.chermashentsev.geometry.point.Point;
+import ru.chermashentsev.geometry.point.PointUniversal;
 import ru.chermashentsev.list.FixedValueList;
 import ru.chermashentsev.list.ImmutableValueList;
 import ru.chermashentsev.person.Name;
@@ -850,5 +863,16 @@ public class TestCasesForFirst {
         System.out.println(cityD);
         System.out.println(cityE);
         System.out.println();
+    }
+
+
+    Fraction f1 = new Fraction(2, 3);
+    Fraction f2 = new Fraction(2, 3);
+
+    public boolean printer() {
+        if (f1.getNum() == f2.getNum() && f1.getDenum() == f2.getDenum()) {
+            return true;
+        }
+        return false;
     }
 }

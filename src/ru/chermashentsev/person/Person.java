@@ -46,11 +46,10 @@ public class Person {
     }
 
     public Name getName() {
-//        return new Name(name);
         return name;
     }
 
-    public void addSurname() {
+    private void addSurname() {
         if (name.getSurname() == null && father != null && father.name.getSurname() != null) {
             name.setSurname(father.name.getSurname());
         }
@@ -59,14 +58,13 @@ public class Person {
         }
     }
 
-    public void addLastName() {
+    private void addLastName() {
         if (name.getLastName() == null && father != null && father.name.getName() != null){
             name.setLastName(father.name.getName() + "ович ");
         }
     }
     public void checkFather(){
         addSurname();
-
         addLastName();
     }
 

@@ -1,8 +1,15 @@
 package ru.chermashentsev.etc;
 
+
+import lombok.*;
+
 public final class Fraction extends Number{
     private final int num;
     private final int denum;
+
+//    public static Fraction create(int num, int denum) {
+//        Fraction(num, denum);
+//    }
 
     public Fraction(int num, int denum) {
         if (denum <= 0) {

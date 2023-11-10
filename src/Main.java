@@ -1,4 +1,7 @@
+import ru.chermashentsev.etc.Fraction;
 import ru.chermashentsev.etc.TestCasesForFirst;
+import ru.chermashentsev.person.Name;
+import ru.chermashentsev.person.NameBuilder;
 
 public class Main {
     public static void main(String[] args) {
@@ -178,7 +181,22 @@ public class Main {
         testCasesForFirst.linkingCities();
 
 
+        NameBuilder nameBuilder = new NameBuilder();
+        nameBuilder.surname("Сидоров");
+        nameBuilder.name("Иван");
+
+        Name name2 = new NameBuilder()
+                            .surname("Петров")
+                            .name("Михаил")
+                            .lastname("Павлович")
+                            .create();
+        System.out.println(name2);
+
+
+        testCasesForFirst.printer();
     }
+
+
 
 //    public static void humanTest(){
 //        HumanTestFromVlad.HumanBuilder hb = new HumanTestFromVlad.HumanBuilder();

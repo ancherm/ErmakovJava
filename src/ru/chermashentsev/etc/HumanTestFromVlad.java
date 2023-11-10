@@ -11,7 +11,7 @@ public class HumanTestFromVlad {
 
      public static class HumanBuilder{
 
-        private HumanTestFromVlad human;
+        private final HumanTestFromVlad human;
 
         public HumanBuilder(){
             this.human = new HumanTestFromVlad();

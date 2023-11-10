@@ -1,11 +1,12 @@
 package ru.chermashentsev.person;
 // 1.1.3 Имена
 public class Name {
-    private String surname;
-    private String name;
-    private String lastName;
+    String surname;
+    String name;
+    String lastName;
 
 
+    public Name() {}
     public Name(String name){
         this(null, name);
     }
@@ -25,7 +26,9 @@ public class Name {
     public void setSurname(String surname) {
         this.surname = surname;
     }
-
+    public void setName(String name) {
+        this.name = name;
+    }
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
