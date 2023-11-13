@@ -30,16 +30,17 @@ public class Line implements Lengthable, BrokenLineAble {
     }
 
     public void setStart(Point2D start) {
-        if (isNotNull(start))  this.start = new Point2D(start.getX(), start.getY());
+        isNotNull(start);
+        this.start = new Point2D(start.getX(), start.getY());
     }
 
     public void setEnd(Point2D end) {
-        if (isNotNull(end))  this.end = new Point2D(end.getX(), end.getY());
+        isNotNull(end);
+        this.end = new Point2D(end.getX(), end.getY());
     }
 
-    private boolean isNotNull(Point2D point) {
+    private void isNotNull(Point2D point) {
         if (point == null) throw new IllegalArgumentException("point равен null");
-        return true;
     }
 
     @Override
@@ -59,11 +60,10 @@ public class Line implements Lengthable, BrokenLineAble {
         if (o == null || getClass() != o.getClass()) return false;
 
         Line line = (Line) o;
-//        if (this.start == null || this.end == null
-//                || line.start == null || line.end == null) return false;
 
-        return Objects.equals(start, line.start) && Objects.equals(end, line.end);
+        return start.equals(line.start) && end.equals(line.end);
     }
+
 
     @Override
     public int hashCode() {

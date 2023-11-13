@@ -21,6 +21,7 @@ public class Point2D extends Point{
         if (o == null || getClass() != o.getClass()) return false;
 
         Point2D point2D = (Point2D) o;
+
         return y == point2D.y && getX() == point2D.getX();
     }
 

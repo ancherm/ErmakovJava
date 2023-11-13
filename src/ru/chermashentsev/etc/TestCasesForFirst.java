@@ -887,13 +887,26 @@ public class TestCasesForFirst {
 
     Line equalLine1 = new Line(1, 2, 3, 4);
     Point2D p10 = null;
-    Line equalLine2 = new Line(new Point2D(1,2), new Point2D(2,1));
+    Line equalLine2 = new Line(new Point2D(1,2), new Point2D(3,4));
     // 3.4.2
     public void callEqualLines() {
-        System.out.println("№ 3.4.2");
+        System.out.println("№ 3.4.3");
         System.out.println(equalLine1.equals(equalLine2));
         System.out.println(equalLine2.equals(equalLine1));
         System.out.println();
+    }
+
+    Point2D pointEqual1 = new Point2D(1, 2);
+    Point2D pointEqual2 = new Point2D(3, 9);
+    Point2D pointEqual3 = new Point2D(10, 29);
+    BrokenLine brokenLineEqual1 = new BrokenLine(pointEqual1, pointEqual2, pointEqual3);
+    BrokenLine brokenLineEqual2 = new BrokenLine(new Point2D(1, 2), pointEqual2, pointEqual3);
+    // 3.4.4
+    public void callEqualBrokenLine() {
+        System.out.println("№ 3.4.4");
+        System.out.println(brokenLineEqual1.equals(brokenLineEqual2));
+        System.out.println();
+
     }
 
 }

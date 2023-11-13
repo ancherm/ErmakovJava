@@ -50,6 +50,22 @@ public class BrokenLine implements Lengthable, BrokenLineAble {
     }
 
     @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        BrokenLine brokenLine = (BrokenLine) obj;
+
+        if (brokenLine.points.size() != this.points.size()) return false;
+        for (int index = 0; index < this.points.size(); index++) {
+            if (!this.points.get(index).equals(brokenLine.points.get(index)))
+                return false;
+        }
+
+        return true;
+    }
+
+    @Override
     public String toString() {
         return "Ломаная " + points;
     }

@@ -1,13 +1,24 @@
 package ru.chermashentsev.etc;
 
-public final class Fraction extends Number{
 
+import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+public final class Fraction extends Number{
     private final int num;
     private final int denum;
+    private static List<Integer> fractions;
 
-//    public static Fraction create(int num, int denum) {
-//        Fraction(num, denum);
-//    }
+    public static Fraction create(int num, int denum) {
+        if (denum <= 0) throw new IllegalArgumentException("Числитель должен быть больше нуля");
+
+        Fraction fraction = new Fraction(num, denum);
+//        fractions.add(fraction);
+        return fraction;
+    }
 
     public Fraction(int num, int denum) {
         if (denum <= 0) {
@@ -50,7 +61,6 @@ public final class Fraction extends Number{
         int newDenum = this.denum * fraction.num;
         return new Fraction(newNum, newDenum);
     }
-
 
     public Fraction plus(int number) {
         return plus(new Fraction(number, 1));

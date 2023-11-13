@@ -199,8 +199,12 @@ public class Main {
         // 3.4.1
         testCasesForFirst.callEqualFractions();
 
-        // 3.4.2
+        // 3.4.3
         testCasesForFirst.callEqualLines();
+
+        // 3.4.4
+        testCasesForFirst.callEqualBrokenLine();
+
     }
 
 
