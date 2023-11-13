@@ -20,7 +20,7 @@ public class Path {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Path path = (Path) o;
-        return cost == path.cost;
+        return cost == path.cost && city == path.city;
     }
 
     @Override

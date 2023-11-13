@@ -67,11 +67,23 @@ public class City {
         if (obj == null || getClass() != obj.getClass()) return false;
 
         City city = (City) obj;
+        boolean fl;
 
         if (city.paths.size() != this.paths.size()) return false;
+
         for (int index = 0; index < paths.size(); index++) {
-            if (!this.paths.get(index).equals(city.paths.get(index)))
+            outer:
+            for (int j = 0; j < paths.size(); j++) {
+                if (this.paths.get(index).equals(city.paths.get(j))) {
+//                    fl = true;
+//                    break;
+                    break outer;
+                }
                 return false;
+            }
+//            if (!fl)   return false;
+
+
         }
 
         return true;

@@ -1,6 +1,5 @@
-package ru.chermashentsev.etc;
+package ru.chermashentsev.main;
 
-import ru.chermashentsev.animals.bird.Bird;
 import ru.chermashentsev.animals.bird.Cuckoo;
 import ru.chermashentsev.animals.bird.Parrot;
 import ru.chermashentsev.animals.bird.Sparrow;
@@ -12,6 +11,9 @@ import ru.chermashentsev.city.CityWithTwoPaths;
 import ru.chermashentsev.city.Path;
 import ru.chermashentsev.department.Department;
 import ru.chermashentsev.department.Employee;
+import ru.chermashentsev.etc.Fraction;
+import ru.chermashentsev.etc.Home;
+import ru.chermashentsev.etc.Time;
 import ru.chermashentsev.figure.*;
 import ru.chermashentsev.geometry.line.*;
 import ru.chermashentsev.geometry.point.*;
@@ -27,7 +29,7 @@ import ru.chermashentsev.person.Student;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestCasesForFirst {
+public class TestCases {
     Point2D point1 = new Point2D(3, 5);
     Point2D point2D2 = new Point2D(25, 6);
     Point2D point2D3 = new Point2D(7, 8);
@@ -719,46 +721,24 @@ public class TestCasesForFirst {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // 3.3.1
-    private double addition(Number...numbers) {
-        double sum = 0;
-        for (Number number : numbers) {
-            sum += number.doubleValue();
-        }
-        return sum;
-    }
-
     public void callAddition() {
         System.out.println("№ 3.3.1");
-        System.out.println(addition(new Fraction(1, 3), 1));
-        System.out.println(addition(3.6, new Fraction(49, 12), 3, new Fraction(3, 2)));
+        System.out.println(Methods.addition(new Fraction(1, 3), 1));
+        System.out.println(Methods.addition(3.6, new Fraction(49, 12), 3, new Fraction(3, 2)));
         System.out.println();
     }
 
     // 3.3.2
-    private void birdMarket(Bird...birds) {
-        for (Bird bird : birds) {
-            bird.sing();
-        }
-    }
-
     public void callBirdMarket() {
         System.out.println("№ 3.3.2");
-        birdMarket(new Cuckoo(), new Sparrow(), new Cuckoo(), new Parrot("Пенёк"), new Sparrow());
+        Methods.birdMarket(new Cuckoo(), new Sparrow(), new Cuckoo(), new Parrot("Пенёк"), new Sparrow());
         System.out.println();
     }
 
     // 3.3.3
-    private double totalArea(Figure...figures) {
-        double totalArea = 0;
-        for (Figure figure : figures) {
-            totalArea += figure.area();
-        }
-        return totalArea;
-    }
-
     public void callTotalArea() {
         System.out.println("№ 3.3.3");
-        System.out.println(totalArea(
+        System.out.println(Methods.totalArea(
                 new Circle(point1, 3),
                 new Square(point1, 5),
                 new Rectangle(point1, 8, 4)
@@ -772,50 +752,27 @@ public class TestCasesForFirst {
 
     Meowable catTest = new CatTest();
 
-    private void meowing(Meowable...objects) {
-        for (Meowable cat: objects) {
-            cat.meow();
-        }
-    }
-
     public void callMeowing() {
         System.out.println("№ 3.3.4");
-        meowing(cat, cat2);
-        meowing(catTest);
+        Methods.meowing(cat, cat2);
+        Methods.meowing(catTest);
         System.out.println();
     }
 
 
 
     // 3.3.5
-    private double calculateLength(Lengthable...objects) {
-        double length = 0;
-        for (Lengthable line : objects) {
-            length += line.length();
-        }
-        return length;
-    }
-
     public void callCalculateLength() {
         System.out.println("№ 3.3.5");
-        System.out.println(calculateLength(line1, line2, brokenLine, brokenLine2));
+        System.out.println(Methods.calculateLength(line1, line2, brokenLine, brokenLine2));
         System.out.println();
     }
 
 
     // 3.3.7
-    private BrokenLine brokeMeFull(BrokenLineAble...objects) {
-        BrokenLine line = new BrokenLine();
-
-        for (BrokenLineAble brokenLine: objects) {
-            line.addPoints(brokenLine.getBrokenLine().getPointList());
-        }
-        return line;
-    }
-
     public void callBrokeMeFull() {
         System.out.println("№ 3.3.7");
-        System.out.println(brokeMeFull(line1, brokenLine2, triangle));
+        System.out.println(Methods.brokeMeFull(line1, brokenLine2, triangle));
         System.out.println();
     }
 
@@ -866,12 +823,6 @@ public class TestCasesForFirst {
     Fraction f1 = new Fraction(2, 3);
     Fraction f2 = new Fraction(2, 3);
 
-//    public boolean printer() {
-//        if (f1.getNum() == f2.getNum() && f1.getDenum() == f2.getDenum()) {
-//            return true;
-//        }
-//        return false;
-//    }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -920,15 +871,19 @@ public class TestCasesForFirst {
 
     // 3.4.5
     public void callEqualCities() {
-        aEqual.addPath(cEqual, 3);
-        bEqual.addPath(cEqual, 3);
+        cEqual.addPath(bEqual, 2);
+        cEqual.addPath(aEqual, aEqual);
 
-        aEqual.addPath(bEqual, 1);
+        bEqual.addPath(cEqual, aEqual);
+        bEqual.addPath(aEqual);
+
 
         System.out.println("№ 3.4.5");
         System.out.println(aEqual.equals(bEqual));
         System.out.println(bEqual.equals(aEqual));
+        System.out.println(aEqual);
         System.out.println(bEqual);
+        System.out.println(cEqual);
         System.out.println(cc);
         System.out.println(cc.equals(bEqual));
         System.out.println();

@@ -1,62 +1,63 @@
-import ru.chermashentsev.etc.TestCasesForFirst;
+package ru.chermashentsev.main;
+
 import ru.chermashentsev.person.Name;
 import ru.chermashentsev.person.NameBuilder;
 
 public class Main {
     public static void main(String[] args) {
-        TestCasesForFirst testCasesForFirst = new TestCasesForFirst();
+        TestCases testCases = new TestCases();
 
         // 1.1.1 Точка
-        testCasesForFirst.toCallPoint();
+        testCases.toCallPoint();
 
 
         // 1.1.2 Человек
-        testCasesForFirst.toCallPerson();
+        testCases.toCallPerson();
 
         // 1.1.3 Имена
-        testCasesForFirst.toCallName();
+        testCases.toCallName();
 
 
         // 1.1.4 Время
-        testCasesForFirst.toCallTime();
+        testCases.toCallTime();
 
         // 1.1.5 Дом
-        testCasesForFirst.toCallHome();
+        testCases.toCallHome();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // 1.2.1 Прямая
-        testCasesForFirst.toCallLine();
+        testCases.toCallLine();
 
         // 1.2.2 Человек с именем
-        testCasesForFirst.toCallPersonWithName();
+        testCases.toCallPersonWithName();
 
         // 1.2.3 Человек с родителем
-        testCasesForFirst.toCallPersonWithFather();
+        testCases.toCallPersonWithFather();
 
         // 1.2.4 Сотрудники и отделы
-        testCasesForFirst.toCallEmployeeAndDepartment();
+        testCases.toCallEmployeeAndDepartment();
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // 1.3.1 Студент
-        testCasesForFirst.toCallStudent();
+        testCases.toCallStudent();
 
         // 1.3.2 Ломаная
-        testCasesForFirst.toCallBrokenLine();
+        testCases.toCallBrokenLine();
 
         // 1.3.3 Города
-        testCasesForFirst.toCallCity();
+        testCases.toCallCity();
 
         // 1.3.4 Сотрудники и отделы
-        testCasesForFirst.toCallEmployeesWithSameDepartment();
+        testCases.toCallEmployeesWithSameDepartment();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // 1.4.6 Создаем человека
-        testCasesForFirst.toCreatePerson();
+        testCases.toCreatePerson();
 
         // 1.4.7 Создаем студента
-        testCasesForFirst.toCreateStudent();
+        testCases.toCreateStudent();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -64,61 +65,61 @@ public class Main {
 //        testCasesForFirst.toGunShooting();
 
         // 1.5.2 Кот мяукает
-        testCasesForFirst.toCatMeowing();
+        testCases.toCatMeowing();
 
         // 1.5.3
-        testCasesForFirst.toCallLineLength();
+        testCases.toCallLineLength();
 
         //1.5.4
-        testCasesForFirst.toCallHowNowTime();
+        testCases.toCallHowNowTime();
 
         // 1.5.5
-        testCasesForFirst.toCallFraction();
+        testCases.toCallFraction();
 
         // 1.5.6
-        testCasesForFirst.toCallExcellentStudent();
+        testCases.toCallExcellentStudent();
 
         // 1.5.7
-        testCasesForFirst.toCallLengthOfBrokenLine();
+        testCases.toCallLengthOfBrokenLine();
 
         // 1.5.8
-        testCasesForFirst.toCallSquare();
+        testCases.toCallSquare();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // 1.6.1
-        testCasesForFirst.toCallHomeAboveGround();
+        testCases.toCallHomeAboveGround();
 
         // 1.6.2
-        testCasesForFirst.toCallRightTime();
+        testCases.toCallRightTime();
 
         // 1.6.3
-        testCasesForFirst.toCallSideSquare();
+        testCases.toCallSideSquare();
 
         // 1.6.4
-        testCasesForFirst.toCallFraction2();
+        testCases.toCallFraction2();
 
         // 1.6.5
-        testCasesForFirst.toCallReloadGun();
+        testCases.toCallReloadGun();
 
         //1.6.6
-        testCasesForFirst.toCallDifferentLines();
+        testCases.toCallDifferentLines();
 
         // 1.6.7
-        testCasesForFirst.toCallPersonChange();
+        testCases.toCallPersonChange();
 
         // 1.6.11
-        testCasesForFirst.toCallBossOfDepartment();
+        testCases.toCallBossOfDepartment();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // 2.1.1
-        testCasesForFirst.callImmutableValueList();
+        testCases.callImmutableValueList();
 
         // 2.1.2
-        testCasesForFirst.callFixedValueList();
+        testCases.callFixedValueList();
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -126,58 +127,58 @@ public class Main {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // 3.1.2
-        testCasesForFirst.callClosedBrokenLine();
+        testCases.callClosedBrokenLine();
 
         // 3.1.3
-        testCasesForFirst.callCityWithTwoPaths();
+        testCases.callCityWithTwoPaths();
 
         // 3.1.4
-        testCasesForFirst.callAutomaticGun();
+        testCases.callAutomaticGun();
 
         // 3.1.5
-        testCasesForFirst.callPoint3D();
+        testCases.callPoint3D();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         // 3.2.1
-        testCasesForFirst.callGun();
+        testCases.callGun();
 
         // 3.2.2
-        testCasesForFirst.callFractionAsNumber();
+        testCases.callFractionAsNumber();
 
         // 3.2.3
-        testCasesForFirst.callBird();
+        testCases.callBird();
 
         // 3.2.4
-        testCasesForFirst.callFigure();
+        testCases.callFigure();
 
         // 3.2.5
-        testCasesForFirst.callPoints();
+        testCases.callPoints();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // 3.3.1
-        testCasesForFirst.callAddition();
+        testCases.callAddition();
 
         // 3.3.2
-        testCasesForFirst.callBirdMarket();
+        testCases.callBirdMarket();
 
         // 3.3.3
-        testCasesForFirst.callTotalArea();
+        testCases.callTotalArea();
 
         // 3.3.4
-        testCasesForFirst.callMeowing();
+        testCases.callMeowing();
 
         // 3.3.5
-        testCasesForFirst.callCalculateLength();
+        testCases.callCalculateLength();
 
         // 3.3.7
-        testCasesForFirst.callBrokeMeFull();
+        testCases.callBrokeMeFull();
 
         // 3.3.8
-        testCasesForFirst.callShooters();
+        testCases.callShooters();
 
         // 3.3.9
-        testCasesForFirst.linkingCities();
+        testCases.linkingCities();
 
 
         NameBuilder nameBuilder = new NameBuilder();
@@ -197,16 +198,16 @@ public class Main {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // 3.4.1
-        testCasesForFirst.callEqualFractions();
+        testCases.callEqualFractions();
 
         // 3.4.3
-        testCasesForFirst.callEqualLines();
+        testCases.callEqualLines();
 
         // 3.4.4
-        testCasesForFirst.callEqualBrokenLines();
+        testCases.callEqualBrokenLines();
 
         // 3.4.5
-        testCasesForFirst.callEqualCities();
+        testCases.callEqualCities();
 
     }
 
