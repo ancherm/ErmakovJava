@@ -61,6 +61,23 @@ public class City {
 
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        City city = (City) obj;
+
+        if (city.paths.size() != this.paths.size()) return false;
+        for (int index = 0; index < paths.size(); index++) {
+            if (!this.paths.get(index).equals(city.paths.get(index)))
+                return false;
+        }
+
+        return true;
+    }
+
+    @Override
     public String toString(){
         String resultString = "Город " + name + ": ";
         for (Path path : paths){

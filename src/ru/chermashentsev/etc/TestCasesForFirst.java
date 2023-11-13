@@ -864,7 +864,7 @@ public class TestCasesForFirst {
 
 
     Fraction f1 = new Fraction(2, 3);
-    Fraction f2 = new Fraction(4, 6);
+    Fraction f2 = new Fraction(2, 3);
 
 //    public boolean printer() {
 //        if (f1.getNum() == f2.getNum() && f1.getDenum() == f2.getDenum()) {
@@ -902,11 +902,37 @@ public class TestCasesForFirst {
     BrokenLine brokenLineEqual1 = new BrokenLine(pointEqual1, pointEqual2, pointEqual3);
     BrokenLine brokenLineEqual2 = new BrokenLine(new Point2D(1, 2), pointEqual2, pointEqual3);
     // 3.4.4
-    public void callEqualBrokenLine() {
+    public void callEqualBrokenLines() {
         System.out.println("№ 3.4.4");
         System.out.println(brokenLineEqual1.equals(brokenLineEqual2));
         System.out.println();
 
+    }
+
+    City aEqual = new City("aEqual");
+    City bEqual = new City("bEqual");
+    City cEqual = new City("cEqual");
+
+    CityWithTwoPaths cc = new CityWithTwoPaths("cc", List.of(new Path(cEqual, 3)));
+
+    Fraction fraction11 = Fraction.create(1, 2);
+    Fraction fraction12 = Fraction.create(1, 2);
+
+    // 3.4.5
+    public void callEqualCities() {
+        aEqual.addPath(cEqual, 3);
+        bEqual.addPath(cEqual, 3);
+
+        aEqual.addPath(bEqual, 1);
+
+        System.out.println("№ 3.4.5");
+        System.out.println(aEqual.equals(bEqual));
+        System.out.println(bEqual.equals(aEqual));
+        System.out.println(bEqual);
+        System.out.println(cc);
+        System.out.println(cc.equals(bEqual));
+        System.out.println();
+        System.out.println(fraction11 == fraction12);
     }
 
 }

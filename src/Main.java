@@ -203,7 +203,10 @@ public class Main {
         testCasesForFirst.callEqualLines();
 
         // 3.4.4
-        testCasesForFirst.callEqualBrokenLine();
+        testCasesForFirst.callEqualBrokenLines();
+
+        // 3.4.5
+        testCasesForFirst.callEqualCities();
 
     }
 

@@ -10,13 +10,20 @@ import java.util.List;
 public final class Fraction extends Number{
     private final int num;
     private final int denum;
-    private static List<Integer> fractions;
+    private static List<Fraction> fractions = new ArrayList<>();
 
     public static Fraction create(int num, int denum) {
+        Fraction fraction = new Fraction(num, denum);
+
         if (denum <= 0) throw new IllegalArgumentException("Числитель должен быть больше нуля");
 
-        Fraction fraction = new Fraction(num, denum);
-//        fractions.add(fraction);
+        for (Fraction f : fractions) {
+            if (f.num == num && f.denum == denum) {
+                return f;
+            }
+        }
+
+        fractions.add(fraction);
         return fraction;
     }
 
