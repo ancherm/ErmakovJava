@@ -1,4 +1,3 @@
-import ru.chermashentsev.etc.Fraction;
 import ru.chermashentsev.etc.TestCasesForFirst;
 import ru.chermashentsev.person.Name;
 import ru.chermashentsev.person.NameBuilder;
@@ -198,7 +197,10 @@ public class Main {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // 3.4.1
-        testCasesForFirst.callEqualFraction();
+        testCasesForFirst.callEqualFractions();
+
+        // 3.4.2
+        testCasesForFirst.callEqualLines();
     }
 
 

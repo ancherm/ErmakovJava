@@ -1,12 +1,7 @@
 package ru.chermashentsev.etc;
 
-
-import lombok.*;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public final class Fraction extends Number{
+
     private final int num;
     private final int denum;
 
@@ -55,6 +50,7 @@ public final class Fraction extends Number{
         int newDenum = this.denum * fraction.num;
         return new Fraction(newNum, newDenum);
     }
+
 
     public Fraction plus(int number) {
         return plus(new Fraction(number, 1));

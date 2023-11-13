@@ -1,31 +1,28 @@
 package ru.chermashentsev.etc;
 
-import ru.chermashentsev.department.*;
 import ru.chermashentsev.animals.bird.Bird;
 import ru.chermashentsev.animals.bird.Cuckoo;
-import ru.chermashentsev.animals.bird.Sparrow;
 import ru.chermashentsev.animals.bird.Parrot;
-import ru.chermashentsev.animals.cat.*;
-import ru.chermashentsev.city.*;
+import ru.chermashentsev.animals.bird.Sparrow;
+import ru.chermashentsev.animals.cat.Cat;
+import ru.chermashentsev.animals.cat.CatTest;
+import ru.chermashentsev.animals.cat.Meowable;
+import ru.chermashentsev.city.City;
+import ru.chermashentsev.city.CityWithTwoPaths;
+import ru.chermashentsev.city.Path;
+import ru.chermashentsev.department.Department;
+import ru.chermashentsev.department.Employee;
 import ru.chermashentsev.figure.*;
-import ru.chermashentsev.gun.*;
-import ru.chermashentsev.geometry.line.BrokenLine;
-import ru.chermashentsev.geometry.line.ClosedBrokenLine;
-import ru.chermashentsev.geometry.line.Line;
-import ru.chermashentsev.geometry.line.BrokenLineAble;
-import ru.chermashentsev.geometry.line.Lengthable;
-import ru.chermashentsev.geometry.point.Characteristic;
-import ru.chermashentsev.geometry.point.NameEnum;
-import ru.chermashentsev.geometry.point.Point2D;
-import ru.chermashentsev.geometry.point.Point3D;
-import ru.chermashentsev.geometry.point.Point;
-import ru.chermashentsev.geometry.point.PointUniversal;
+import ru.chermashentsev.geometry.line.*;
+import ru.chermashentsev.geometry.point.*;
+import ru.chermashentsev.gun.AutomaticGun;
+import ru.chermashentsev.gun.Gun;
+import ru.chermashentsev.gun.Shooter;
 import ru.chermashentsev.list.FixedValueList;
 import ru.chermashentsev.list.ImmutableValueList;
 import ru.chermashentsev.person.Name;
 import ru.chermashentsev.person.Person;
 import ru.chermashentsev.person.Student;
-import ru.chermashentsev.geometry.point.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -877,12 +874,25 @@ public class TestCasesForFirst {
 //    }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    public void callEqualFraction() {
-        System.out.println("№ 3.3.9");
+
+    // 3.4.1
+    public void callEqualFractions() {
+        System.out.println("№ 3.4.1");
         System.out.println(f2);
         System.out.println(f2.simplifyFraction());
         System.out.println(f1.equals(f2));
 //        System.out.println(f2.equals(f1));
+        System.out.println();
+    }
+
+    Line equalLine1 = new Line(1, 2, 3, 4);
+    Point2D p10 = null;
+    Line equalLine2 = new Line(new Point2D(1,2), new Point2D(2,1));
+    // 3.4.2
+    public void callEqualLines() {
+        System.out.println("№ 3.4.2");
+        System.out.println(equalLine1.equals(equalLine2));
+        System.out.println(equalLine2.equals(equalLine1));
         System.out.println();
     }
 
