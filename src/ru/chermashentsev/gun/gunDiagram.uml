@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="138.0" y="87.5">ru.chermashentsev.gun.Gun</node>
+    <node x="-92.0" y="-93.5">ru.chermashentsev.gun.Shooter</node>
+    <node x="360.0" y="275.0">ru.chermashentsev.gun.Shootable</node>
+    <node x="138.5" y="-49.5">ru.chermashentsev.gun.AutomaticGun</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ru.chermashentsev.gun.AutomaticGun" target="ru.chermashentsev.gun.Shootable" relationship="REALIZATION">
+      <point x="91.5" y="0.0" />
+      <point x="341.0" y="0.0" />
+      <point x="341.0" y="302.0" />
+      <point x="-60.0" y="0.0" />
+    </edge>
+    <edge source="ru.chermashentsev.gun.Gun" target="ru.chermashentsev.gun.Shootable" relationship="REALIZATION">
+      <point x="92.0" y="0.0" />
+      <point x="341.0" y="170.0" />
+      <point x="341.0" y="302.0" />
+      <point x="-60.0" y="0.0" />
+    </edge>
+    <edge source="ru.chermashentsev.gun.AutomaticGun" target="ru.chermashentsev.gun.Gun" relationship="GENERALIZATION">
+      <point x="0.0" y="49.5" />
+      <point x="0.0" y="-82.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.7680000000000002" showDependencies="false" x="336.8593749999998" y="86.61979166666663" />
+  <SelectedNodes>
+    <node>ru.chermashentsev.gun.Shooter</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
