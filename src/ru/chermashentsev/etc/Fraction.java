@@ -1,8 +1,6 @@
 package ru.chermashentsev.etc;
 
 
-import lombok.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,8 +12,6 @@ public final class Fraction extends Number{
 
     public static Fraction create(int num, int denum) {
         Fraction fraction = new Fraction(num, denum);
-
-        if (denum <= 0) throw new IllegalArgumentException("Числитель должен быть больше нуля");
 
         for (Fraction f : fractions) {
             if (f.num == num && f.denum == denum) {

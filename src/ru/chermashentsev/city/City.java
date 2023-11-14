@@ -64,26 +64,20 @@ public class City {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (obj == null) return false;
+        if (!(obj instanceof City)) return false;
 
         City city = (City) obj;
-        boolean fl;
 
         if (city.paths.size() != this.paths.size()) return false;
 
-        for (int index = 0; index < paths.size(); index++) {
-            outer:
+        for (int i = 0; i < paths.size(); i++) {
             for (int j = 0; j < paths.size(); j++) {
-                if (this.paths.get(index).equals(city.paths.get(j))) {
-//                    fl = true;
-//                    break;
-                    break outer;
+                if (this.paths.get(i).equals(city.paths.get(j))) {
+                    break;
                 }
-                return false;
+                if (j == paths.size() - 1)  return false;
             }
-//            if (!fl)   return false;
-
-
         }
 
         return true;

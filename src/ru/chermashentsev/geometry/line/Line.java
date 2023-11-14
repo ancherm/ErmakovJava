@@ -39,6 +39,11 @@ public class Line implements Lengthable, BrokenLineAble {
         this.end = new Point2D(end.getX(), end.getY());
     }
 
+    @Override
+    public BrokenLine getBrokenLine() {
+        return new BrokenLine(start, end);
+    }
+
     private void isNotNull(Point2D point) {
         if (point == null) throw new IllegalArgumentException("point равен null");
     }
@@ -47,11 +52,6 @@ public class Line implements Lengthable, BrokenLineAble {
     public double length() {
         return Math.sqrt(Math.pow(end.getX() - start.getX(), 2)
                 + Math.pow(end.getY() - start.getY(), 2));
-    }
-
-    @Override
-    public BrokenLine getBrokenLine() {
-        return new BrokenLine(start, end);
     }
 
     @Override

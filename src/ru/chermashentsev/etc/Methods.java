@@ -1,4 +1,4 @@
-package ru.chermashentsev.main;
+package ru.chermashentsev.etc;
 
 import ru.chermashentsev.animals.bird.Bird;
 import ru.chermashentsev.animals.cat.Meowable;
@@ -57,6 +57,14 @@ public class Methods {
             line.addPoints(brokenLine.getBrokenLine().getPointList());
         }
         return line;
+    }
+
+    // 4.1.4
+    public static double pow(String x, String y) {
+        int intX = Integer.parseInt(x);
+        int intY = Integer.parseInt(y);
+
+        return Math.pow(intX, intY);
     }
 
 }

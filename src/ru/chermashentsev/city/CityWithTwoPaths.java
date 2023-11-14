@@ -17,6 +17,7 @@ public class CityWithTwoPaths extends City {
             city.addPath(this, cost);
         }
     }
+
     public void addPath(City...city) {
         for (City c : city) {
             addPath(c, 0);

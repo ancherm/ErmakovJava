@@ -13,6 +13,7 @@ import ru.chermashentsev.department.Department;
 import ru.chermashentsev.department.Employee;
 import ru.chermashentsev.etc.Fraction;
 import ru.chermashentsev.etc.Home;
+import ru.chermashentsev.etc.Methods;
 import ru.chermashentsev.etc.Time;
 import ru.chermashentsev.figure.*;
 import ru.chermashentsev.geometry.line.*;
@@ -26,6 +27,7 @@ import ru.chermashentsev.person.Name;
 import ru.chermashentsev.person.Person;
 import ru.chermashentsev.person.Student;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -864,19 +866,23 @@ public class TestCases {
     City bEqual = new City("bEqual");
     City cEqual = new City("cEqual");
 
-    CityWithTwoPaths cc = new CityWithTwoPaths("cc", List.of(new Path(cEqual, 3)));
+    CityWithTwoPaths cc = new CityWithTwoPaths("cc");
 
     Fraction fraction11 = Fraction.create(1, 2);
     Fraction fraction12 = Fraction.create(1, 2);
 
     // 3.4.5
     public void callEqualCities() {
-        cEqual.addPath(bEqual, 2);
-        cEqual.addPath(aEqual, aEqual);
 
-        bEqual.addPath(cEqual, aEqual);
-        bEqual.addPath(aEqual);
+        cEqual.addPath(bEqual);
+        cEqual.addPath(aEqual);
 
+//        bEqual.addPath(aEqual);
+        bEqual.addPath(cEqual);
+
+        aEqual.addPath(cEqual);
+//        aEqual.addPath(bEqual);
+        cc.addPath(cEqual);
 
         System.out.println("№ 3.4.5");
         System.out.println(aEqual.equals(bEqual));
@@ -885,9 +891,35 @@ public class TestCases {
         System.out.println(bEqual);
         System.out.println(cEqual);
         System.out.println(cc);
-        System.out.println(cc.equals(bEqual));
+        System.out.println(cc.equals(aEqual));
         System.out.println();
+
         System.out.println(fraction11 == fraction12);
     }
 
+    // 4.1.3
+    public void additionFromPackage() {
+        System.out.println("№ 4.1.3");
+        System.out.println(Methods.addition(7, new Fraction(11, 3), 3.21, new BigInteger("12345678912345678912")));
+        System.out.println();
+    }
+
+    // 4.1.4
+    public void powFromPackage(String[] args) {
+        System.out.println("№ 4.1.4");
+        if (args.length > 2) System.out.println("Вы передали " + args.length + " параметра, были использованы " + args[0] + " и " + args[1]);
+        System.out.println(Methods.pow(args[0], args[1]));
+        System.out.println();
+    }
+
+
+    Point2D point2D = new Point2D(1, 2);
+    java.awt.Point pointAwt = new java.awt.Point(3, 4);
+    // 4.1.5
+    public void simpleNameForPoint() {
+        System.out.println("№ 4.1.5");
+        System.out.println(point2D);
+        System.out.println(pointAwt);
+        System.out.println();
+    }
 }

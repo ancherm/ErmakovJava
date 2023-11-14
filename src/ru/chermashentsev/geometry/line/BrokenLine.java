@@ -57,6 +57,8 @@ public class BrokenLine implements Lengthable, BrokenLineAble {
         BrokenLine brokenLine = (BrokenLine) obj;
 
         if (brokenLine.points.size() != this.points.size()) return false;
+        if (brokenLine.length() != this.length())  return false;
+
         for (int index = 0; index < this.points.size(); index++) {
             if (!this.points.get(index).equals(brokenLine.points.get(index)))
                 return false;
