@@ -1,7 +1,12 @@
 package ru.chermashentsev.main;
 
+import ru.chermashentsev.karate.Combo;
+import ru.chermashentsev.karate.KarateFighter;
+import ru.chermashentsev.karate.Kick;
 import ru.chermashentsev.person.Name;
 import ru.chermashentsev.person.NameBuilder;
+
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -225,7 +230,7 @@ public class Main {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        // 4.2.4-5
+        // 4.2.4 - 5
         try {
             testCases.cloneObjects();
         } catch (CloneNotSupportedException e) {
@@ -236,6 +241,15 @@ public class Main {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+        // 6.3.2
+        KarateFighter karateFighter = new KarateFighter("Andrew");
+        Combo combo = new Combo();
+        Kick kickLeg = new Kick();
+        Kick kickHand = new Kick();
+        Kick kickInJump = new Kick();
+        combo.setStrikes(List.of(kickHand, kickInJump, kickLeg));
+        combo.perform(karateFighter);
     }
 
 
