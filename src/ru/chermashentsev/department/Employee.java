@@ -8,8 +8,8 @@ package ru.chermashentsev.department;
 import java.util.List;
 
 public class Employee {
-    private String name;
-    private Department department;
+    String name;
+    Department department;
 
     public Employee(String name) {
         this.name = name;
@@ -36,12 +36,6 @@ public class Employee {
     public List<Employee> findOutInfoAboutEmployees() {
         return department.getEmployees();
     }
-
-//    public List<Employee> deleteEmployee(Employee employee) {
-//        List<Employee> employeeList = new ArrayList<>(department.getEmployees());
-//        employeeList.remove(employee);
-//        return employeeList;
-//    }
 
     public String toString() {
         if (department.getBoss() != null && this != department.getBoss()) {

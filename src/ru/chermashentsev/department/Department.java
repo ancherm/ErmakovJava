@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Department {
-    private String name;
-    private Employee boss;
-    private List<Employee> employees;
+    String name;
+    Employee boss;
+    List<Employee> employees;
 
     public Department(String name){
         this.name = name;
