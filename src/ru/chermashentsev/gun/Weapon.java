@@ -1,7 +1,7 @@
 package ru.chermashentsev.gun;
 
 abstract class Weapon {
-    private int ammo;
+    protected int ammo;
 
     public Weapon(int ammo) {
         if (ammo < 0) {

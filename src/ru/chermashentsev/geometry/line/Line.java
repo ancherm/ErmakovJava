@@ -70,6 +70,11 @@ public class Line implements Lengthable, BrokenLineAble {
         return Objects.hash(start, end);
     }
 
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return new Line(start, end);
+    }
+
     public String toString() {
         return "Линия от " + start + " до " + end;
     }

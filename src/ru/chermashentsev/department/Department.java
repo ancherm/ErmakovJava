@@ -40,14 +40,12 @@ public class Department {
         if (!this.employees.contains(employee)) {
             this.employees.add(employee);
         }
-        if (employee.getDepartment() != this) {
-            employee.setDepartment(this);
-        }
+
+        employee.department = this;
     }
 
-    public void deleteEmployee(Employee employee) {
+    void deleteEmployee(Employee employee) {
         employees.remove(employee);
-
     }
 
     @Override

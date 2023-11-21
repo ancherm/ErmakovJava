@@ -496,7 +496,7 @@ public class TestCases {
             reloadGun.shoot();
         }
 
-        reloadGun.unload();
+        System.out.println(reloadGun.unload());
         reloadGun.shoot();
         System.out.println();
 
@@ -896,7 +896,7 @@ public class TestCases {
 
         System.out.println(fraction11 == fraction12);
     }
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // 4.1.3
     public void additionFromPackage() {
         System.out.println("№ 4.1.3");
@@ -920,6 +920,18 @@ public class TestCases {
         System.out.println("№ 4.1.5");
         System.out.println(point2D);
         System.out.println(pointAwt);
+        System.out.println();
+    }
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    public void cloneObjects() throws CloneNotSupportedException {
+        System.out.println("№ 4.2.5");
+        System.out.println(p1);
+        System.out.println(p1.clone());
+        System.out.println();
+        System.out.println(line1);
+        System.out.println(line1.clone());
         System.out.println();
     }
 }

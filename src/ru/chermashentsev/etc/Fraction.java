@@ -167,6 +167,11 @@ public final class Fraction extends Number{
     }
 
     @Override
+    public Object clone() throws CloneNotSupportedException {
+        return new Fraction(num, denum);
+    }
+
+    @Override
     public String toString() {
         return num + "/" + denum;
     }

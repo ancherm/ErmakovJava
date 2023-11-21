@@ -4,7 +4,7 @@ import java.util.Objects;
 
 // 1.1.1 Точка координат
 public class Point2D extends Point{
-    private final int y;
+    protected final int y;
 
     public Point2D(int x, int y) {
         super(x);
@@ -13,6 +13,11 @@ public class Point2D extends Point{
 
     public int getY() {
         return y;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return new Point2D(x, y);
     }
 
     @Override
