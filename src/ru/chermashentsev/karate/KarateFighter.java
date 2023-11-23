@@ -5,9 +5,19 @@ import lombok.Getter;
 public class KarateFighter {
     @Getter
     final String name;
+    EBelt belt;
 
-    public KarateFighter(String name) {
+    public KarateFighter(String name, EBelt belt) {
         this.name = name;
+        this.belt = belt;
+    }
+
+    public EBelt getBelt() {
+        return belt;
+    }
+
+    public void setBelt(EBelt belt) {
+        this.belt = belt;
     }
 
     public void kickLeg() {
@@ -18,5 +28,10 @@ public class KarateFighter {
     }
     public void kickInJump() {
         System.out.println(name + ": вжух");
+    }
+
+    @Override
+    public  String toString() {
+        return name + " " ;
     }
 }

@@ -1,12 +1,12 @@
 package ru.chermashentsev.main;
 
-import ru.chermashentsev.karate.Combo;
-import ru.chermashentsev.karate.KarateFighter;
-import ru.chermashentsev.karate.Kick;
+import ru.chermashentsev.etc.Operations;
+import ru.chermashentsev.karate.*;
+import ru.chermashentsev.karate.kicks.KickHand;
+import ru.chermashentsev.karate.kicks.KickInJump;
+import ru.chermashentsev.karate.kicks.KickLeg;
 import ru.chermashentsev.person.Name;
 import ru.chermashentsev.person.NameBuilder;
-
-import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
@@ -243,13 +243,18 @@ public class Main {
 
 
         // 6.3.2
-        KarateFighter karateFighter = new KarateFighter("Andrew");
+        KarateFighter karateFighter = new KarateFighter("Andrew", EBelt.BLACK);
         Combo combo = new Combo();
-        Kick kickLeg = new Kick();
-        Kick kickHand = new Kick();
-        Kick kickInJump = new Kick();
-        combo.setStrikes(List.of(kickHand, kickInJump, kickLeg));
+
+        combo.strikes.add(KickHand.add());
+        combo.strikes.add(KickLeg.add());
+        combo.strikes.add(KickInJump.add());
+//        combo.strikes.add(karateFighter);
+
         combo.perform(karateFighter);
+        System.out.println(karateFighter.getBelt().getPower());
+
+        System.out.println(Operations.PLUS.getClass().getSuperclass());
     }
 
 
