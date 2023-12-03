@@ -242,6 +242,12 @@ public class Main {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+        // 5.1.2
+        testCases.callStorageWithoutNull();
+
+
+
+
         // 6.3.2
         KarateFighter karateFighter = new KarateFighter("Andrew", EBelt.BLACK);
         Combo combo = new Combo();

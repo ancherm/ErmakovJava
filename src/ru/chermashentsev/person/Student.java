@@ -1,7 +1,11 @@
 package ru.chermashentsev.person;
 
+import ru.chermashentsev.Storage;
+
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 public class Student {
@@ -47,13 +51,25 @@ public class Student {
     }
 
 
-    public double averageMarks() {
+//    public double averageMarks() {
+//        double sumOfMarks = 0;
+//        for (Integer mark : marks) {
+//            sumOfMarks += mark;
+//        }
+//        return marks.size() > 0 ? sumOfMarks / marks.size() : 0;
+//    }
+
+    public Optional<Double> averageMarks() {
+        if (marks.isEmpty()) return Optional.empty();
+
         double sumOfMarks = 0;
         for (Integer mark : marks) {
             sumOfMarks += mark;
         }
-        return marks.size() > 0 ? sumOfMarks / marks.size() : 0;
+        return Optional.of(sumOfMarks / marks.size());
     }
+
+
 
     public boolean isExcellentStudent() {
         if (marks.size() > 0) {

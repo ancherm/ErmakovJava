@@ -1,5 +1,6 @@
 package ru.chermashentsev.main;
 
+import ru.chermashentsev.Storage;
 import ru.chermashentsev.animals.bird.Cuckoo;
 import ru.chermashentsev.animals.bird.Parrot;
 import ru.chermashentsev.animals.bird.Sparrow;
@@ -30,6 +31,7 @@ import ru.chermashentsev.person.Student;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class TestCases {
     Point2D point1 = new Point2D(3, 5);
@@ -932,6 +934,32 @@ public class TestCases {
         System.out.println();
         System.out.println(line1);
         System.out.println(line1.clone());
+        System.out.println();
+    }
+
+
+    public Student theBestAvgMarks(List<Student> students) {
+        if (students.isEmpty()) return null;
+
+        Student studentMaxAvg = students.get(0);
+        double maxValue = studentMaxAvg.averageMarks().orElse(Double.valueOf(0));
+
+        for (Student student : students) {
+            double tmpMark = studentMaxAvg.averageMarks().orElse(Double.valueOf(0));
+            if (maxValue < tmpMark) {
+                studentMaxAvg = student;
+                maxValue = tmpMark;
+            }
+        }
+        return studentMaxAvg;
+    }
+
+
+    // 5.1.2
+    public void callStorageWithoutNull() {
+        System.out.println("№ 5.1.2");
+        Storage<Integer> storageInt = Storage.create(3);
+        System.out.println(storageInt.getObject(-1));
         System.out.println();
     }
 }
