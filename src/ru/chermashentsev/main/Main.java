@@ -241,26 +241,33 @@ public class Main {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        // 5.1.1
+        testCases.callGenericBox();
 
         // 5.1.2
         testCases.callStorageWithoutNull();
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 
 
         // 6.3.2
-        KarateFighter karateFighter = new KarateFighter("Andrew", EBelt.BLACK);
-        Combo combo = new Combo();
-
-        combo.strikes.add(KickHand.add());
-        combo.strikes.add(KickLeg.add());
-        combo.strikes.add(KickInJump.add());
-//        combo.strikes.add(karateFighter);
-
-        combo.perform(karateFighter);
-        System.out.println(karateFighter.getBelt().getPower());
-
-        System.out.println(Operations.PLUS.getClass().getSuperclass());
+//        KarateFighter karateFighter = new KarateFighter("Andrew", EBelt.BLACK);
+//        Combo combo = new Combo();
+//
+//        combo.strikes.add(KickHand.add());
+//        combo.strikes.add(KickLeg.add());
+//        combo.strikes.add(KickInJump.add());
+////        combo.strikes.add(karateFighter);
+//
+//        combo.perform(karateFighter);
+//        System.out.println(karateFighter.getBelt().getPower());
+//
+//        System.out.println(Operations.PLUS.getClass().getSuperclass());
     }
 
 

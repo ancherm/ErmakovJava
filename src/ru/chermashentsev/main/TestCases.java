@@ -1,5 +1,6 @@
 package ru.chermashentsev.main;
 
+import ru.chermashentsev.Box;
 import ru.chermashentsev.Storage;
 import ru.chermashentsev.animals.bird.Cuckoo;
 import ru.chermashentsev.animals.bird.Parrot;
@@ -938,6 +939,43 @@ public class TestCases {
     }
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Box<Integer> integerBox = new Box<>();
+
+    // 5.1.1
+    public void callGenericBox() {
+        System.out.println("№ 5.1.2");
+        integerBox.setObj(3);
+        System.out.println(integerBox.isFill());
+        System.out.println(integerBox.getObj());
+        System.out.println(integerBox.isFill());
+        System.out.println();
+    }
+
+
+    // 5.1.2
+    public void callStorageWithoutNull() {
+        System.out.println("№ 5.1.2");
+        Storage<Integer> storageInt = Storage.create(3);
+        System.out.println(storageInt.getObject(-1));
+        System.out.println();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     public Student theBestAvgMarks(List<Student> students) {
         if (students.isEmpty()) return null;
 
@@ -954,12 +992,4 @@ public class TestCases {
         return studentMaxAvg;
     }
 
-
-    // 5.1.2
-    public void callStorageWithoutNull() {
-        System.out.println("№ 5.1.2");
-        Storage<Integer> storageInt = Storage.create(3);
-        System.out.println(storageInt.getObject(-1));
-        System.out.println();
-    }
 }
