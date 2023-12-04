@@ -2,15 +2,16 @@ package ru.chermashentsev.list;
 
 import java.util.Arrays;
 
-public class ImmutableValueList {
-    private int[] array;
+public class ImmutableValueList<T> {
+    private T[] array;
 
 
-    public ImmutableValueList(int... array) {
+    @SafeVarargs
+    public ImmutableValueList(T... array) {
         this.array = Arrays.copyOf(array, array.length);
     }
 
-    public ImmutableValueList(ImmutableValueList array) {
+    public ImmutableValueList(ImmutableValueList<T> array) {
         this(array.array);
     }
 
@@ -20,7 +21,7 @@ public class ImmutableValueList {
     }
 
 
-    public int getValue(int index) {
+    public T getValue(int index) {
         isRightIndex(index);
         return array[index];
     }
@@ -29,11 +30,11 @@ public class ImmutableValueList {
         return array.length;
     }
 
-    public int[] getArray() {
+    public T[] getArray() {
         return Arrays.copyOf(array, array.length);
     }
 
-    public void changeValue(int value, int index) {
+    public void changeValue(T value, int index) {
         isRightIndex(index);
         array[index] = value;
     }
