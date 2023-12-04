@@ -5,38 +5,33 @@ import ru.chermashentsev.geometry.point.Point2D;
 import java.util.Objects;
 
 // 1.2.1 Прямая
-public class Line implements Lengthable, BrokenLineAble {
-    private Point2D start;
-    private Point2D end;
+public class Line<T extends Point2D> implements Lengthable, BrokenLineAble {
+    private T start;
+    private T end;
 
 
-    public Line(Point2D start, Point2D end) {
+    public Line(T start, T end) {
         if (start == null || end == null) throw new IllegalArgumentException("start или end равен null");
         this.start = start;
         this.end = end;
     }
 
-
-    public Line(int x1, int y1, int x2, int y2) {
-        this(new Point2D(x1, y1), new Point2D(x2, y2));
-    }
-
-    public Point2D getStart() {
-        return new Point2D(start.getX(), start.getY()) ;
+    public T getStart() {
+        return start;
     }
 
     public Point2D getEnd() {
-        return new Point2D(end.getX(), end.getY());
+        return end;
     }
 
-    public void setStart(Point2D start) {
+    public void setStart(T start) {
         isNotNull(start);
-        this.start = new Point2D(start.getX(), start.getY());
+        this.start = start;
     }
 
-    public void setEnd(Point2D end) {
+    public void setEnd(T end) {
         isNotNull(end);
-        this.end = new Point2D(end.getX(), end.getY());
+        this.end = end;
     }
 
     @Override
@@ -44,7 +39,7 @@ public class Line implements Lengthable, BrokenLineAble {
         return new BrokenLine(start, end);
     }
 
-    private void isNotNull(Point2D point) {
+    private void isNotNull(T point) {
         if (point == null) throw new IllegalArgumentException("point равен null");
     }
 

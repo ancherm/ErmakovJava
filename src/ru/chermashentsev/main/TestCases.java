@@ -57,7 +57,7 @@ public class TestCases {
     Home home3 = new Home(23);
 
 
-    Line line1 = new Line(75, 3, 23, 8);
+    Line line1 = new Line(new Point2D(75, 3),new Point2D(23, 8));
     Line line2 = new Line(new Point2D(5, 10), new Point2D(25, 10));
     Line line3 = new Line(line1.getStart(), line2.getEnd());
 
@@ -74,9 +74,6 @@ public class TestCases {
 //    Person personIvan = new Person(ivan);
 //    Person personPetr = new Person(petr, personIvan);
 //    Person personBoris = new Person(boris, personPetr);
-
-
-
 
 
     Student studentVasy = new Student("Вася", new ArrayList<>());
@@ -98,7 +95,7 @@ public class TestCases {
     City cityF = new City("F");
 
 
-//    Gun ru.chermashentsev.gun = new Gun();
+    //    Gun ru.chermashentsev.gun = new Gun();
     Cat catBarsik = new Cat("Барсик");
 
 
@@ -156,7 +153,7 @@ public class TestCases {
     // 1.2.1 Линия
     public void toCallLine() {
         System.out.println("1.2.1 Линия");
-//        line2.setEnd(new Point2D(5, 10));
+        line2.setEnd(new Point2D(5, 10));
         System.out.println(line1);
         System.out.println(line2);
         System.out.println(line3);
@@ -255,6 +252,7 @@ public class TestCases {
     ArrayList<Path> pathsFromCityA = new ArrayList<>();
 
     City addCity = new City("AddCity", new ArrayList<>(List.of(new Path(cityA, 100))));
+
     //    City ct = new City("AAA", pathsFromCityA);
     // 1.3.3
     public void toCallCity() {
@@ -329,6 +327,7 @@ public class TestCases {
 
     List<Integer> marksMaks = new ArrayList<>(List.of(5, 3));
     Student studentMaksim = new Student("Максим", marksMaks);
+
     public void toCreateStudent() {
         System.out.println("№ 1.4.7");
 
@@ -393,6 +392,7 @@ public class TestCases {
 
 
     Student studentVany = new Student("Ваня", new ArrayList<>());
+
     // 1.5.6
     public void toCallExcellentStudent() {
         studentVany.addMark(List.of(5));
@@ -412,6 +412,7 @@ public class TestCases {
 
 
     BrokenLine brokenLine2 = new BrokenLine(new Point2D(1, 5), new Point2D(2, 8), new Point2D(5, 3));
+
     // 1.5.7
     public void toCallLengthOfBrokenLine() {
         List<Point2D> point2DList1 = new ArrayList<>(List.of(new Point2D(5, 15), new Point2D(8, 10)));
@@ -444,7 +445,8 @@ public class TestCases {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     Home homeAboveGround1 = new Home(3);
-//    Home homeAboveGround2 = new Home(-3);
+
+    //    Home homeAboveGround2 = new Home(-3);
     // 1.6.1
     public void toCallHomeAboveGround() {
         System.out.println("№ 1.6.1");
@@ -455,6 +457,7 @@ public class TestCases {
 
     Time rightTime1 = new Time(10, 10, 70);
     Time rightTime2 = new Time(25 * 3600);
+
     // 1.6.2
     public void toCallRightTime() {
         System.out.println("№ 1.6.2");
@@ -466,6 +469,7 @@ public class TestCases {
 
     Square sq = new Square(point1, 5);
     Square sq2 = new Square(point1, 10);
+
     // 1.6.3
     public void toCallSideSquare() {
         sq.setSide(3);
@@ -476,7 +480,8 @@ public class TestCases {
     }
 
 
-    Fraction fr1 = new Fraction(-5,2);
+    Fraction fr1 = new Fraction(-5, 2);
+
     // 1.6.4
     public void toCallFraction2() {
         System.out.println("№ 1.6.4");
@@ -484,7 +489,8 @@ public class TestCases {
         System.out.println();
     }
 
-    Gun reloadGun = new Gun(3,7);
+    Gun reloadGun = new Gun(3, 7);
+
     //1.6.5
     public void toCallReloadGun() {
         System.out.println("№ 1.6.5");
@@ -524,6 +530,7 @@ public class TestCases {
 
 
     Person personTest1 = new Person("Name", 180, personLev);
+
     // 1.6.7
     public void toCallPersonChange() {
         System.out.println("№ 1.6.7");
@@ -576,14 +583,14 @@ public class TestCases {
         System.out.println();
     }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // 2.1
-    int[] arr = new int[] {1,3,4};
+    int[] arr = new int[]{1, 3, 4};
     ImmutableValueList list1 = new ImmutableValueList(arr);
     ImmutableValueList list2 = new ImmutableValueList(1);
-    ImmutableValueList list3 = new ImmutableValueList(1,2,3);
+    ImmutableValueList list3 = new ImmutableValueList(1, 2, 3);
     ImmutableValueList list4 = new ImmutableValueList(list3);
 
 
@@ -617,6 +624,7 @@ public class TestCases {
     List<Point2D> closedBrokenLineList = new ArrayList<>(List.of(new Point2D(3, 1), new Point2D(5, 2), new Point2D(4, 5)));
     ClosedBrokenLine closedBrokenLine = new ClosedBrokenLine(closedBrokenLineList);
     BrokenLine brokenLine = new BrokenLine(closedBrokenLineList);
+
     // 3.1.2
     public void callClosedBrokenLine() {
 //        closedBrokenLine.addPoints(List.of(new Point2D(3, 1)));
@@ -653,6 +661,7 @@ public class TestCases {
 
 
     Point3D point3D = new Point3D(2, 8, -9);
+
     // 3.1.5
     public void callPoint3D() {
         System.out.println("№ 3.1.5");
@@ -661,7 +670,7 @@ public class TestCases {
 
     }
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //3.2.1
     public void callGun() {
 //        AutomaticGun automaticGun1 = new AutomaticGun(5, 1);
@@ -716,6 +725,7 @@ public class TestCases {
             new Characteristic(NameEnum.TIME, new Time(11, 0, 0)),
             new Characteristic(NameEnum.COLOR, "Красный цвет")
     ));
+
     // 3.2.5
     public void callPoints() {
         System.out.println("№ 3.2.5");
@@ -765,7 +775,6 @@ public class TestCases {
     }
 
 
-
     // 3.3.5
     public void callCalculateLength() {
         System.out.println("№ 3.3.5");
@@ -788,6 +797,7 @@ public class TestCases {
 
     Gun gun = new Gun(1);
     AutomaticGun autoGun = new AutomaticGun(1);
+
     public void callShooters() {
         System.out.println("№ 3.3.8");
         shooter2.setGun(gun);
@@ -841,9 +851,10 @@ public class TestCases {
         System.out.println();
     }
 
-    Line equalLine1 = new Line(1, 2, 3, 4);
+    Line equalLine1 = new Line(new Point2D(1, 2),new Point2D(3, 4));
     Point2D p10 = null;
-    Line equalLine2 = new Line(new Point2D(1,2), new Point2D(3,4));
+    Line equalLine2 = new Line(new Point2D(1, 2), new Point2D(3, 4));
+
     // 3.4.2
     public void callEqualLines() {
         System.out.println("№ 3.4.3");
@@ -857,6 +868,7 @@ public class TestCases {
     Point2D pointEqual3 = new Point2D(10, 29);
     BrokenLine brokenLineEqual1 = new BrokenLine(pointEqual1, pointEqual2, pointEqual3);
     BrokenLine brokenLineEqual2 = new BrokenLine(new Point2D(1, 2), pointEqual2, pointEqual3);
+
     // 3.4.4
     public void callEqualBrokenLines() {
         System.out.println("№ 3.4.4");
@@ -899,7 +911,8 @@ public class TestCases {
 
         System.out.println(fraction11 == fraction12);
     }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     // 4.1.3
     public void additionFromPackage() {
         System.out.println("№ 4.1.3");
@@ -910,7 +923,8 @@ public class TestCases {
     // 4.1.4
     public void powFromPackage(String[] args) {
         System.out.println("№ 4.1.4");
-        if (args.length > 2) System.out.println("Вы передали " + args.length + " параметра, были использованы " + args[0] + " и " + args[1]);
+        if (args.length > 2)
+            System.out.println("Вы передали " + args.length + " параметра, были использованы " + args[0] + " и " + args[1]);
         System.out.println(Methods.pow(args[0], args[1]));
         System.out.println();
     }
@@ -918,6 +932,7 @@ public class TestCases {
 
     Point2D point2D = new Point2D(1, 2);
     java.awt.Point pointAwt = new java.awt.Point(3, 4);
+
     // 4.1.5
     public void simpleNameForPoint() {
         System.out.println("№ 4.1.5");
@@ -957,6 +972,7 @@ public class TestCases {
 
 
     Storage<Integer> storageInt = Storage.create(null);
+
     // 5.1.2
     public void callStorageWithoutNull() {
         System.out.println("№ 5.1.2");
@@ -966,9 +982,10 @@ public class TestCases {
 
 
     Student st = new Student("StTmp", List.of(4));
-    // 5.1.3
+
+    // 5.1.4
     public void callStudentComparable() {
-        System.out.println("№ 5.1.2");
+        System.out.println("№ 5.1.4");
         System.out.println(studentVasy.averageMarks());
         System.out.println(studentPety.averageMarks());
 
@@ -976,6 +993,19 @@ public class TestCases {
         System.out.println(studentVasy.compare(st));
         System.out.println();
     }
+
+    // 5.1.5
+    Line<Point3D> point3DLine = new Line<>(new Point3D(1, 2, 3),
+            new Point3D(3, 2, 1));
+
+    public void callGenericLine() {
+        System.out.println("№ 5.1.4");
+        System.out.println(point3DLine);
+        System.out.println();
+
+    }
+
+
 
 
 
