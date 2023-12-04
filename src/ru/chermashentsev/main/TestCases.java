@@ -956,15 +956,26 @@ public class TestCases {
     }
 
 
+    Storage<Integer> storageInt = Storage.create(null);
     // 5.1.2
     public void callStorageWithoutNull() {
         System.out.println("№ 5.1.2");
-        Storage<Integer> storageInt = Storage.create(3);
         System.out.println(storageInt.getObject(-1));
         System.out.println();
     }
 
 
+    Student st = new Student("StTmp", List.of(4));
+    // 5.1.3
+    public void callStudentComparable() {
+        System.out.println("№ 5.1.2");
+        System.out.println(studentVasy.averageMarks());
+        System.out.println(studentPety.averageMarks());
+
+        System.out.println(studentPety.compare(studentVasy));
+        System.out.println(studentVasy.compare(st));
+        System.out.println();
+    }
 
 
 

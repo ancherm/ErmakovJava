@@ -1,5 +1,6 @@
 package ru.chermashentsev.person;
 
+import ru.chermashentsev.Comparable;
 import ru.chermashentsev.Storage;
 
 import javax.swing.text.html.Option;
@@ -8,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-public class Student {
+public class Student implements Comparable<Student> {
     private String name;
     private List<Integer> marks = new ArrayList<>();
 
@@ -71,6 +72,13 @@ public class Student {
 
 
 
+    @Override
+    public int compare(Student object) {
+        return Double.compare(this.averageMarks().orElse(-99.0), object.averageMarks().orElse(-99.0));
+    }
+
+
+
     public boolean isExcellentStudent() {
         if (marks.size() > 0) {
             for (Integer mark : marks) {
@@ -86,4 +94,5 @@ public class Student {
         if (marks == null) return name + ": []";
         return name + ": " + marks;
     }
+
 }
