@@ -6,6 +6,9 @@ import ru.chermashentsev.figure.Figure;
 import ru.chermashentsev.geometry.line.BrokenLine;
 import ru.chermashentsev.geometry.line.BrokenLineAble;
 import ru.chermashentsev.geometry.line.Lengthable;
+import ru.chermashentsev.geometry.line.Line;
+import ru.chermashentsev.geometry.point.Point2D;
+import ru.chermashentsev.geometry.point.Point3D;
 
 public class Methods {
     // 3.3.1
@@ -67,4 +70,24 @@ public class Methods {
         return Math.pow(intX, intY);
     }
 
+
+    // 5.2.1
+    public static void moveLine(Line<? super Point3D> line) {
+        Point3D start = (Point3D) line.getStart();
+        Point3D end = (Point3D) line.getEnd();
+
+        if (start.getX() >= 0) {
+            line.setStart(new Point3D(start.getX() + 10, start.getY(), start.getZ()));
+        }
+        else if (start.getX() < 0) {
+            line.setStart(new Point3D(start.getX() - 10, start.getY(), start.getZ()));
+        }
+         if(end.getX() >= 0) {
+            line.setEnd(new Point3D(end.getX() + 10, end.getY(), start.getZ()));
+        }
+        else if (end.getX() < 0) {
+            line.setEnd(new Point3D(end.getX() - 10, end.getY(), start.getZ()));
+        }
+
+    }
 }

@@ -32,7 +32,6 @@ import ru.chermashentsev.person.Student;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class TestCases {
     Point2D point1 = new Point2D(3, 5);
@@ -995,16 +994,32 @@ public class TestCases {
     }
 
     // 5.1.5
-    Line<Point3D> point3DLine = new Line<>(new Point3D(1, 2, 3),
+    Line<Point3D> lineForGeneric = new Line<>(new Point3D(1, 2, 3),
             new Point3D(3, 2, 1));
 
     public void callGenericLine() {
-        System.out.println("№ 5.1.4");
-        System.out.println(point3DLine);
+        System.out.println("№ 5.1.5");
+        System.out.println(lineForGeneric);
         System.out.println();
 
     }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    Line<Point2D> lineForGenericTmp = new Line<>(new Point2D(2, 4), new Point2D(3, 5));
+    // 5.2.1
+    public void callMoveLine() {
+        System.out.println("№ 5.2.1");
+        Methods.moveLine(lineForGeneric);
+        System.out.println(lineForGeneric);
+        System.out.println();
+
+        /* TODO
+        * Спросить
+        * */
+//        Methods.moveLine(lineForGenericTmp);
+//        System.out.println(lineForGenericTmp);
+    }
 
 
 
