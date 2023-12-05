@@ -1048,6 +1048,14 @@ public class TestCases {
     }
 
 
+    // 5.2.4
+    List<Number> listFill = new ArrayList<>();
+    public void callListFill() {
+        System.out.println("№ 5.2.4");
+        Methods.listFill(listFill);
+        System.out.println(listFill);
+        System.out.println();
+    }
 
 
 

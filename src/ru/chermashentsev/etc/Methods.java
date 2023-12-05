@@ -120,4 +120,13 @@ public class Methods {
 
         box.setObj(point);
     }
+
+    // 5.2.4
+    public static void listFill(List<? super Number> numbers) {
+        numbers.clear();
+
+        for (int i = 1; i <= 100; i++) {
+            numbers.add(i);
+        }
+    }
 }
