@@ -13,6 +13,10 @@ public class Storage<T> {
         return new Storage<>(object);
     }
 
+    public T getObject() {
+        return object;
+    }
+
     public T getObject(T defaultValue) {
         if (object == null) return defaultValue;
         return object;

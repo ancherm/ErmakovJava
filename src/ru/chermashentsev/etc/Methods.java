@@ -1,5 +1,6 @@
 package ru.chermashentsev.etc;
 
+import ru.chermashentsev.Storage;
 import ru.chermashentsev.animals.bird.Bird;
 import ru.chermashentsev.animals.cat.Meowable;
 import ru.chermashentsev.figure.Figure;
@@ -7,8 +8,9 @@ import ru.chermashentsev.geometry.line.BrokenLine;
 import ru.chermashentsev.geometry.line.BrokenLineAble;
 import ru.chermashentsev.geometry.line.Lengthable;
 import ru.chermashentsev.geometry.line.Line;
-import ru.chermashentsev.geometry.point.Point2D;
 import ru.chermashentsev.geometry.point.Point3D;
+
+import java.util.List;
 
 public class Methods {
     // 3.3.1
@@ -88,6 +90,20 @@ public class Methods {
         else if (end.getX() < 0) {
             line.setEnd(new Point3D(end.getX() - 10, end.getY(), start.getZ()));
         }
+    }
 
+    // 5.2.2
+    public static double searchMax(List<Storage <? extends Number> > storages) {
+        double maxValue = storages.get(0).getObject().doubleValue();
+        double currentValue;
+
+        for (int i = 1; i < storages.size(); i++) {
+            currentValue = storages.get(i).getObject().doubleValue();
+
+            if (currentValue > maxValue) {
+                maxValue = currentValue;
+            }
+        }
+        return maxValue;
     }
 }

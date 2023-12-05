@@ -1,10 +1,5 @@
 package ru.chermashentsev.main;
 
-import ru.chermashentsev.etc.Operations;
-import ru.chermashentsev.karate.*;
-import ru.chermashentsev.karate.kicks.KickHand;
-import ru.chermashentsev.karate.kicks.KickInJump;
-import ru.chermashentsev.karate.kicks.KickLeg;
 import ru.chermashentsev.person.Name;
 import ru.chermashentsev.person.NameBuilder;
 
@@ -258,6 +253,8 @@ public class Main {
         // 5.2.1
         testCases.callMoveLine();
 
+        // 5.2.2
+        testCases.callSearchMax();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

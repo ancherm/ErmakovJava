@@ -1019,10 +1019,22 @@ public class TestCases {
         * */
 //        Methods.moveLine(lineForGenericTmp);
 //        System.out.println(lineForGenericTmp);
+
     }
 
 
 
+    // 5.2.2
+
+    Storage<Integer> integerStorage = Storage.create(5);
+    Storage<Double> doubleStorage = Storage.create(7.1);
+    Storage<Float> floatStorage = Storage.create(7.3f);
+
+    public void callSearchMax() {
+        System.out.println("№ 5.2.2");
+        System.out.println(Methods.searchMax(List.of(integerStorage, doubleStorage, floatStorage)));
+        System.out.println();
+    }
 
 
 
@@ -1036,10 +1048,10 @@ public class TestCases {
         if (students.isEmpty()) return null;
 
         Student studentMaxAvg = students.get(0);
-        double maxValue = studentMaxAvg.averageMarks().orElse(Double.valueOf(0));
+        double maxValue = studentMaxAvg.averageMarks().orElse((double) 0);
 
         for (Student student : students) {
-            double tmpMark = studentMaxAvg.averageMarks().orElse(Double.valueOf(0));
+            double tmpMark = studentMaxAvg.averageMarks().orElse((double) 0);
             if (maxValue < tmpMark) {
                 studentMaxAvg = student;
                 maxValue = tmpMark;
