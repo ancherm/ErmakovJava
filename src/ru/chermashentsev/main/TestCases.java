@@ -31,7 +31,10 @@ import ru.chermashentsev.person.Student;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import static java.lang.Integer.MAX_VALUE;
 
 public class TestCases {
     Point2D point1 = new Point2D(3, 5);
@@ -1057,6 +1060,57 @@ public class TestCases {
         System.out.println();
     }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    List<String> stringList = new ArrayList<>(List.of("qwerty", "asdf", "zx"));
+    List<Integer> integerList = new ArrayList<>(List.of(1, -3, 7));
+    List<int[]> arrayOfInt = new ArrayList<>(List.of(new int[] {1, 2, 3},
+            new int[] {-2, 9, 5},
+            new int[] {-9, -52}
+    ));
+
+    // 5.3.1
+    public void callFunc() {
+        System.out.println("№ 5.3.1");
+
+        System.out.println(stringList);
+        System.out.println(Methods.function(stringList, String::length));
+        System.out.println();
+
+
+        System.out.println(integerList);
+        System.out.println(Methods.function(integerList, value -> (value < 0 ? -value : value)));
+        System.out.println();
+
+
+        System.out.println(Methods.function(arrayOfInt, value -> Arrays.stream(value).max().orElse(MAX_VALUE)));
+        System.out.println();
+    }
+
+
+    // 5.3.2
+    public void callFilter() {
+        System.out.println("№ 5.3.2");
+
+        System.out.println(Methods.filter(stringList, value -> value.length() >= 3));
+        System.out.println();
+
+        System.out.println(Methods.filter(integerList, value -> value <= 0));
+        System.out.println();
+
+        List<int[]> tmpListInt = Methods.filter(arrayOfInt, value -> {
+            for (int x : value) {
+                if (x >= 0)  return false;
+            }
+            return true;
+        });
+
+        for (int[] array : tmpListInt) {
+            System.out.println(Arrays.toString(array));
+        }
+
+        System.out.println();
+    }
 
 
 
@@ -1078,5 +1132,6 @@ public class TestCases {
         }
         return studentMaxAvg;
     }
+
 
 }

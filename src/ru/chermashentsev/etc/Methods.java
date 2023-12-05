@@ -1,7 +1,9 @@
 package ru.chermashentsev.etc;
 
 import ru.chermashentsev.Box;
+import ru.chermashentsev.Applicable;
 import ru.chermashentsev.Storage;
+import ru.chermashentsev.Testable;
 import ru.chermashentsev.animals.bird.Bird;
 import ru.chermashentsev.animals.cat.Meowable;
 import ru.chermashentsev.figure.Figure;
@@ -11,11 +13,12 @@ import ru.chermashentsev.geometry.line.Lengthable;
 import ru.chermashentsev.geometry.line.Line;
 import ru.chermashentsev.geometry.point.Point3D;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Methods {
     // 3.3.1
-    public static double addition(Number...numbers) {
+    public static double addition(Number... numbers) {
         double sum = 0;
         for (Number number : numbers) {
             sum += number.doubleValue();
@@ -24,14 +27,14 @@ public class Methods {
     }
 
     // 3.3.2
-    public static void birdMarket(Bird...birds) {
+    public static void birdMarket(Bird... birds) {
         for (Bird bird : birds) {
             bird.sing();
         }
     }
 
     // 3.3.3
-    public static double totalArea(Figure...figures) {
+    public static double totalArea(Figure... figures) {
         double totalArea = 0;
         for (Figure figure : figures) {
             totalArea += figure.area();
@@ -40,14 +43,14 @@ public class Methods {
     }
 
     // 3.3.4
-    public static void meowing(Meowable...objects) {
-        for (Meowable cat: objects) {
+    public static void meowing(Meowable... objects) {
+        for (Meowable cat : objects) {
             cat.meow();
         }
     }
 
     // 3.3.5
-    public static double calculateLength(Lengthable...objects) {
+    public static double calculateLength(Lengthable... objects) {
         double length = 0;
         for (Lengthable line : objects) {
             length += line.length();
@@ -56,10 +59,10 @@ public class Methods {
     }
 
     // 3.3.7
-    public static BrokenLine brokeMeFull(BrokenLineAble...objects) {
+    public static BrokenLine brokeMeFull(BrokenLineAble... objects) {
         BrokenLine line = new BrokenLine();
 
-        for (BrokenLineAble brokenLine: objects) {
+        for (BrokenLineAble brokenLine : objects) {
             line.addPoints(brokenLine.getBrokenLine().getPointList());
         }
         return line;
@@ -81,21 +84,19 @@ public class Methods {
 
         if (start.getX() >= 0) {
             line.setStart(new Point3D(start.getX() + 10, start.getY(), start.getZ()));
-        }
-        else if (start.getX() < 0) {
+        } else if (start.getX() < 0) {
             line.setStart(new Point3D(start.getX() - 10, start.getY(), start.getZ()));
         }
-         if(end.getX() >= 0) {
+        if (end.getX() >= 0) {
             line.setEnd(new Point3D(end.getX() + 10, end.getY(), start.getZ()));
-        }
-        else if (end.getX() < 0) {
+        } else if (end.getX() < 0) {
             line.setEnd(new Point3D(end.getX() - 10, end.getY(), start.getZ()));
         }
     }
 
 
     // 5.2.2
-    public static double searchMax(List<Storage <? extends Number> > storages) {
+    public static double searchMax(List<Storage<? extends Number>> storages) {
         double maxValue = storages.get(0).getObject().doubleValue();
         double currentValue;
 
@@ -128,5 +129,27 @@ public class Methods {
         for (int i = 1; i <= 100; i++) {
             numbers.add(i);
         }
+    }
+
+    // 5.3.1
+    public static <T, P> List<P> function(List<T> list, Applicable<T, P> applicable) {
+        List<P> resultList = new ArrayList<>();
+
+        for (T obj : list) {
+            resultList.add(applicable.apply(obj));
+        }
+        return resultList;
+    }
+
+
+    // 5.3.2
+    public static <T> List<T> filter(List<T> list, Testable<T> testable) {
+        List<T> resultList = new ArrayList<>();
+
+        for (T obj : list) {
+            if (testable.test(obj)) resultList.add(obj);
+        }
+
+        return resultList;
     }
 }
