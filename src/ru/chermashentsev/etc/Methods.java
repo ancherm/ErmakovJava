@@ -1,9 +1,6 @@
 package ru.chermashentsev.etc;
 
-import ru.chermashentsev.Box;
-import ru.chermashentsev.Applicable;
-import ru.chermashentsev.Storage;
-import ru.chermashentsev.Testable;
+import ru.chermashentsev.*;
 import ru.chermashentsev.animals.bird.Bird;
 import ru.chermashentsev.animals.cat.Meowable;
 import ru.chermashentsev.figure.Figure;
@@ -151,5 +148,21 @@ public class Methods {
         }
 
         return resultList;
+    }
+
+
+    // 5.3.3
+    public static <T> T reduction(List<T> list, Reducible<T> reducible, T defaultValue) {
+        if (list == null || list.isEmpty()) {
+            return defaultValue;
+        }
+
+        T result = list.get(0);
+
+        for (int i = 1; i < list.size(); i++) {
+            result = reducible.reduce(result, list.get(i));
+        }
+
+        return result;
     }
 }

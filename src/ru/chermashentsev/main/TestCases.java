@@ -1,6 +1,7 @@
 package ru.chermashentsev.main;
 
 import ru.chermashentsev.Box;
+import ru.chermashentsev.Reducible;
 import ru.chermashentsev.Storage;
 import ru.chermashentsev.animals.bird.Cuckoo;
 import ru.chermashentsev.animals.bird.Parrot;
@@ -1062,11 +1063,10 @@ public class TestCases {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    List<String> stringList = new ArrayList<>(List.of("qwerty", "asdf", "zx"));
+    List<String> stringList = new ArrayList<>(List.of("qwerty", "asdf", "zx", "cw"));
     List<Integer> integerList = new ArrayList<>(List.of(1, -3, 7));
-    List<int[]> arrayOfInt = new ArrayList<>(List.of(new int[] {1, 2, 3},
-            new int[] {-2, 9, 5},
-            new int[] {-9, -52}
+    List<int[]> arrayOfInt = new ArrayList<>(List.of(new int[] {1, 2, 3, 4},
+            new int[] {-2, -9, -5}
     ));
 
     // 5.3.1
@@ -1109,6 +1109,38 @@ public class TestCases {
             System.out.println(Arrays.toString(array));
         }
 
+        System.out.println();
+    }
+
+
+    // 5.3.3
+    public void callReduction() {
+        System.out.println("№ 5.3.3");
+
+        System.out.println(Methods.reduction(stringList, new Reducible<String>() {
+            @Override
+            public String reduce(String t1, String t2) {
+                return t1 + t2;
+            }
+        }, "null"));
+        System.out.println();
+
+        System.out.println(Methods.reduction(integerList, new Reducible<Integer>() {
+            @Override
+            public Integer reduce(Integer t1, Integer t2) {
+                return t1 + t2;
+            }
+        }, MAX_VALUE));
+        System.out.println();
+
+        Integer totalCount = Methods.reduction(arrayOfInt, new Reducible<int[]>() {
+            @Override
+            public int[] reduce(int[] t1, int[] t2) {
+                return new int[]{t1.length + t2.length};
+            }
+        }, new int[] {MAX_VALUE})[0];
+
+        System.out.println(totalCount);
         System.out.println();
     }
 
