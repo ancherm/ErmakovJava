@@ -1037,6 +1037,17 @@ public class TestCases {
     }
 
 
+    // 5.2.3
+    Box<Point2D> boxForRandom = new Box<>();
+
+    public void callRandomBox() {
+        System.out.println("№ 5.2.3");
+        Methods.getRandomValuesForBox(boxForRandom);
+        System.out.println(boxForRandom.toString());
+        System.out.println();
+    }
+
+
 
 
 

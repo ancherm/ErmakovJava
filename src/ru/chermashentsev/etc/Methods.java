@@ -1,5 +1,6 @@
 package ru.chermashentsev.etc;
 
+import ru.chermashentsev.Box;
 import ru.chermashentsev.Storage;
 import ru.chermashentsev.animals.bird.Bird;
 import ru.chermashentsev.animals.cat.Meowable;
@@ -92,6 +93,7 @@ public class Methods {
         }
     }
 
+
     // 5.2.2
     public static double searchMax(List<Storage <? extends Number> > storages) {
         double maxValue = storages.get(0).getObject().doubleValue();
@@ -105,5 +107,17 @@ public class Methods {
             }
         }
         return maxValue;
+    }
+
+
+    // 5.2.3
+    public static void getRandomValuesForBox(Box<? super Point3D> box) {
+        int x = (int) (Math.random() * 10);
+        int y = (int) (Math.random() * 10);
+        int z = (int) (Math.random() * 10);
+
+        Point3D point = new Point3D(x, y, z);
+
+        box.setObj(point);
     }
 }

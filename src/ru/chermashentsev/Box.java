@@ -17,4 +17,9 @@ public class Box<T> {
     public boolean isFill() {
         return obj != null;
     }
+
+
+    public String toString() {
+        return String.valueOf(obj);
+    }
 }
