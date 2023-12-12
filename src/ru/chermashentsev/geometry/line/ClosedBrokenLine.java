@@ -11,7 +11,7 @@ public class ClosedBrokenLine extends BrokenLine {
     }
 
     @Override
-    public double length() {
+    public double length() throws CloneNotSupportedException {
         Line line = new Line(getPointList().get(0), getPointList().get(getPointList().size()-1));
         return super.length() + line.length();
     }

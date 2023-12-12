@@ -36,7 +36,7 @@ public class BrokenLine implements Lengthable, BrokenLineAble {
     }
 
     @Override
-    public double length() {
+    public double length() throws CloneNotSupportedException {
         double length = 0;
         for (int i = 0; i < points.size() - 1; i++) {
             length += Math.sqrt(Math.pow(points.get(i + 1).getX() - points.get(i).getX(), 2) +
@@ -57,7 +57,11 @@ public class BrokenLine implements Lengthable, BrokenLineAble {
         BrokenLine brokenLine = (BrokenLine) obj;
 
         if (brokenLine.points.size() != this.points.size()) return false;
-        if (brokenLine.length() != this.length())  return false;
+        try {
+            if (brokenLine.length() != this.length())  return false;
+        } catch (CloneNotSupportedException e) {
+            throw new RuntimeException(e);
+        }
 
         for (int index = 0; index < this.points.size(); index++) {
             if (!this.points.get(index).equals(brokenLine.points.get(index)))

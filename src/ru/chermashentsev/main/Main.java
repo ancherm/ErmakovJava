@@ -1,10 +1,12 @@
 package ru.chermashentsev.main;
 
+import ru.chermashentsev.geometry.line.Line;
+import ru.chermashentsev.geometry.point.Point3D;
 import ru.chermashentsev.person.Name;
 import ru.chermashentsev.person.NameBuilder;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws CloneNotSupportedException {
         TestCases testCases = new TestCases();
 
         // 1.1.1 Точка

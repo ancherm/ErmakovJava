@@ -1,8 +1,9 @@
 package ru.chermashentsev.main;
 
-import ru.chermashentsev.Box;
-import ru.chermashentsev.Reducible;
-import ru.chermashentsev.Storage;
+import ru.chermashentsev.generic.ArrayMaxatr;
+import ru.chermashentsev.generic.Box;
+import ru.chermashentsev.generic.Reducible;
+import ru.chermashentsev.generic.Storage;
 import ru.chermashentsev.animals.bird.Cuckoo;
 import ru.chermashentsev.animals.bird.Parrot;
 import ru.chermashentsev.animals.bird.Sparrow;
@@ -60,7 +61,7 @@ public class TestCases {
     Home home3 = new Home(23);
 
 
-    Line line1 = new Line(new Point2D(75, 3),new Point2D(23, 8));
+    Line line1 = Line.create(75, 3,23, 8);
     Line line2 = new Line(new Point2D(5, 10), new Point2D(25, 10));
     Line line3 = new Line(line1.getStart(), line2.getEnd());
 
@@ -100,6 +101,9 @@ public class TestCases {
 
     //    Gun ru.chermashentsev.gun = new Gun();
     Cat catBarsik = new Cat("Барсик");
+
+    public TestCases() throws CloneNotSupportedException {
+    }
 
 
     // 1.1.1 Точка
@@ -154,7 +158,7 @@ public class TestCases {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // 1.2.1 Линия
-    public void toCallLine() {
+    public void toCallLine() throws CloneNotSupportedException {
         System.out.println("1.2.1 Линия");
         line2.setEnd(new Point2D(5, 10));
         System.out.println(line1);
@@ -417,7 +421,7 @@ public class TestCases {
     BrokenLine brokenLine2 = new BrokenLine(new Point2D(1, 5), new Point2D(2, 8), new Point2D(5, 3));
 
     // 1.5.7
-    public void toCallLengthOfBrokenLine() {
+    public void toCallLengthOfBrokenLine() throws CloneNotSupportedException {
         List<Point2D> point2DList1 = new ArrayList<>(List.of(new Point2D(5, 15), new Point2D(8, 10)));
 
         System.out.println("№ 1.5.7");
@@ -629,7 +633,7 @@ public class TestCases {
     BrokenLine brokenLine = new BrokenLine(closedBrokenLineList);
 
     // 3.1.2
-    public void callClosedBrokenLine() {
+    public void callClosedBrokenLine() throws CloneNotSupportedException {
 //        closedBrokenLine.addPoints(List.of(new Point2D(3, 1)));
 
         System.out.println("№ 3.1.2");
@@ -779,7 +783,7 @@ public class TestCases {
 
 
     // 3.3.5
-    public void callCalculateLength() {
+    public void callCalculateLength() throws CloneNotSupportedException {
         System.out.println("№ 3.3.5");
         System.out.println(Methods.calculateLength(line1, line2, brokenLine, brokenLine2));
         System.out.println();
@@ -1012,7 +1016,7 @@ public class TestCases {
 
     Line<Point2D> lineForGenericTmp = new Line<>(new Point2D(2, 4), new Point2D(3, 5));
     // 5.2.1
-    public void callMoveLine() {
+    public void callMoveLine() throws CloneNotSupportedException {
         System.out.println("№ 5.2.1");
         Methods.moveLine(lineForGeneric);
         System.out.println(lineForGeneric);

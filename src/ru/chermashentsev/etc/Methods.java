@@ -1,9 +1,9 @@
 package ru.chermashentsev.etc;
 
-import ru.chermashentsev.*;
 import ru.chermashentsev.animals.bird.Bird;
 import ru.chermashentsev.animals.cat.Meowable;
 import ru.chermashentsev.figure.Figure;
+import ru.chermashentsev.generic.*;
 import ru.chermashentsev.geometry.line.BrokenLine;
 import ru.chermashentsev.geometry.line.BrokenLineAble;
 import ru.chermashentsev.geometry.line.Lengthable;
@@ -12,6 +12,9 @@ import ru.chermashentsev.geometry.point.Point3D;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class Methods {
     // 3.3.1
@@ -47,7 +50,7 @@ public class Methods {
     }
 
     // 3.3.5
-    public static double calculateLength(Lengthable... objects) {
+    public static double calculateLength(Lengthable... objects) throws CloneNotSupportedException {
         double length = 0;
         for (Lengthable line : objects) {
             length += line.length();
@@ -75,7 +78,7 @@ public class Methods {
 
 
     // 5.2.1
-    public static void moveLine(Line<? super Point3D> line) {
+    public static void moveLine(Line<? super Point3D> line) throws CloneNotSupportedException {
         Point3D start = (Point3D) line.getStart();
         Point3D end = (Point3D) line.getEnd();
 
@@ -83,11 +86,6 @@ public class Methods {
             line.setStart(new Point3D(start.getX() + 10, start.getY(), start.getZ()));
         } else if (start.getX() < 0) {
             line.setStart(new Point3D(start.getX() - 10, start.getY(), start.getZ()));
-        }
-        if (end.getX() >= 0) {
-            line.setEnd(new Point3D(end.getX() + 10, end.getY(), start.getZ()));
-        } else if (end.getX() < 0) {
-            line.setEnd(new Point3D(end.getX() - 10, end.getY(), start.getZ()));
         }
     }
 
@@ -120,7 +118,7 @@ public class Methods {
     }
 
     // 5.2.4
-    public static void listFill(List<? super Number> numbers) {
+    public static void listFill(List<? super Integer> numbers) {
         numbers.clear();
 
         for (int i = 1; i <= 100; i++) {
@@ -129,18 +127,18 @@ public class Methods {
     }
 
     // 5.3.1
-    public static <T, P> List<P> function(List<T> list, Applicable<T, P> applicable) {
+    public static <T, P> List<P> function(List<T> list, Function<T, P> function) {
         List<P> resultList = new ArrayList<>();
 
         for (T obj : list) {
-            resultList.add(applicable.apply(obj));
+            resultList.add(function.apply(obj));
         }
         return resultList;
     }
 
 
     // 5.3.2
-    public static <T> List<T> filter(List<T> list, Testable<T> testable) {
+    public static <T> List<T> filter(List<T> list, Predicate<T> testable) {
         List<T> resultList = new ArrayList<>();
 
         for (T obj : list) {

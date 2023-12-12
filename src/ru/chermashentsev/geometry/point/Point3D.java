@@ -16,6 +16,35 @@ public class Point3D extends Point2D {
     }
 
     @Override
+    public double length(Point2D end) {
+        if (this.getClass() == end.getClass()) {
+            return super.length(this);
+        }
+        else {
+            return Math.sqrt(Math.pow(end.getX() - this.getX(), 2)
+                    + Math.pow(end.getY() - this.getY(), 2)
+                    + Math.pow(z, 2));
+        }
+    }
+
+    public double getLength(Point3D end) {
+        return Math.sqrt(Math.pow(end.getX() - this.getX(), 2)
+                + Math.pow(end.getY() - this.getY(), 2)
+                + Math.pow(end.getZ() - this.getZ(), 2));
+    }
+
+
+    @Override
+    public Point3D clone(){
+        try {
+            return (Point3D) super.clone();
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
     public String toString() {
         return "{ " + getX() + "; " + getY() + "; " + z + " }";
     }

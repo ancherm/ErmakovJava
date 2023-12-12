@@ -3,7 +3,7 @@ package ru.chermashentsev.geometry.point;
 import java.util.Objects;
 
 // 1.1.1 Точка координат
-public class Point2D extends Point{
+public class Point2D extends Point implements Cloneable{
     protected final int y;
 
     public Point2D(int x, int y) {
@@ -15,9 +15,20 @@ public class Point2D extends Point{
         return y;
     }
 
+    public double length(Point2D end) {
+        return Math.sqrt(Math.pow(end.getX() - this.getX(), 2)
+                + Math.pow(end.getY() - this.getY(), 2));
+    }
+
     @Override
-    public Object clone() throws CloneNotSupportedException {
-        return new Point2D(x, y);
+    public Point2D clone(){
+
+        try {
+            return (Point2D) super.clone();
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

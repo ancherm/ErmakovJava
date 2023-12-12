@@ -1,9 +1,7 @@
 package ru.chermashentsev.person;
 
-import ru.chermashentsev.Comparable;
-import ru.chermashentsev.Storage;
+import ru.chermashentsev.generic.Comparable;
 
-import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;

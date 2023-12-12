@@ -1,4 +1,4 @@
-package ru.chermashentsev;
+package ru.chermashentsev.generic;
 
 public class Box<T> {
     T obj;

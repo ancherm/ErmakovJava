@@ -1,4 +1,4 @@
-package ru.chermashentsev;
+package ru.chermashentsev.generic;
 
 public class Storage<T> {
     private final T object;

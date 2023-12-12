@@ -5,33 +5,47 @@ import ru.chermashentsev.geometry.point.Point2D;
 import java.util.Objects;
 
 // 1.2.1 Прямая
-public class Line<T extends Point2D> implements Lengthable, BrokenLineAble {
+public class Line<T extends Point2D> implements Lengthable, BrokenLineAble, Cloneable {
     private T start;
     private T end;
 
 
-    public Line(T start, T end) {
+    public Line(T start, T end) throws CloneNotSupportedException {
         if (start == null || end == null) throw new IllegalArgumentException("start или end равен null");
-        this.start = start;
-        this.end = end;
+        setStart(start);
+        setEnd(end);
+    }
+
+    public static Line<Point2D> create(int x1, int y1, int x2, int y2) throws CloneNotSupportedException {
+        return new Line<>(new Point2D(x1, y1), new Point2D(x2, y2));
     }
 
     public T getStart() {
         return start;
     }
 
-    public Point2D getEnd() {
+    public T getEnd() {
         return end;
     }
 
-    public void setStart(T start) {
+    public void setStart(T start) throws CloneNotSupportedException {
         isNotNull(start);
-        this.start = start;
+        this.start = (T) start.clone();
+//        try {
+//        }
+//        catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
-    public void setEnd(T end) {
+    public void setEnd(T end){
         isNotNull(end);
-        this.end = end;
+        try {
+            this.end = (T) end.clone();
+        }
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -45,8 +59,7 @@ public class Line<T extends Point2D> implements Lengthable, BrokenLineAble {
 
     @Override
     public double length() {
-        return Math.sqrt(Math.pow(end.getX() - start.getX(), 2)
-                + Math.pow(end.getY() - start.getY(), 2));
+        return start.length(end);
     }
 
     @Override
@@ -67,7 +80,7 @@ public class Line<T extends Point2D> implements Lengthable, BrokenLineAble {
 
     @Override
     public Object clone() throws CloneNotSupportedException {
-        return new Line(start, end);
+        return super.clone();
     }
 
     public String toString() {

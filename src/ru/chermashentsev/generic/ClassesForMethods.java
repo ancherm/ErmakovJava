@@ -1,4 +1,4 @@
-package ru.chermashentsev;
+package ru.chermashentsev.generic;
 
 public class ClassesForMethods {
     public static class Function<T, P> implements Applicable<T, P>{
