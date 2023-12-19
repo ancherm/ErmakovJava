@@ -11,10 +11,12 @@ import ru.chermashentsev.geometry.line.Line;
 import ru.chermashentsev.geometry.point.Point3D;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-import java.util.function.BinaryOperator;
+import java.util.function.BiConsumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 public class Methods {
     // 3.3.1
@@ -163,4 +165,16 @@ public class Methods {
 
         return result;
     }
+
+    // 5.3.4
+    public static<T, P> P collect(List<T> source, Supplier<P> createCollection, BiConsumer<P, T> transferMethod) {
+        P collection = createCollection.get();
+
+        for (T el : source) {
+            transferMethod.accept(collection, el);
+        }
+
+        return collection;
+    }
+
 }

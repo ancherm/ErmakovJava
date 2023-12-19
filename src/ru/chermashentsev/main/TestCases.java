@@ -1,5 +1,6 @@
 package ru.chermashentsev.main;
 
+import ru.chermashentsev.MyStream;
 import ru.chermashentsev.generic.ArrayMaxatr;
 import ru.chermashentsev.generic.Box;
 import ru.chermashentsev.generic.Reducible;
@@ -32,11 +33,12 @@ import ru.chermashentsev.person.Person;
 import ru.chermashentsev.person.Student;
 
 import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.function.BiConsumer;
+import java.util.function.Supplier;
 
 import static java.lang.Integer.MAX_VALUE;
+import static java.lang.Integer.valueOf;
 
 public class TestCases {
     Point2D point1 = new Point2D(3, 5);
@@ -1148,6 +1150,67 @@ public class TestCases {
         System.out.println();
     }
 
+
+    List<Integer> listIntForCollect = List.of(1, -3, 7, -4);
+    List<String> listStrForCollect1 = List.of("qwerty", "asdfg", "zx", "qw");
+    List<String> listStrForCollect2 = List.of("qwerty", "asdfg", "qwerty", "qw");
+
+    // 5.3.4
+    public void callCollection() {
+        System.out.println("№ 5.3.4");
+
+        Supplier<Map<Boolean, List<Integer>>> supplier1 = () -> {
+            Map<Boolean, List<Integer>> map = new HashMap<>();
+            map.put(true, new ArrayList<>());
+            map.put(false, new ArrayList<>());
+
+            return map;
+        };
+
+        BiConsumer<Map<Boolean, List<Integer>>, Integer> biConsumer1 = (map, number) -> {
+            if (number >= 0) {
+                //map.put(true, new ArrayList<>(List.of(number)));
+                map.get(true).add(number);
+            }
+            else {
+                //map.put(false, new ArrayList<>(List.of(number)));
+                map.get(false).add(number);
+            }
+        };
+        System.out.println(Methods.collect(listIntForCollect, supplier1, biConsumer1));
+
+
+        Supplier<Map<Integer, List<String>>> supplier2 = new Supplier<Map<Integer, List<String>>>() {
+            @Override
+            public Map<Integer, List<String>> get() {
+                return new HashMap<>();
+            }
+        };
+
+        BiConsumer<Map<Integer, List<String>>, String> biConsumer2 = new BiConsumer<Map<Integer, List<String>>, String>() {
+            @Override
+            public void accept(Map<Integer, List<String>> map, String s) {
+                int len = s.length();
+                if (!map.containsKey(len)) map.put(len, new ArrayList<>());
+                map.get(len).add(s);
+            }
+        };
+
+        System.out.println(Methods.collect(listStrForCollect1, supplier2, biConsumer2));
+        System.out.println();
+    }
+
+
+    void callMyStream() {
+        int result = MyStream.of("asd", " ", "qwerf")
+                .filter(x -> !x.startsWith("a"))
+                .map(x -> x.length())
+                .reduce((x, y) -> x + y)
+                .orElse(0);
+        System.out.println("MyStream");
+        System.out.println(result);
+        System.out.println();
+    }
 
 
 
