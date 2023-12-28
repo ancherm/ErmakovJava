@@ -13,6 +13,13 @@ public class Storage<T> {
         return new Storage<>(object);
     }
 
+    public static<U> Storage<U> createWithoutNull(U object) {
+        if (object == null) {
+            throw new IllegalArgumentException("Нельзя создать Storage со значением null");
+        }
+        return new Storage<>(object);
+    }
+
     public T getObject() {
         return object;
     }
