@@ -45,7 +45,7 @@ public class Methods {
     }
 
     // 3.3.4
-    public static void meowing(Meowable... objects) {
+    public static void meowing(Meowable...objects) {
         for (Meowable cat : objects) {
             cat.meow();
         }

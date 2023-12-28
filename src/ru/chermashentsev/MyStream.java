@@ -1,10 +1,6 @@
 package ru.chermashentsev;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.function.BiFunction;
+import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -12,61 +8,70 @@ import java.util.function.Predicate;
 // T = String
 public class MyStream<T> {
     private List<T> mainList;
+    private List<Object> actions = new ArrayList<>();
 
-    private MyStream(List<T> list) {
-        this.mainList = list;
-    }
-
-    private List<T> mainList() {
-        return mainList;
+    private MyStream() {
     }
 
     @SafeVarargs
     public static <P> MyStream<P> of(P... values) {
-        return new MyStream<>((Arrays.asList(values)));
+        MyStream<P> stream = new MyStream<>();
+        stream.mainList = List.of(values);
+
+        return stream;
     }
 
     public MyStream<T> filter(Predicate<T> predicate) {
-        List<T> filteredList = new ArrayList<>();
+        actions.add(predicate);
 
-        for (T element : mainList) {
-            if (predicate.test(element)) filteredList.add(element);
-        }
-        return new MyStream<>(filteredList);
+//        List<T> filteredList = new ArrayList<>();
+//
+//        for (T element : mainList) {
+//            if (predicate.test(element)) filteredList.add(element);
+//        }
+//        mainList = filteredList;
+
+        return this;
     }
 
     public <P> MyStream<P> map(Function<T, P> function) {
-        List<P> resultList = new ArrayList<>();
+        actions.add(function);
 
-        for (T element : mainList) {
-            resultList.add(function.apply(element));
-        }
+        MyStream<P> result = (MyStream<P>) this;
+//        List<P> resultList = new ArrayList<>();
+//
+//        for (T element : mainList) {
+//            resultList.add(function.apply(element));
+//        }
+//
+//        mainList = (List<T>) resultList;
 
-        return new MyStream<>(resultList);
+        return result;
     }
 
-    public Optional<T> reduce(BinaryOperator<T> sumUp) {
-        if (mainList.isEmpty()) {
-            return Optional.empty();
+    public T reduce(BinaryOperator<T> sumUp, T init) {
+//        if (mainList.isEmpty()) {
+//            return Optional.empty();
+//        }
+
+
+        up:
+        for (T value : mainList) {
+            for (Object action : actions) {
+                if (action instanceof Predicate) {
+                    Predicate<T> predicate = (Predicate<T>) action;
+                    if (predicate.test(value)) continue;
+                    else continue up;
+                }
+
+                Function function = (Function) action;
+                value = (T) function.apply(value);
+            }
+            init = sumUp.apply(init, value);
         }
-
-        T result = mainList.get(0);
-
-        for (int i = 1; i < mainList.size(); i++) {
-            result = sumUp.apply(result, mainList.get(i));
-        }
-
-        return Optional.of(result);
+        return init;
     }
 
-    public Optional<T> orElse(T defaultValue) {
-        if (mainList.isEmpty()) {
-            return Optional.of(defaultValue);
-        }
-        else {
-            return Optional.of(mainList.get(0));
-        }
-    }
 
 }
 

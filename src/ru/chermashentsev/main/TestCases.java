@@ -1,16 +1,14 @@
 package ru.chermashentsev.main;
 
 import ru.chermashentsev.MyStream;
-import ru.chermashentsev.generic.ArrayMaxatr;
+import ru.chermashentsev.StringLengthable;
+import ru.chermashentsev.animals.cat.*;
 import ru.chermashentsev.generic.Box;
 import ru.chermashentsev.generic.Reducible;
 import ru.chermashentsev.generic.Storage;
 import ru.chermashentsev.animals.bird.Cuckoo;
 import ru.chermashentsev.animals.bird.Parrot;
 import ru.chermashentsev.animals.bird.Sparrow;
-import ru.chermashentsev.animals.cat.Cat;
-import ru.chermashentsev.animals.cat.CatTest;
-import ru.chermashentsev.animals.cat.Meowable;
 import ru.chermashentsev.city.City;
 import ru.chermashentsev.city.CityWithTwoPaths;
 import ru.chermashentsev.city.Path;
@@ -102,7 +100,7 @@ public class TestCases {
 
 
     //    Gun ru.chermashentsev.gun = new Gun();
-    Cat catBarsik = new Cat("Барсик");
+    Cat barsikCat = new Cat("Барсик");
 
     public TestCases() throws CloneNotSupportedException {
     }
@@ -357,9 +355,9 @@ public class TestCases {
     // 1.5.2
     public void toCatMeowing() {
         System.out.println("№ 1.5.2");
-        catBarsik.meow();
-        catBarsik.meow(3);
-        catBarsik.meow();
+        barsikCat.meow();
+        barsikCat.meow(3);
+        barsikCat.meow();
     }
 
     Line lineLength = new Line(new Point2D(1, 1), new Point2D(10, 15));
@@ -1205,8 +1203,7 @@ public class TestCases {
         int result = MyStream.of("asd", " ", "qwerf")
                 .filter(x -> !x.startsWith("a"))
                 .map(x -> x.length())
-                .reduce((x, y) -> x + y)
-                .orElse(0);
+                .reduce(((x, y) -> x + y), 0);
         System.out.println("MyStream");
         System.out.println(result);
         System.out.println();
@@ -1214,7 +1211,27 @@ public class TestCases {
 
 
 
+    void callCountMeow() {
+        System.out.println("Задача мяу");
 
+        CollarCountMeows barsikCollarCountMeows = new CollarCountMeows(barsikCat);
+        CollarAttention barsikCollarAttention = new CollarAttention(barsikCollarCountMeows, "Внимание");
+        Methods.meowing(barsikCollarAttention);
+        System.out.println(barsikCollarCountMeows.getCount());
+
+        System.out.println();
+    }
+
+
+    void callLengthable() throws CloneNotSupportedException {
+        StringLengthable s = new StringLengthable("qwerty");
+
+        System.out.println(Methods.calculateLength(line1));
+        System.out.println(Methods.calculateLength(line2));
+        System.out.println(Methods.calculateLength(s));
+
+        System.out.println(Methods.calculateLength(line1, line2, "qwerty"::length));
+    }
 
     public Student theBestAvgMarks(List<Student> students) {
         if (students.isEmpty()) return null;

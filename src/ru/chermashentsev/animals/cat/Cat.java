@@ -1,7 +1,7 @@
 package ru.chermashentsev.animals.cat;
 
 public class Cat implements Meowable {
-    private String name;
+    private final String name;
 
     public Cat(String name){
         this.name = name;
