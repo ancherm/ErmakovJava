@@ -2,6 +2,7 @@ package ru.chermashentsev.generic;
 
 public class Storage<T> {
     private final T object;
+    private static Storage containerNull;
 
     private Storage(T object) {
         this.object = object;
@@ -10,7 +11,16 @@ public class Storage<T> {
 
 
     public static<U> Storage<U> create(U object) {
-        return new Storage<>(object);
+        if (object == null) {
+            if (containerNull == null) {
+                containerNull = new Storage(object);
+            }
+            return containerNull;
+
+        } else {
+            return new Storage<>(object);
+        }
+
     }
 
     public static<U> Storage<U> createWithoutNull(U object) {

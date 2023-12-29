@@ -1189,7 +1189,9 @@ public class TestCases {
             @Override
             public void accept(Map<Integer, List<String>> map, String s) {
                 int len = s.length();
-                if (!map.containsKey(len)) map.put(len, new ArrayList<>());
+                if (!map.containsKey(len)) {
+                    map.put(len, new ArrayList<>());
+                }
                 map.get(len).add(s);
             }
         };
@@ -1197,6 +1199,36 @@ public class TestCases {
         System.out.println(Methods.collect(listStrForCollect1, supplier2, biConsumer2));
         System.out.println();
     }
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+    Storage<Long> longStorage = Storage.createWithoutNull(1L);
+    Storage<String> stringStorage = Storage.create(null);
+    Storage<Boolean> booleanStorage = Storage.create(null);
+    // 6.1.1
+    void callStorageWithoutConstructor() {
+        System.out.println("№ 6.1.1");
+
+        System.out.println(longStorage.getObject());
+        System.out.println(stringStorage);
+        System.out.println(booleanStorage);
+
+
+        System.out.println();
+    }
+
+
+
+
+
+
+
+
+
 
 
     void callMyStream() {
@@ -1231,6 +1263,7 @@ public class TestCases {
         System.out.println(Methods.calculateLength(s));
 
         System.out.println(Methods.calculateLength(line1, line2, "qwerty"::length));
+        System.out.println();
     }
 
     public Student theBestAvgMarks(List<Student> students) {
