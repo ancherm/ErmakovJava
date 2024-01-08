@@ -1,9 +1,7 @@
 package ru.chermashentsev.karate;
 
-import lombok.Getter;
 
 public class KarateFighter {
-    @Getter
     final String name;
     EBelt belt;
 

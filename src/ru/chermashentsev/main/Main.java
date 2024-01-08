@@ -5,6 +5,10 @@ import ru.chermashentsev.geometry.point.Point3D;
 import ru.chermashentsev.person.Name;
 import ru.chermashentsev.person.NameBuilder;
 
+import java.util.Random;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
         TestCases testCases = new TestCases();
@@ -198,13 +202,11 @@ public class Main {
         nameBuilder.name("Иван");
 
         Name name2 = new NameBuilder()
-                            .surname("Петров")
-                            .name("Михаил")
-                            .lastname("Павлович")
-                            .create();
+                .surname("Петров")
+                .name("Михаил")
+                .lastname("Павлович")
+                .create();
         System.out.println(name2);
-
-
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -302,6 +304,15 @@ public class Main {
 
         // 6.1.1
         testCases.callStorageWithoutConstructor();
+        final var sBase = Stream.of(1, 2, 3, 4, 5).filter(i -> {
+            System.out.println("i=%d %s".formatted(i, Thread.currentThread()));
+            return i >= 3;
+        }).toList();
+        System.out.println(Stream.generate(() -> new Random().nextInt())
+                .filter(i -> i > 1000)
+                .parallel()                .findAny());
+        final var s1 = sBase.stream().map("%d"::formatted).toList();
+        final var s2 = sBase.stream().map(i -> i * 2).toList();
 
 
         // 6.3.2
@@ -318,7 +329,6 @@ public class Main {
 //
 //        System.out.println(Operations.PLUS.getClass().getSuperclass());
     }
-
 
 
 //    public static void humanTest(){
