@@ -27,6 +27,7 @@ import ru.chermashentsev.gun.Shooter;
 import ru.chermashentsev.list.FixedValueList;
 import ru.chermashentsev.list.ImmutableValueList;
 import ru.chermashentsev.person.Name;
+import ru.chermashentsev.person.NameBuilder;
 import ru.chermashentsev.person.Person;
 import ru.chermashentsev.person.Student;
 
@@ -1218,6 +1219,18 @@ public class TestCases {
         System.out.println(booleanStorage);
 
 
+        System.out.println();
+    }
+
+
+    // 6.1.2
+    NameBuilder nameBuilder = new NameBuilder();
+
+    void callNameBuilder() {
+        System.out.println("№ 6.1.2");
+        Name andrewName = nameBuilder.name("Андрей").lastname("Павлович").create();
+
+        System.out.println(andrewName);
         System.out.println();
     }
 

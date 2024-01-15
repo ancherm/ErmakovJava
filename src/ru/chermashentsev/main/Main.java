@@ -304,7 +304,17 @@ public class Main {
 
         // 6.1.1
         testCases.callStorageWithoutConstructor();
-        final var sBase = Stream.of(1, 2, 3, 4, 5).filter(i -> {
+
+        // 6.1.2
+        testCases.callNameBuilder();
+
+
+
+
+
+
+
+        /*final var sBase = Stream.of(1, 2, 3, 4, 5).filter(i -> {
             System.out.println("i=%d %s".formatted(i, Thread.currentThread()));
             return i >= 3;
         }).toList();
@@ -312,7 +322,7 @@ public class Main {
                 .filter(i -> i > 1000)
                 .parallel()                .findAny());
         final var s1 = sBase.stream().map("%d"::formatted).toList();
-        final var s2 = sBase.stream().map(i -> i * 2).toList();
+        final var s2 = sBase.stream().map(i -> i * 2).toList();*/
 
 
         // 6.3.2
