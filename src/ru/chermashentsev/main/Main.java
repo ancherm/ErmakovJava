@@ -197,7 +197,7 @@ public class Main {
         testCases.linkingCities();
 */
 
-        NameBuilder nameBuilder = new NameBuilder();
+        /*NameBuilder nameBuilder = new NameBuilder();
         nameBuilder.surname("Сидоров");
         nameBuilder.name("Иван");
 
@@ -206,7 +206,7 @@ public class Main {
                 .name("Михаил")
                 .lastname("Павлович")
                 .create();
-        System.out.println(name2);
+        System.out.println(name2);*/
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -291,13 +291,13 @@ public class Main {
         testCases.callCollection();
 
 
-        // Additionally
+        /*// Additionally
         testCases.callMyStream();
 
         //Cat
         testCases.callCountMeow();
 
-        testCases.callLengthable();
+        testCases.callLengthable();*/
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -308,8 +308,13 @@ public class Main {
         // 6.1.2
         testCases.callNameBuilder();
 
+        // 6.1.3
+        testCases.callSingletonNameBuilder();
 
 
+
+        // 6.1.5
+        testCases.callTemperature();
 
 
 

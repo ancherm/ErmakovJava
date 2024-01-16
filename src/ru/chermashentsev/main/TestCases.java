@@ -1,7 +1,5 @@
 package ru.chermashentsev.main;
 
-import ru.chermashentsev.MyStream;
-import ru.chermashentsev.StringLengthable;
 import ru.chermashentsev.animals.cat.*;
 import ru.chermashentsev.generic.Box;
 import ru.chermashentsev.generic.Reducible;
@@ -30,6 +28,8 @@ import ru.chermashentsev.person.Name;
 import ru.chermashentsev.person.NameBuilder;
 import ru.chermashentsev.person.Person;
 import ru.chermashentsev.person.Student;
+import ru.chermashentsev.temperature.Temperature;
+import ru.chermashentsev.temperature.TemperatureFactory;
 
 import java.math.BigInteger;
 import java.util.*;
@@ -933,7 +933,7 @@ public class TestCases {
         System.out.println("№ 4.1.4");
         if (args.length > 2)
             System.out.println("Вы передали " + args.length + " параметра, были использованы " + args[0] + " и " + args[1]);
-        System.out.println(Methods.pow(args[0], args[1]));
+//        System.out.println(Methods.pow(args[0], args[1]));
         System.out.println();
     }
 
@@ -1218,19 +1218,39 @@ public class TestCases {
         System.out.println(stringStorage);
         System.out.println(booleanStorage);
 
-
         System.out.println();
     }
 
 
     // 6.1.2
-    NameBuilder nameBuilder = new NameBuilder();
-
     void callNameBuilder() {
         System.out.println("№ 6.1.2");
-        Name andrewName = nameBuilder.name("Андрей").lastname("Павлович").create();
+        Name andrewName = new NameBuilder().name("Андрей").lastname("Павлович").create();
 
         System.out.println(andrewName);
+        System.out.println();
+        System.out.println();
+
+    }
+
+
+    // 6.1.3
+    void callSingletonNameBuilder() {
+        System.out.println("№ 6.1.3");
+        System.out.println(new NameBuilder().surname("Волков").name("Иван").create());
+        System.out.println();
+    }
+
+    // 6.1.4
+    void callCompareName() {
+
+    }
+
+    // 6.1.5
+    TemperatureFactory temperatureFactory = new TemperatureFactory();
+    void callTemperature() {
+        System.out.println("№ 6.1.5");
+        System.out.println(temperatureFactory.getTemperatureTitle(4));
         System.out.println();
     }
 
@@ -1238,13 +1258,7 @@ public class TestCases {
 
 
 
-
-
-
-
-
-
-    void callMyStream() {
+    /*void callMyStream() {
         int result = MyStream.of("asd", " ", "qwerf")
                 .filter(x -> !x.startsWith("a"))
                 .map(x -> x.length())
@@ -1252,11 +1266,11 @@ public class TestCases {
         System.out.println("MyStream");
         System.out.println(result);
         System.out.println();
-    }
+    }*/
 
 
 
-    void callCountMeow() {
+    /*void callCountMeow() {
         System.out.println("Задача мяу");
 
         CollarCountMeows barsikCollarCountMeows = new CollarCountMeows(barsikCat);
@@ -1265,10 +1279,10 @@ public class TestCases {
         System.out.println(barsikCollarCountMeows.getCount());
 
         System.out.println();
-    }
+    }*/
 
 
-    void callLengthable() throws CloneNotSupportedException {
+   /* void callLengthable() throws CloneNotSupportedException {
         StringLengthable s = new StringLengthable("qwerty");
 
         System.out.println(Methods.calculateLength(line1));
@@ -1277,9 +1291,9 @@ public class TestCases {
 
         System.out.println(Methods.calculateLength(line1, line2, "qwerty"::length));
         System.out.println();
-    }
+    }*/
 
-    public Student theBestAvgMarks(List<Student> students) {
+    /*public Student theBestAvgMarks(List<Student> students) {
         if (students.isEmpty()) return null;
 
         Student studentMaxAvg = students.get(0);
@@ -1293,7 +1307,7 @@ public class TestCases {
             }
         }
         return studentMaxAvg;
-    }
+    }*/
 
 
 }
