@@ -1,6 +1,9 @@
 package ru.chermashentsev.main;
 
 import ru.chermashentsev.animals.cat.*;
+import ru.chermashentsev.database.Connection;
+import ru.chermashentsev.database.DBConnectionType;
+import ru.chermashentsev.database.Database;
 import ru.chermashentsev.generic.Box;
 import ru.chermashentsev.generic.Reducible;
 import ru.chermashentsev.generic.Storage;
@@ -62,7 +65,7 @@ public class TestCases {
     Home home3 = new Home(23);
 
 
-    Line line1 = Line.create(75, 3,23, 8);
+    Line line1 = Line.create(75, 3, 23, 8);
     Line line2 = new Line(new Point2D(5, 10), new Point2D(25, 10));
     Line line3 = new Line(line1.getStart(), line2.getEnd());
 
@@ -859,7 +862,7 @@ public class TestCases {
         System.out.println();
     }
 
-    Line equalLine1 = new Line(new Point2D(1, 2),new Point2D(3, 4));
+    Line equalLine1 = new Line(new Point2D(1, 2), new Point2D(3, 4));
     Point2D p10 = null;
     Line equalLine2 = new Line(new Point2D(1, 2), new Point2D(3, 4));
 
@@ -1016,6 +1019,7 @@ public class TestCases {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     Line<Point2D> lineForGenericTmp = new Line<>(new Point2D(2, 4), new Point2D(3, 5));
+
     // 5.2.1
     public void callMoveLine() throws CloneNotSupportedException {
         System.out.println("№ 5.2.1");
@@ -1024,13 +1028,12 @@ public class TestCases {
         System.out.println();
 
         /* TODO
-        * Спросить
-        * */
+         * Спросить
+         * */
 //        Methods.moveLine(lineForGenericTmp);
 //        System.out.println(lineForGenericTmp);
 
     }
-
 
 
     // 5.2.2
@@ -1059,6 +1062,7 @@ public class TestCases {
 
     // 5.2.4
     List<Number> listFill = new ArrayList<>();
+
     public void callListFill() {
         System.out.println("№ 5.2.4");
         Methods.listFill(listFill);
@@ -1070,8 +1074,8 @@ public class TestCases {
 
     List<String> stringList = new ArrayList<>(List.of("qwerty", "asdf", "zx", "cw"));
     List<Integer> integerList = new ArrayList<>(List.of(1, -3, 7));
-    List<int[]> arrayOfInt = new ArrayList<>(List.of(new int[] {1, 2, 3, 4},
-            new int[] {-2, -9, -5}
+    List<int[]> arrayOfInt = new ArrayList<>(List.of(new int[]{1, 2, 3, 4},
+            new int[]{-2, -9, -5}
     ));
 
     // 5.3.1
@@ -1105,7 +1109,7 @@ public class TestCases {
 
         List<int[]> tmpListInt = Methods.filter(arrayOfInt, value -> {
             for (int x : value) {
-                if (x >= 0)  return false;
+                if (x >= 0) return false;
             }
             return true;
         });
@@ -1143,7 +1147,7 @@ public class TestCases {
             public int[] reduce(int[] t1, int[] t2) {
                 return new int[]{t1.length + t2.length};
             }
-        }, new int[] {MAX_VALUE})[0];
+        }, new int[]{MAX_VALUE})[0];
 
         System.out.println(totalCount);
         System.out.println();
@@ -1170,8 +1174,7 @@ public class TestCases {
             if (number >= 0) {
                 //map.put(true, new ArrayList<>(List.of(number)));
                 map.get(true).add(number);
-            }
-            else {
+            } else {
                 //map.put(false, new ArrayList<>(List.of(number)));
                 map.get(false).add(number);
             }
@@ -1210,6 +1213,7 @@ public class TestCases {
     Storage<Long> longStorage = Storage.createWithoutNull(1L);
     Storage<String> stringStorage = Storage.create(null);
     Storage<Boolean> booleanStorage = Storage.create(null);
+
     // 6.1.1
     void callStorageWithoutConstructor() {
         System.out.println("№ 6.1.1");
@@ -1248,10 +1252,29 @@ public class TestCases {
 
     // 6.1.5
     TemperatureFactory temperatureFactory = new TemperatureFactory();
+
     void callTemperature() {
         System.out.println("№ 6.1.5");
         System.out.println(temperatureFactory.getTemperatureTitle(4));
         System.out.println();
+    }
+
+    List<String> stringRecords = new ArrayList<>(List.of(
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct"));
+    Database<String> database1 = new Database<>(stringRecords, 3);
+
+    void callDatabase() {
+        Connection connection1 = new Connection(DBConnectionType.RECORDS);
+
     }
 
 

@@ -27,5 +27,3 @@ public enum Temperature {
         return maxTemperature;
     }
 }
-//TODO
-//1. В фабрике брать инт температуру
