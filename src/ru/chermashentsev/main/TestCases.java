@@ -3,6 +3,7 @@ package ru.chermashentsev.main;
 import ru.chermashentsev.animals.cat.*;
 import ru.chermashentsev.database.Connection;
 import ru.chermashentsev.database.Database;
+import ru.chermashentsev.database.PullConnection;
 import ru.chermashentsev.generic.Box;
 import ru.chermashentsev.generic.Reducible;
 import ru.chermashentsev.generic.Storage;
@@ -1268,28 +1269,31 @@ public class TestCases {
             "Aug",
             "Sep",
             "Oct"));
-    Database database1 = new Database(stringRecords, 3);
+    Database database1 = new Database(stringRecords);
+    PullConnection pullConnection = new PullConnection(database1, 3);
 
     void callDatabase() {
-        Connection connection1 = new Connection(database1);
-        Connection connection2 = new Connection(database1);
-        Connection connection3 = new Connection(database1);
-
-
-        System.out.println(connection1.getValue(2));
-        System.out.println(connection2.getValue(10));
+        Connection connection1 = pullConnection.connect();
+        Connection connection2 = pullConnection.connect();
+        Connection connection3 = pullConnection.connect();
+//        Connection connection4 = pullConnection.connect();
+        System.out.println(connection1.getValue(1));
         connection3.setValue("Nov");
-        System.out.println(connection1.getValue(10));
-
-        Connection connection4 = new Connection(database1);
+        System.out.println(connection2.getValue(10));
+        connection1 = pullConnection.disconnect(connection1);
+        System.out.println();
+        Connection connection4 = pullConnection.connect();
+        System.out.println(connection4.getValue(5));
+        System.out.println();
+//        System.out.println(connection1.getValue(2));
+        System.out.println(connection2.getValue(2));
+        System.out.println(connection3.getValue(2));
         System.out.println(connection4.getValue(2));
-        connection4.setValue("Dec");
-        System.out.println(connection1.getValue(11));
+        System.out.println();
 
-        connection3.disconnect();
-        connection4.setConnection(database1);
-        connection4.setValue("Dec");
-        System.out.println(connection1.getValue(11));
+        connection3 = pullConnection.disconnect(connection3);
+        connection1 = pullConnection.connect();
+        System.out.println(connection1.getValue(7));
 
 
     }
