@@ -1,13 +1,12 @@
 package ru.chermashentsev.person;
-
+// TODO instance
 public class NameBuilder {
-    String surname = "";
-    String personName = "";
-    String lastName = "";
+    private static Name name;
+    private String surname = "";
+    private String personName = "";
+    private String lastName = "";
 
-//    public NameBuilder() {
-//        name = new Name();
-//    }
+
     public NameBuilder surname(String surname) {
         this.surname = surname;
         return this;
@@ -24,7 +23,9 @@ public class NameBuilder {
     }
 
     public Name create() {
-        Name name = new Name(surname, personName, lastName);
+        if (name == null) {
+            name = new Name(surname, personName, lastName);
+        }
         return name;
     }
 }
