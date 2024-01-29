@@ -197,7 +197,7 @@ public class Main {
         testCases.linkingCities();
 */
 
-        /*NameBuilder nameBuilder = new NameBuilder();
+        NameBuilder nameBuilder = new NameBuilder();
         nameBuilder.surname("Сидоров");
         nameBuilder.name("Иван");
 
@@ -206,7 +206,7 @@ public class Main {
                 .name("Михаил")
                 .lastname("Павлович")
                 .create();
-        System.out.println(name2);*/
+        System.out.println(name2);
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -291,36 +291,20 @@ public class Main {
         testCases.callCollection();
 
 
-        /*// Additionally
+        // Additionally
         testCases.callMyStream();
 
         //Cat
         testCases.callCountMeow();
 
-        testCases.callLengthable();*/
+        testCases.callLengthable();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // 6.1.1
         testCases.callStorageWithoutConstructor();
-
-        // 6.1.2
-        testCases.callNameBuilder();
-
-        // 6.1.3
-        testCases.callSingletonNameBuilder();
-
-
-
-        // 6.1.5
-        testCases.callTemperature();
-
-        // 6.1.6
-        testCases.callDatabase();
-
-
-        /*final var sBase = Stream.of(1, 2, 3, 4, 5).filter(i -> {
+        final var sBase = Stream.of(1, 2, 3, 4, 5).filter(i -> {
             System.out.println("i=%d %s".formatted(i, Thread.currentThread()));
             return i >= 3;
         }).toList();
@@ -328,7 +312,7 @@ public class Main {
                 .filter(i -> i > 1000)
                 .parallel()                .findAny());
         final var s1 = sBase.stream().map("%d"::formatted).toList();
-        final var s2 = sBase.stream().map(i -> i * 2).toList();*/
+        final var s2 = sBase.stream().map(i -> i * 2).toList();
 
 
         // 6.3.2
