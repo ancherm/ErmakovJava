@@ -1,22 +1,34 @@
 package ru.chermashentsev.database;
 
 public class Connection {
-    DBConnectionType type;
-    public Connection(DBConnectionType type) {
-        //if (type == DBConnectionType.RECORDS) {
-//            type = DBConnectionType.Records();
-        //}
+    Database database;
 
-        this.type = type;
-
+    public Connection(Database database) {
+        setConnection(database);
     }
 
-//    public String getValue(int index) {
-//        return DBConnectionType.Records
-////        return type.getValue(index);
-//    }
+    public void setConnection(Database database) {
+        if (database == null) throw new IllegalArgumentException("Передайте базу данных");
 
-//    public void setValue(String value) {
-//        type.setValue(value);
-//    }
+        boolean isCheck = database.connect();
+
+        if (isCheck)
+            this.database = database;
+        else
+            this.database = null;
+    }
+
+    public void disconnect() {
+        database.disconnect();
+    }
+
+    public String getValue(int index) {
+        if (database == null) return null;
+        return database.getValue(index);
+    }
+
+    public void setValue(String value) {
+        if (database == null) return;
+        database.setValue(value);
+    }
 }

@@ -2,7 +2,6 @@ package ru.chermashentsev.main;
 
 import ru.chermashentsev.animals.cat.*;
 import ru.chermashentsev.database.Connection;
-import ru.chermashentsev.database.DBConnectionType;
 import ru.chermashentsev.database.Database;
 import ru.chermashentsev.generic.Box;
 import ru.chermashentsev.generic.Reducible;
@@ -31,7 +30,6 @@ import ru.chermashentsev.person.Name;
 import ru.chermashentsev.person.NameBuilder;
 import ru.chermashentsev.person.Person;
 import ru.chermashentsev.person.Student;
-import ru.chermashentsev.temperature.Temperature;
 import ru.chermashentsev.temperature.TemperatureFactory;
 
 import java.math.BigInteger;
@@ -1270,10 +1268,29 @@ public class TestCases {
             "Aug",
             "Sep",
             "Oct"));
-    Database<String> database1 = new Database<>(stringRecords, 3);
+    Database database1 = new Database(stringRecords, 3);
 
     void callDatabase() {
-        Connection connection1 = new Connection(DBConnectionType.RECORDS);
+        Connection connection1 = new Connection(database1);
+        Connection connection2 = new Connection(database1);
+        Connection connection3 = new Connection(database1);
+
+
+        System.out.println(connection1.getValue(2));
+        System.out.println(connection2.getValue(10));
+        connection3.setValue("Nov");
+        System.out.println(connection1.getValue(10));
+
+        Connection connection4 = new Connection(database1);
+        System.out.println(connection4.getValue(2));
+        connection4.setValue("Dec");
+        System.out.println(connection1.getValue(11));
+
+        connection3.disconnect();
+        connection4.setConnection(database1);
+        connection4.setValue("Dec");
+        System.out.println(connection1.getValue(11));
+
 
     }
 

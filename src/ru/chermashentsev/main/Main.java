@@ -316,7 +316,8 @@ public class Main {
         // 6.1.5
         testCases.callTemperature();
 
-
+        // 6.1.6
+        testCases.callDatabase();
 
 
         /*final var sBase = Stream.of(1, 2, 3, 4, 5).filter(i -> {

@@ -2,24 +2,36 @@ package ru.chermashentsev.database;
 
 import java.util.List;
 
-public class Database<T> {
-    List<T> records;
-    private static int maxConnectionCount;
+public class Database {
+    List<String> records;
+    private int maxConnectionCount;
+    private int currentConnectionCount = 0;
 
-    public Database(List<T> records, int maxConnectionCount) {
+    public Database(List<String > records, int maxConnectionCount) {
+        if (records == null) throw new IllegalArgumentException("Передайте список строк");
+        if (maxConnectionCount <= 0) throw new IllegalArgumentException("Укажите больше 0 разрешенных подключений");
+
         this.records = records;
-        Database.maxConnectionCount = maxConnectionCount;
+        this.maxConnectionCount = maxConnectionCount;
     }
 
-    T getValue(int index) {
-        return records.get(index) != null ? records.get(index) : null;
+    String getValue(int index) {
+        return index < records.size() ? records.get(index) : null;
     }
 
-    void setValue(T value) {
-        records.add(value);
+    void setValue(String value) {
+        if (value != null)  records.add(value);
     }
 
-    public static int getMaxConnectionCount() {
-        return maxConnectionCount;
+    boolean connect() {
+        if (currentConnectionCount >= maxConnectionCount) return false;
+        currentConnectionCount++;
+        return true;
+    }
+
+    boolean disconnect() {
+        if (currentConnectionCount < 0) return false;
+        currentConnectionCount--;
+        return true;
     }
 }
