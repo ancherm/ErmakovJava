@@ -4,20 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ConnectionPool {
-    private List<Connection> connectionList;
+    private final List<ConnectionProxy> connectionList;
+    private final ConnectionProxy nullConnection = new ConnectionProxy();
+
 
     public ConnectionPool(Database database, int maxConnectionCount) {
 
         connectionList = new ArrayList<>();
 
         for (int i = 0; i < maxConnectionCount; i++) {
-            connectionList.add(new Connection(database));
+            connectionList.add(new ConnectionProxy(new Connection(database)));
         }
     }
-    public Connection connect() {
+    public ConnectionProxy connect() {
         for (int index = 0; index < connectionList.size(); index++) {
             if (connectionList.get(index) != null) {
-                Connection tmp = connectionList.get(index);
+                ConnectionProxy tmp = connectionList.get(index);
                 connectionList.set(index, null);
                 return tmp;
             }
@@ -25,14 +27,14 @@ public class ConnectionPool {
         throw new IllegalArgumentException("Нет свободных соединений");
     }
 
-    public Connection disconnect(Connection connection) {
+    public ConnectionProxy disconnect(ConnectionProxy connection) {
         for (int index = 0; index < connectionList.size(); index++) {
             if (connectionList.get(index) == null) {
                 connectionList.set(index, connection);
                 break;
             }
         }
-        return null;
+        return nullConnection;
     }
 
 }

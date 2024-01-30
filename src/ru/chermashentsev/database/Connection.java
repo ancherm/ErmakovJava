@@ -15,7 +15,6 @@ public class Connection {
     }
 
     public String getValue(int index) {
-//        if (this == null) throw new IllegalArgumentException("NULLLL");
         return database.getValue(index);
     }
 
