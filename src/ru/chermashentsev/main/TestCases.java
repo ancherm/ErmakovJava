@@ -3,7 +3,7 @@ package ru.chermashentsev.main;
 import ru.chermashentsev.animals.cat.*;
 import ru.chermashentsev.database.Connection;
 import ru.chermashentsev.database.Database;
-import ru.chermashentsev.database.PullConnection;
+import ru.chermashentsev.database.ConnectionPool;
 import ru.chermashentsev.generic.Box;
 import ru.chermashentsev.generic.Reducible;
 import ru.chermashentsev.generic.Storage;
@@ -1270,29 +1270,29 @@ public class TestCases {
             "Sep",
             "Oct"));
     Database database1 = new Database(stringRecords);
-    PullConnection pullConnection = new PullConnection(database1, 3);
+    ConnectionPool connectionPool = new ConnectionPool(database1, 3);
 
     void callDatabase() {
-        Connection connection1 = pullConnection.connect();
-        Connection connection2 = pullConnection.connect();
-        Connection connection3 = pullConnection.connect();
-//        Connection connection4 = pullConnection.connect();
+        Connection connection1 = connectionPool.connect();
+        Connection connection2 = connectionPool.connect();
+        Connection connection3 = connectionPool.connect();
+//        Connection connection4 = connectionPool.connect();
         System.out.println(connection1.getValue(1));
         connection3.setValue("Nov");
         System.out.println(connection2.getValue(10));
-        connection1 = pullConnection.disconnect(connection1);
+        connection1 = connectionPool.disconnect(connection1);
         System.out.println();
-        Connection connection4 = pullConnection.connect();
+        Connection connection4 = connectionPool.connect();
         System.out.println(connection4.getValue(5));
         System.out.println();
-//        System.out.println(connection1.getValue(2));
+//        System.out.println(connection1.getValue(2)); //
         System.out.println(connection2.getValue(2));
         System.out.println(connection3.getValue(2));
         System.out.println(connection4.getValue(2));
         System.out.println();
 
-        connection3 = pullConnection.disconnect(connection3);
-        connection1 = pullConnection.connect();
+        connection3 = connectionPool.disconnect(connection3);
+        connection1 = connectionPool.connect();
         System.out.println(connection1.getValue(7));
 
 

@@ -3,10 +3,10 @@ package ru.chermashentsev.database;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PullConnection {
+public class ConnectionPool {
     private List<Connection> connectionList;
 
-    public PullConnection(Database database, int maxConnectionCount) {
+    public ConnectionPool(Database database, int maxConnectionCount) {
 
         connectionList = new ArrayList<>();
 
