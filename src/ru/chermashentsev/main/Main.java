@@ -319,6 +319,9 @@ public class Main {
         // 6.1.6
         testCases.callDatabase();
 
+        // 6.1.7
+        testCases.callGenerationPoint();
+
 
         /*final var sBase = Stream.of(1, 2, 3, 4, 5).filter(i -> {
             System.out.println("i=%d %s".formatted(i, Thread.currentThread()));

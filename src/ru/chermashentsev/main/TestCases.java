@@ -1297,10 +1297,14 @@ public class TestCases {
         connection3 = connectionPool.disconnect(connection3);
         connection1 = connectionPool.connect();
         System.out.println(connection1.getValue(7));
-
-
+        System.out.println();
     }
 
+    Point2D pointGeneration2D = PointGeneration.create(1, 2);
+
+    void callGenerationPoint() {
+        System.out.println(pointGeneration2D.length(PointGeneration.create(2, 3)));
+    }
 
 
 
