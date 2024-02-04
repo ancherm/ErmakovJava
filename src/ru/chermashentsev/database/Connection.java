@@ -1,13 +1,9 @@
 package ru.chermashentsev.database;
 
-public class Connection {
-    private Database database;
+class Connection {
+    private final Database database;
 
     public Connection(Database database) {
-        setConnection(database);
-    }
-
-    public void setConnection(Database database) {
         if (database == null) {
             throw new IllegalArgumentException("Передайте базу данных");
         }

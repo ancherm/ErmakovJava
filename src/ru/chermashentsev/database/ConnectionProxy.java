@@ -3,9 +3,7 @@ package ru.chermashentsev.database;
 public class ConnectionProxy {
     private Connection connection;
 
-
-    public ConnectionProxy() {
-    }
+    public ConnectionProxy() { }
 
     public ConnectionProxy(Connection connection) {
         this.connection = connection;
