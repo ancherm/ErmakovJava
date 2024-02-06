@@ -2,10 +2,10 @@ package ru.chermashentsev.database;
 
 import java.util.List;
 
-public class Database {
+class Database {
     private final List<String> records;
 
-    public Database(List<String > records) {
+    public Database(List<String> records) {
         if (records == null) {
             throw new IllegalArgumentException("Передайте список строк");
         }

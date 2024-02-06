@@ -3,23 +3,29 @@ package ru.chermashentsev.database;
 import java.util.*;
 
 public class ConnectionPool {
+    private final Database database;
     private final Stack<Connection> connectionStack;
+    private final int maxConnectionCount;
 
 
-    public ConnectionPool(Database database, int maxConnectionCount) {
+    public ConnectionPool(List<String> records, int maxConnectionCount) {
+        database = new Database(records);
+
+        this.maxConnectionCount = maxConnectionCount;
         connectionStack = new Stack<>();
 
         for (int i = 0; i < maxConnectionCount; i++) {
-            connectionStack.add(new Connection(database));
+            connectionStack.push(new Connection(database));
         }
     }
-    public Connection connect() {
-        return !connectionStack.empty() ? connectionStack.pop() : null;
+
+    public ConnectionProxy connect() {
+        return !connectionStack.empty() ? new ConnectionProxy(connectionStack.pop(), this) : null;
     }
 
-    public void disconnect(Connection connection) {
-        if (connectionStack.contains(null) && connection != null) {
-            connectionStack.push(connection);
+    void disconnect(ConnectionProxy connection) {
+        if (connectionStack.size() < maxConnectionCount && connection != null) {
+            connectionStack.push(connection.getConnection());
         }
     }
 

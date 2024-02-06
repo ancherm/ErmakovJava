@@ -2,7 +2,6 @@ package ru.chermashentsev.main;
 
 import ru.chermashentsev.animals.cat.*;
 import ru.chermashentsev.database.ConnectionProxy;
-import ru.chermashentsev.database.Database;
 import ru.chermashentsev.database.ConnectionPool;
 import ru.chermashentsev.generic.Box;
 import ru.chermashentsev.generic.Reducible;
@@ -1269,20 +1268,24 @@ public class TestCases {
             "Aug",
             "Sep",
             "Oct"));
-    Database database1 = new Database(stringRecords);
-    ConnectionPool connectionPool = new ConnectionPool(database1, 3);
+    ConnectionPool connectionPool = new ConnectionPool(stringRecords, 3);
 
     void callDatabase() {
-//        ConnectionProxy connection1 = connectionPool.connect();
-//        ConnectionProxy connection2 = connectionPool.connect();
-//        ConnectionProxy connection3 = connectionPool.connect();
-//
-//        connectionPool.disconnect(connection1);
+        ConnectionProxy connection1 = connectionPool.connect();
+        ConnectionProxy connection2 = connectionPool.connect();
+        ConnectionProxy connection3 = connectionPool.connect();
 
-//        ConnectionProxy connection4 = connectionPool.connect();
+        connection1.disconnect();
 
-//        System.out.println(connection4.getValue(1));
-//        System.out.println(connection1.getValue(2));
+        ConnectionProxy connection4 = connectionPool.connect();
+
+        System.out.println(connection4.getValue(1));
+        connection2.disconnect();
+
+        connection1 = connectionPool.connect();
+
+        System.out.println(connection1.getValue(2));
+//        System.out.println(connection2.getValue(2));
         System.out.println();
     }
 
