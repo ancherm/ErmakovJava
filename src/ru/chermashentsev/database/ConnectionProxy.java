@@ -24,7 +24,8 @@ public class ConnectionProxy {
 
 
     public void disconnect() {
-        connectionPool.disconnect(this);
+        checkIsConnected();
+        connectionPool.disconnect(connection);
         connection = null;
     }
 

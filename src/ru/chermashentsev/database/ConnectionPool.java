@@ -3,13 +3,12 @@ package ru.chermashentsev.database;
 import java.util.*;
 
 public class ConnectionPool {
-    private final Database database;
     private final Stack<Connection> connectionStack;
     private final int maxConnectionCount;
 
 
     public ConnectionPool(List<String> records, int maxConnectionCount) {
-        database = new Database(records);
+        Database database = new Database(records);
 
         this.maxConnectionCount = maxConnectionCount;
         connectionStack = new Stack<>();
@@ -23,9 +22,9 @@ public class ConnectionPool {
         return !connectionStack.empty() ? new ConnectionProxy(connectionStack.pop(), this) : null;
     }
 
-    void disconnect(ConnectionProxy connection) {
+    void disconnect(Connection connection) {
         if (connectionStack.size() < maxConnectionCount && connection != null) {
-            connectionStack.push(connection.getConnection());
+            connectionStack.push(connection);
         }
     }
 
