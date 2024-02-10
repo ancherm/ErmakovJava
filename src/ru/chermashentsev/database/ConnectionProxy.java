@@ -5,7 +5,8 @@ public class ConnectionProxy {
     private ConnectionPool connectionPool;
 
 
-    private ConnectionProxy() { }
+    private ConnectionProxy() {
+    }
 
     public ConnectionProxy(Connection connection, ConnectionPool connectionPool) {
         this.connection = connection;
@@ -28,12 +29,6 @@ public class ConnectionProxy {
         connectionPool.disconnect(connection);
         connection = null;
     }
-
-
-    Connection getConnection() {
-        return connection;
-    }
-
 
     private void checkIsConnected() {
         if (connection == null) {
