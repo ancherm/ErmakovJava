@@ -333,6 +333,9 @@ public class Main {
         // 7.1.2
         testCases.callLineConnector();
 
+        // 7.1.3
+        testCases.callEntity();
+
 
         /*final var sBase = Stream.of(1, 2, 3, 4, 5).filter(i -> {
             System.out.println("i=%d %s".formatted(i, Thread.currentThread()));

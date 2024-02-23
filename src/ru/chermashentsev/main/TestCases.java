@@ -1,6 +1,8 @@
 package ru.chermashentsev.main;
 
+import ru.chermashentsev.ReflectTest;
 import ru.chermashentsev.ReflectUtils;
+import ru.chermashentsev.ReflectionInheritorTest;
 import ru.chermashentsev.animals.cat.*;
 import ru.chermashentsev.database.ConnectionProxy;
 import ru.chermashentsev.database.ConnectionPool;
@@ -1329,6 +1331,13 @@ public class TestCases {
     }
 
 
+    // 7.1.3
+    void callEntity() {
+        System.out.println("№ 7.1.3");
+        System.out.println(new ReflectTest());
+        System.out.println(new ReflectionInheritorTest());
+        System.out.println();
+    }
 
 
 

@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 public class Entity {
-
     @Override
     public String toString() {
         List<Field> fields = ReflectUtils.getFields(getClass());
