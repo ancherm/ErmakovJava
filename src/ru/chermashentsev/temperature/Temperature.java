@@ -26,4 +26,5 @@ public enum Temperature {
     int getMaxTemperature() {
         return maxTemperature;
     }
+
 }
