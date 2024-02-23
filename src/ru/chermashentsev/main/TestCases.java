@@ -1,5 +1,6 @@
 package ru.chermashentsev.main;
 
+import ru.chermashentsev.ReflectUtils;
 import ru.chermashentsev.animals.cat.*;
 import ru.chermashentsev.database.ConnectionProxy;
 import ru.chermashentsev.database.ConnectionPool;
@@ -1257,6 +1258,8 @@ public class TestCases {
         System.out.println();
     }
 
+
+    // 6.1.6
     List<String> stringRecords = new ArrayList<>(List.of(
             "Jan",
             "Feb",
@@ -1289,11 +1292,46 @@ public class TestCases {
         System.out.println();
     }
 
+
+    //6.1.7
     Point2D pointGeneration2D = PointGeneration.create(1, 2);
 
     void callGenerationPoint() {
         System.out.println(pointGeneration2D.length(PointGeneration.create(2, 3)));
     }
+
+
+
+
+    // 7.1.1
+    void callInspectObject() {
+        System.out.println("№ 7.1.1");
+        System.out.println(ReflectUtils.fieldCollection(new Point3D()));
+        System.out.println();
+    }
+
+
+    Line lineCon1 = new Line<>(new Point2D(1, 2), new Point2D(3, 4));
+    Line lineCon2 = new Line<>(new Point2D(4, 1), new Point2D(3, 10));
+
+    // 7.1.2
+    void callLineConnector() {
+        System.out.println("№ 7.1.2");
+        System.out.println(lineCon1 + " и " + lineCon2);
+        try {
+            ReflectUtils.lineConnector(lineCon1, lineCon2);
+            System.out.println(lineCon1 + " и " + lineCon2);
+
+        } catch (NoSuchFieldException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println();
+    }
+
+
+
+
+
 
 
 
