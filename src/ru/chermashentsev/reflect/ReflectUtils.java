@@ -1,9 +1,10 @@
-package ru.chermashentsev;
+package ru.chermashentsev.reflect;
 
 import ru.chermashentsev.geometry.line.Line;
-import ru.chermashentsev.geometry.point.Point2D;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -49,6 +50,33 @@ public class ReflectUtils {
 
     }
 
+    // 7.1.4
+    public static void validate(Object obj, Class clzTest) {
+        List<Method> methodList = List.of(clzTest.getDeclaredMethods());
+
+        ReflectHumanTests tmp;
+        Object o = null;
+        try {
+            tmp = new ReflectHumanTests();
+            o = clzTest.newInstance();
+
+        } catch (InstantiationException | IllegalAccessException e) {
+            throw new RuntimeException(e);
+        }
+
+        for (Method method : methodList) {
+            method.setAccessible(true);
+            try {
+                method.invoke(tmp, obj);
+
+            } catch (IllegalAccessException | InvocationTargetException e) {
+//                System.out.println("Hello");
+//                System.out.println(o.toString() + obj.toString());
+                throw new RuntimeException(e);
+            }
+
+        }
+    }
 
 
 }

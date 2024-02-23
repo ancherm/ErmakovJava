@@ -1,8 +1,5 @@
 package ru.chermashentsev.main;
 
-import ru.chermashentsev.ReflectTest;
-import ru.chermashentsev.ReflectUtils;
-import ru.chermashentsev.ReflectionInheritorTest;
 import ru.chermashentsev.animals.cat.*;
 import ru.chermashentsev.database.ConnectionProxy;
 import ru.chermashentsev.database.ConnectionPool;
@@ -33,6 +30,7 @@ import ru.chermashentsev.person.Name;
 import ru.chermashentsev.person.NameBuilder;
 import ru.chermashentsev.person.Person;
 import ru.chermashentsev.person.Student;
+import ru.chermashentsev.reflect.*;
 import ru.chermashentsev.temperature.TemperatureFactory;
 
 import java.math.BigInteger;
@@ -1339,6 +1337,14 @@ public class TestCases {
         System.out.println();
     }
 
+    // 7.1.4
+    void callValidate() {
+        System.out.println("№ 7.1.4");
+
+        ReflectUtils.validate(new ReflectHuman(1000, "Aнf"), ReflectHumanTests.class);
+
+        System.out.println();
+    }
 
 
 

@@ -1,4 +1,4 @@
-package ru.chermashentsev;
+package ru.chermashentsev.reflect;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package ru.chermashentsev;
+package ru.chermashentsev.reflect;
 
 import ru.chermashentsev.geometry.point.Point2D;
 import ru.chermashentsev.person.Name;

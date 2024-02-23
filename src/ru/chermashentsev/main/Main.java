@@ -336,6 +336,9 @@ public class Main {
         // 7.1.3
         testCases.callEntity();
 
+        // 7.1.4
+        testCases.callValidate();
+
 
         /*final var sBase = Stream.of(1, 2, 3, 4, 5).filter(i -> {
             System.out.println("i=%d %s".formatted(i, Thread.currentThread()));
