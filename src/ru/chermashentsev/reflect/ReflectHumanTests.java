@@ -23,7 +23,7 @@ public class ReflectHumanTests {
 
     }
 
-   /* private void testName(ReflectHuman obj) throws ValidateException{
+    private void testName(ReflectHuman obj) throws ValidateException{
         Field nameField = null;
         String name = "";
 
@@ -36,13 +36,12 @@ public class ReflectHumanTests {
         }
 
         char[] nameArray = name.toCharArray();
-        System.out.println(nameArray);
 
-//        if ((nameArray[0] >= 'а' && nameArray[0] <= 'я') || name.length() < 2) {
-//            throw new ValidateException("имя нужно с большой буквы или длину больше двух");
-//        }
+        if ((nameArray[0] >= 'а' && nameArray[0] <= 'я') || name.length() < 2) {
+            throw new ValidateException("имя нужно с большой буквы или длину больше двух");
+        }
 
         System.out.println("testName() прошел");
 
-    }*/
+    }
 }
