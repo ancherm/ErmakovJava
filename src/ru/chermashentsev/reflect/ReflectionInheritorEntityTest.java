@@ -1,5 +1,6 @@
 package ru.chermashentsev.reflect;
 
-public class ReflectionInheritorTest extends ReflectTest{
+public class ReflectionInheritorEntityTest extends ReflectEntityTest {
+
     private String job = "qwerty";
 }

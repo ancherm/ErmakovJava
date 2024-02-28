@@ -1335,8 +1335,8 @@ public class TestCases {
     // 7.1.3
     void callEntity() {
         System.out.println("№ 7.1.3");
-        System.out.println(new ReflectTest());
-        System.out.println(new ReflectionInheritorTest());
+        System.out.println(new ReflectEntityTest());
+        System.out.println(new ReflectionInheritorEntityTest());
         System.out.println();
     }
 

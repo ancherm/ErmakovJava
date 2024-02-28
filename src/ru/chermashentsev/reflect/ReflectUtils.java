@@ -22,13 +22,12 @@ public class ReflectUtils {
         return fields;
     }
 
-    @interface ToString{};
 
 
     // 7.1.1
     public static List<Field> fieldCollection(Object obj) {
         Class clz = obj.getClass();
-        List<Field> resultList = new ArrayList<>(List.of(clz.getFields()));
+        List<Field> resultList = new ArrayList<>(Arrays.asList(clz.getFields()));
 
 
         while (clz != Object.class) {
