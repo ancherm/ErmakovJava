@@ -1,13 +1,13 @@
 package ru.chermashentsev.reflect;
 
 import ru.chermashentsev.geometry.line.Line;
+import ru.chermashentsev.reflect.annotation.Invoke;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.lang.reflect.Modifier;
+import java.util.*;
 
 public class ReflectUtils {
     public static List<Field> getFields(Class clz) {
@@ -54,29 +54,55 @@ public class ReflectUtils {
     public static void validate(Object obj, Class clzTest) {
         List<Method> methodList = List.of(clzTest.getDeclaredMethods());
 
-        ReflectHumanTests tmp;
-        Object o = null;
-        try {
-            tmp = new ReflectHumanTests();
-            o = clzTest.newInstance();
-
-        } catch (InstantiationException | IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
+        ReflectHumanTests humanTests = new ReflectHumanTests();
 
         for (Method method : methodList) {
             method.setAccessible(true);
             try {
-                method.invoke(tmp, obj);
+                method.invoke(humanTests, obj);
 
             } catch (IllegalAccessException | InvocationTargetException e) {
-//                System.out.println("Hello");
-//                System.out.println(o.toString() + obj.toString());
                 throw new RuntimeException(e);
             }
 
         }
     }
+
+    // 7.3.1
+    public static Map<String, Object> collect(Class...classes) {
+        Map<String, Object> resultMap = new HashMap<>();
+
+        for (Class clz : classes) {
+            List<Method> methods = List.of(clz.getDeclaredMethods());
+
+            for (Method method : methods) {
+                method.setAccessible(true);
+
+                if (!method.isAnnotationPresent(Invoke.class) ||
+                        method.getParameterCount() != 0 ||
+                        method.getReturnType() == void.class) {
+
+                    continue;
+                }
+
+                try {
+
+                    if (Modifier.isStatic(method.getModifiers())) {
+                        resultMap.put(method.getName(), method.invoke(null));
+                    }
+                    else if (!method.getReturnType().isPrimitive()) {
+                        resultMap.put(method.getName(), method.invoke(clz.newInstance()));
+                    }
+
+                } catch (IllegalAccessException | InvocationTargetException | InstantiationException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+
+        return resultMap;
+    }
+
 
 
 }

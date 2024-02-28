@@ -340,6 +340,11 @@ public class Main {
         testCases.callValidate();
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        // 7.3.1
+        testCases.callCollect();
+
         /*final var sBase = Stream.of(1, 2, 3, 4, 5).filter(i -> {
             System.out.println("i=%d %s".formatted(i, Thread.currentThread()));
             return i >= 3;
