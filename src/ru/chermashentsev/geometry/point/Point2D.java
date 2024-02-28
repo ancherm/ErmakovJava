@@ -1,5 +1,7 @@
 package ru.chermashentsev.geometry.point;
 
+import ru.chermashentsev.reflect.annotation.Invoke;
+
 import java.util.Objects;
 
 // 1.1.1 Точка координат

@@ -1,6 +1,8 @@
 package ru.chermashentsev.main;
 
 import ru.chermashentsev.geometry.line.Line;
+import ru.chermashentsev.geometry.point.Point;
+import ru.chermashentsev.geometry.point.Point2D;
 import ru.chermashentsev.geometry.point.Point3D;
 import ru.chermashentsev.person.Name;
 import ru.chermashentsev.person.NameBuilder;
@@ -13,7 +15,7 @@ public class Main {
     public static void main(String[] args) throws CloneNotSupportedException {
         TestCases testCases = new TestCases();
 
-       /* // 1.1.1 Точка
+        /*// 1.1.1 Точка
         testCases.toCallPoint();
 
 
@@ -344,6 +346,10 @@ public class Main {
 
         // 7.3.1
         testCases.callCollect();
+
+        // 7.3.2
+        testCases.callDefault();
+
 
         /*final var sBase = Stream.of(1, 2, 3, 4, 5).filter(i -> {
             System.out.println("i=%d %s".formatted(i, Thread.currentThread()));

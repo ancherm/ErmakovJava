@@ -1355,11 +1355,19 @@ public class TestCases {
     // 7.3.1
     void callCollect() {
         System.out.println("№ 7.3.1");
-        System.out.println(ReflectUtils.collect(CollectTest.class));
+        System.out.println(ReflectUtils.collect(CollectTest.class, CollectTest2.class));
         System.out.println();
     }
 
 
+    ResetTest resetTest = new ResetTest();
+    // 7.3.2
+    void callDefault() {
+        System.out.println("№ 7.3.2");
+        ReflectUtils.reset(resetTest);
+        System.out.println(resetTest);
+        System.out.println();
+    }
 
 
 

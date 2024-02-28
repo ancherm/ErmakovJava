@@ -1,6 +1,7 @@
 package ru.chermashentsev.reflect;
 
 import ru.chermashentsev.geometry.line.Line;
+import ru.chermashentsev.reflect.annotation.Default;
 import ru.chermashentsev.reflect.annotation.Invoke;
 
 import java.lang.reflect.Field;
@@ -103,6 +104,32 @@ public class ReflectUtils {
         return resultMap;
     }
 
+
+    // 7.3.2
+    public static void reset(Object...objects) {
+        for (Object obj : objects) {
+            List<Field> fields = fieldCollection(obj);
+
+            if (obj.getClass().isAnnotationPresent(Default.class)) {
+                for (Field field : fields) {
+                    DefaultValues.setFieldValue(obj, field, field.getType());
+                }
+
+            } else {
+
+                for (Field field : fields) {
+                    Default fieldDefaultAnnotation = field.getAnnotation(Default.class);
+
+                    if (fieldDefaultAnnotation != null) {
+                        Class fieldDefaultValue = fieldDefaultAnnotation.value();
+                        DefaultValues.setFieldValue(obj, field, fieldDefaultValue);
+                    }
+
+                }
+            }
+
+        }
+    }
 
 
 }
