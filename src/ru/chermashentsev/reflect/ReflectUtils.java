@@ -3,6 +3,7 @@ package ru.chermashentsev.reflect;
 import ru.chermashentsev.geometry.line.Line;
 import ru.chermashentsev.reflect.annotation.Default;
 import ru.chermashentsev.reflect.annotation.Invoke;
+import ru.chermashentsev.reflect.annotation.Validate;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -51,21 +52,37 @@ public class ReflectUtils {
     }
 
     // 7.1.4
-    public static void validate(Object obj, Class clzTest) {
-        List<Method> methodList = List.of(clzTest.getDeclaredMethods());
+    public static void validate(Object...objects) {
+        for (Object obj : objects) {
+            Class<?> clz = obj.getClass();
+            if (clz.isAnnotationPresent(Validate.class)) {
+                Class<?>[] classTests = clz.getAnnotation(Validate.class).value();
 
-        ReflectHumanTests humanTests = new ReflectHumanTests();
+                for (Class<?> clzTest : classTests) {
+                    List<Method> methodList = List.of(clzTest.getDeclaredMethods());
 
-        for (Method method : methodList) {
-            method.setAccessible(true);
-            try {
-                method.invoke(humanTests, obj);
+                    Object humanTests;
+                    try {
+                        humanTests = clzTest.newInstance();
+                    } catch (InstantiationException | IllegalAccessException e) {
+                        throw new RuntimeException(e);
+                    }
 
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                throw new RuntimeException(e);
+                    for (Method method : methodList) {
+                        method.setAccessible(true);
+                        try {
+                            method.invoke(humanTests, obj);
+
+                        } catch (IllegalAccessException | InvocationTargetException e) {
+                            throw new RuntimeException(e);
+                        }
+
+                    }
+                }
             }
-
         }
+
+
     }
 
     // 7.3.1
