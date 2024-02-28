@@ -1,15 +1,18 @@
 package ru.chermashentsev.reflect;
 
 import ru.chermashentsev.geometry.line.Line;
+import ru.chermashentsev.reflect.annotation.AValidate;
 import ru.chermashentsev.reflect.annotation.Default;
 import ru.chermashentsev.reflect.annotation.Invoke;
 import ru.chermashentsev.reflect.annotation.Validate;
 
+import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class ReflectUtils {
     public static List<Field> getFields(Class clz) {
@@ -55,35 +58,69 @@ public class ReflectUtils {
     public static void validate(Object...objects) {
         for (Object obj : objects) {
             Class<?> clz = obj.getClass();
+            Class<?>[] classTests = null;
+
+            List<Annotation> annotationList = List.of(clz.getDeclaredAnnotations());
+
+
             if (clz.isAnnotationPresent(Validate.class)) {
-                Class<?>[] classTests = clz.getAnnotation(Validate.class).value();
+                classTests = clz.getAnnotation(Validate.class).value();
+            } else {
+                for (Annotation a : annotationList) {
+                    if (a.annotationType().isAnnotationPresent(Validate.class)) {
+                        classTests = a.annotationType().getAnnotation(Validate.class).value();
+                        break;
+                    }
+                }
+            }
 
-                for (Class<?> clzTest : classTests) {
-                    List<Method> methodList = List.of(clzTest.getDeclaredMethods());
+            if (classTests == null) {
+                return;
+            }
 
-                    Object humanTests;
+            for (Class<?> clzTest : classTests) {
+                List<Method> methodList = List.of(clzTest.getDeclaredMethods());
+
+                Object humanTests;
+                try {
+                    humanTests = clzTest.getDeclaredConstructor().newInstance();
+                } catch (InstantiationException | IllegalAccessException | NoSuchMethodException |
+                         InvocationTargetException e) {
+                    throw new RuntimeException(e);
+                }
+
+                for (Method method : methodList) {
+                    method.setAccessible(true);
                     try {
-                        humanTests = clzTest.newInstance();
-                    } catch (InstantiationException | IllegalAccessException e) {
+                        method.invoke(humanTests, obj);
+
+                    } catch (IllegalAccessException | InvocationTargetException e) {
                         throw new RuntimeException(e);
                     }
 
-                    for (Method method : methodList) {
-                        method.setAccessible(true);
-                        try {
-                            method.invoke(humanTests, obj);
-
-                        } catch (IllegalAccessException | InvocationTargetException e) {
-                            throw new RuntimeException(e);
-                        }
-
-                    }
                 }
             }
         }
 
-
     }
+
+    private static Map<Method, Boolean> cacheList = new HashMap();
+
+    // 7.1.6
+
+    /*public static<T> T cache(Object object) {
+        if (object == null)  throw new IllegalArgumentException("object равен null");
+
+        Class<?> clz = object.getClass();
+
+        for (Method method : clz.getDeclaredMethods()) {
+            method.setAccessible(true);
+
+            if (method.getParameterCount() == 0) {
+                cacheList.put(method, false);
+            }
+        }
+    }*/
 
     // 7.3.1
     public static Map<String, Object> collect(Class...classes) {
@@ -108,10 +145,11 @@ public class ReflectUtils {
                         resultMap.put(method.getName(), method.invoke(null));
                     }
                     else if (!method.getReturnType().isPrimitive()) {
-                        resultMap.put(method.getName(), method.invoke(clz.newInstance()));
+                        resultMap.put(method.getName(), method.invoke(clz.getDeclaredConstructor().newInstance()));
                     }
 
-                } catch (IllegalAccessException | InvocationTargetException | InstantiationException e) {
+                } catch (IllegalAccessException | InvocationTargetException | InstantiationException |
+                         NoSuchMethodException e) {
                     throw new RuntimeException(e);
                 }
             }

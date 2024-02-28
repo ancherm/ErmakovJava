@@ -19,7 +19,7 @@ public class ReflectHumanTests {
             throw new ValidateException("возраст не в диапозоне от 1 до 200");
         }
 
-        System.out.println("testAge() прошел");
+//        System.out.println("testAge() прошел");
 
     }
 
@@ -41,7 +41,7 @@ public class ReflectHumanTests {
             throw new ValidateException("имя нужно с большой буквы или длину больше двух");
         }
 
-        System.out.println("testName() прошел");
+//        System.out.println("testName() прошел");
 
     }
 }

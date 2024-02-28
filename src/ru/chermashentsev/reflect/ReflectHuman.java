@@ -1,8 +1,9 @@
 package ru.chermashentsev.reflect;
 
+import ru.chermashentsev.reflect.annotation.AValidate;
 import ru.chermashentsev.reflect.annotation.Validate;
 
-@Validate({ReflectHumanTests.class})
+@AValidate
 public class ReflectHuman {
     private String name;
     private int age;

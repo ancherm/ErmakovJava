@@ -1,0 +1,1 @@
+ObjectReadWriteTest{s1='hi', x=1, f=4.2}

@@ -1349,6 +1349,29 @@ public class TestCases {
         System.out.println();
     }
 
+
+    String fileName = "text.txt";
+    ObjectWriter objectWriter = new ObjectWriter(fileName);
+    ObjectReader<Object> objectReader = new ObjectReader<>(fileName);
+    // 7.1.5
+    void callReadFile() {
+        System.out.println("№ 7.1.5");
+
+        objectWriter.writeFile(List.of(new ObjectReadWriteTest("hi", 1, 4.2f)));
+        List<Object> objects = objectReader.readFile();
+
+        for (Object obj : objects) {
+            System.out.println(obj.toString());
+        }
+
+        System.out.println();
+    }
+
+
+    // 7.1.6
+
+//    ReflectCacheTest r = ReflectUtils.cache(new ReflectCacheTest("first"));
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -1368,6 +1391,9 @@ public class TestCases {
         System.out.println(resetTest);
         System.out.println();
     }
+
+
+
 
 
 
