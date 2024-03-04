@@ -83,6 +83,7 @@ public class Line<T extends Point2D> implements Lengthable, BrokenLineAble, Clon
         return super.clone();
     }
 
+    @Override
     public String toString() {
         return "Линия от " + start + " до " + end;
     }

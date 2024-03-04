@@ -1370,7 +1370,17 @@ public class TestCases {
 
     // 7.1.6
 
-//    ReflectCacheTest r = ReflectUtils.cache(new ReflectCacheTest("first"));
+    void callCache() {
+        System.out.println("№ 7.1.6");
+//        CacheUtil cacheUtil = new CacheUtil();
+
+//        CacheTest cacheTest = cacheUtil.cache(new CacheTest("asd"));
+        CacheTest cache = ReflectUtils.cache(new CacheTest("qwerty"));
+        System.out.println(cache.test());
+        System.out.println(cache.test());
+
+        System.out.println();
+    }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

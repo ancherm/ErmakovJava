@@ -6,6 +6,7 @@ import ru.chermashentsev.reflect.annotation.*;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
 import java.util.*;
+import java.lang.reflect.Proxy;
 import java.util.stream.Collectors;
 
 public class ReflectUtils {
@@ -122,23 +123,53 @@ public class ReflectUtils {
         return exceptions;
     }
 
-    private static Map<Method, Boolean> cacheList = new HashMap();
 
     // 7.1.6
 
-    /*public static<T> T cache(Object object) {
+    @SuppressWarnings("unchecked")
+    public static<T> T cache(T object) {
         if (object == null)  throw new IllegalArgumentException("object равен null");
 
         Class<?> clz = object.getClass();
+        ClassLoader classLoader = clz.getClassLoader();
 
-        for (Method method : clz.getDeclaredMethods()) {
-            method.setAccessible(true);
+        Map<Method, Object> cacheMethods = new HashMap<>();
+        Map<Field, Object> fieldValueMap = new HashMap<>();
 
-            if (method.getParameterCount() == 0) {
-                cacheList.put(method, false);
+        if (clz.isInterface())
+            return (T) Proxy.newProxyInstance(classLoader, new Class[]{clz}, new CacheHandler(object));
+
+        T resultProxyObject = (T) Proxy.newProxyInstance(clz.getClassLoader(), clz.getInterfaces(), new InvocationHandler() {
+            @Override
+            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+                for (Field field : clz.getDeclaredFields()) {
+
+                    if (!fieldValueMap.containsKey(field)) {
+                        fieldValueMap.put(field, field.get(object));
+                        cacheMethods.put(method, method.invoke(object));
+                    } else if (fieldValueMap.containsKey(field) &&
+                            fieldValueMap.get(field) != clz.getDeclaredField(field.getName()).get(object)) {
+
+                        fieldValueMap.put(field, field.get(object));
+                        cacheMethods.put(method, method.invoke(object));
+                    } /*else {
+                        Object value = clz
+                                .getMethod(method.getName())
+                                .invoke(object);
+                        if (value != cacheMethods.get(method)) {
+                            cacheMethods.put(method, value);
+                        }
+                    }*/
+                }
+
+                return cacheMethods.get(method);
+
             }
-        }
-    }*/
+        });
+
+        return (T) resultProxyObject;
+
+    }
 
     // 7.3.1
     public static Map<String, Object> collect(Class...classes) {

@@ -16,7 +16,7 @@ public class BrokenLine implements Lengthable, BrokenLineAble {
         addPoints(points);
     }
 
-    public BrokenLine(Point2D...points) {
+    public BrokenLine(Point2D... points) {
         this(List.of(points));
     }
 
@@ -58,7 +58,7 @@ public class BrokenLine implements Lengthable, BrokenLineAble {
 
         if (brokenLine.points.size() != this.points.size()) return false;
         try {
-            if (brokenLine.length() != this.length())  return false;
+            if (brokenLine.length() != this.length()) return false;
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
         }
