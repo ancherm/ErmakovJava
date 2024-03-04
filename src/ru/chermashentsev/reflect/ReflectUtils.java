@@ -1,16 +1,10 @@
 package ru.chermashentsev.reflect;
 
 import ru.chermashentsev.geometry.line.Line;
-import ru.chermashentsev.reflect.annotation.AValidate;
-import ru.chermashentsev.reflect.annotation.Default;
-import ru.chermashentsev.reflect.annotation.Invoke;
-import ru.chermashentsev.reflect.annotation.Validate;
+import ru.chermashentsev.reflect.annotation.*;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.*;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -55,53 +49,77 @@ public class ReflectUtils {
     }
 
     // 7.1.4
-    public static void validate(Object...objects) {
-        for (Object obj : objects) {
-            Class<?> clz = obj.getClass();
-            Class<?>[] classTests = null;
+    private static List<Exception> validate(Object obj) {
+        Class<?> clz = obj.getClass();
+        Class<?>[] classTests = null;
 
-            List<Annotation> annotationList = List.of(clz.getDeclaredAnnotations());
+        List<Annotation> annotationList = List.of(clz.getDeclaredAnnotations());
 
 
-            if (clz.isAnnotationPresent(Validate.class)) {
-                classTests = clz.getAnnotation(Validate.class).value();
-            } else {
-                for (Annotation a : annotationList) {
-                    if (a.annotationType().isAnnotationPresent(Validate.class)) {
-                        classTests = a.annotationType().getAnnotation(Validate.class).value();
-                        break;
-                    }
-                }
-            }
-
-            if (classTests == null) {
-                return;
-            }
-
-            for (Class<?> clzTest : classTests) {
-                List<Method> methodList = List.of(clzTest.getDeclaredMethods());
-
-                Object humanTests;
-                try {
-                    humanTests = clzTest.getDeclaredConstructor().newInstance();
-                } catch (InstantiationException | IllegalAccessException | NoSuchMethodException |
-                         InvocationTargetException e) {
-                    throw new RuntimeException(e);
-                }
-
-                for (Method method : methodList) {
-                    method.setAccessible(true);
-                    try {
-                        method.invoke(humanTests, obj);
-
-                    } catch (IllegalAccessException | InvocationTargetException e) {
-                        throw new RuntimeException(e);
-                    }
-
+        if (clz.isAnnotationPresent(Validate.class)) {
+            classTests = clz.getAnnotation(Validate.class).value();
+        } else {
+            for (Annotation a : annotationList) {
+                if (a.annotationType().isAnnotationPresent(Validate.class)) {
+                    classTests = a.annotationType().getAnnotation(Validate.class).value();
+                    break;
                 }
             }
         }
 
+        if (classTests == null) {
+            return new ArrayList<>();
+        }
+
+        List<Exception> exceptions = new ArrayList<>();
+
+        for (Class<?> clzTest : classTests) {
+
+            List<Method> methodList = List.of(clzTest.getDeclaredMethods());
+
+            Object humanTests;
+            try {
+                Constructor<?> constructor = clzTest.getDeclaredConstructor();
+                constructor.setAccessible(true);
+
+                humanTests = constructor.newInstance();
+            } catch (InstantiationException | IllegalAccessException | NoSuchMethodException |
+                     InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
+
+            for (Method method : methodList) {
+                method.setAccessible(true);
+
+                if (!method.isAnnotationPresent(Test.class)) continue;
+
+                try {
+                    method.invoke(humanTests, obj);
+
+                }
+                catch (IllegalAccessException | InvocationTargetException e) {
+                    if (e.getCause() instanceof ValidateException) {
+                        exceptions.add((Exception) e.getCause());
+                    } else {
+                        throw new RuntimeException(e.getCause());
+                    }
+                }
+                catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+        }
+        return exceptions;
+
+    }
+
+
+    public static List<Exception> validate(Object...objects) {
+        List<Exception> exceptions = new ArrayList<>();
+        for (Object obj : objects)
+            exceptions.addAll(validate(obj));
+        return exceptions;
     }
 
     private static Map<Method, Boolean> cacheList = new HashMap();

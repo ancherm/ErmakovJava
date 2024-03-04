@@ -1344,7 +1344,7 @@ public class TestCases {
     void callValidate() {
         System.out.println("№ 7.1.4");
 
-        ReflectUtils.validate(new ReflectHuman(100, "Aнf"));
+        System.out.println(ReflectUtils.validate(new ReflectHuman(1000, "Aнf")));
 
         System.out.println();
     }

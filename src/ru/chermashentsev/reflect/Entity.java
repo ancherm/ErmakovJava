@@ -12,35 +12,28 @@ public abstract class Entity {
     public String toString() {
         List<Field> fields = ReflectUtils.getFields(getClass());
         Map<String, Object> map = new HashMap<>();
-
         ToStringType typeNo = ToStringType.NO;
 
-
         if (getClass().isAnnotationPresent(ToString.class) &&
-                this.getClass().getAnnotation(ToString.class).value() == typeNo) {
+                getClass().getAnnotation(ToString.class).value() == typeNo) {
 
             return "";
         }
 
-        for (Field field : fields) {
+        try {
+            for (Field field : fields) {
+                field.setAccessible(true);
 
-            field.setAccessible(true);
+                if (field.isAnnotationPresent(ToString.class) &&
+                        field.getAnnotation(ToString.class).value() == typeNo)  continue;
 
-            if (field.isAnnotationPresent(ToString.class)) {
-                ToString value = field.getAnnotation(ToString.class);
-                if (value.value() == typeNo) {
-                    continue;
-                }
-
-            }
-
-            try {
                 map.put(field.getName(), field.get(this));
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException(e);
             }
 
+        } catch (IllegalAccessException e) {
+            throw new RuntimeException(e);
         }
+
 
         return getClass().getSimpleName() + map;
     }

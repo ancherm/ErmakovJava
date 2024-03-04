@@ -1,8 +1,11 @@
 package ru.chermashentsev.reflect;
 
+import ru.chermashentsev.reflect.annotation.Test;
+
 import java.lang.reflect.Field;
 
 public class ReflectHumanTests {
+    @Test
     private void testAge(ReflectHuman obj) throws Exception {
         Field ageField = null;
         int age = 0;
@@ -19,10 +22,11 @@ public class ReflectHumanTests {
             throw new ValidateException("возраст не в диапозоне от 1 до 200");
         }
 
-//        System.out.println("testAge() прошел");
+        System.out.println("testAge() прошел");
 
     }
 
+    @Test
     private void testName(ReflectHuman obj) throws ValidateException{
         Field nameField = null;
         String name = "";
@@ -41,7 +45,7 @@ public class ReflectHumanTests {
             throw new ValidateException("имя нужно с большой буквы или длину больше двух");
         }
 
-//        System.out.println("testName() прошел");
+        System.out.println("testName() прошел");
 
     }
 }
