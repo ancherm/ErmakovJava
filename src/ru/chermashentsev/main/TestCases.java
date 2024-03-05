@@ -33,6 +33,7 @@ import ru.chermashentsev.person.Student;
 import ru.chermashentsev.reflect.*;
 import ru.chermashentsev.temperature.TemperatureFactory;
 
+import java.lang.reflect.Field;
 import java.math.BigInteger;
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -1372,10 +1373,8 @@ public class TestCases {
 
     void callCache() {
         System.out.println("№ 7.1.6");
-//        CacheUtil cacheUtil = new CacheUtil();
-
-//        CacheTest cacheTest = cacheUtil.cache(new CacheTest("asd"));
-        CacheTest cache = ReflectUtils.cache(new CacheTest("qwerty"));
+        Cacheable cache = ReflectUtils.cache(new CacheTest("qwerty"));
+        System.out.println(cache.test());
         System.out.println(cache.test());
         System.out.println(cache.test());
 

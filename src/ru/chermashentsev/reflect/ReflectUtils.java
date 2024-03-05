@@ -22,7 +22,6 @@ public class ReflectUtils {
     }
 
 
-
     // 7.1.1
     public static List<Field> fieldCollection(Object obj) {
         Class clz = obj.getClass();
@@ -97,15 +96,13 @@ public class ReflectUtils {
                 try {
                     method.invoke(humanTests, obj);
 
-                }
-                catch (IllegalAccessException | InvocationTargetException e) {
+                } catch (IllegalAccessException | InvocationTargetException e) {
                     if (e.getCause() instanceof ValidateException) {
                         exceptions.add((Exception) e.getCause());
                     } else {
                         throw new RuntimeException(e.getCause());
                     }
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     throw new RuntimeException(e);
                 }
 
@@ -116,7 +113,7 @@ public class ReflectUtils {
     }
 
 
-    public static List<Exception> validate(Object...objects) {
+    public static List<Exception> validate(Object... objects) {
         List<Exception> exceptions = new ArrayList<>();
         for (Object obj : objects)
             exceptions.addAll(validate(obj));
@@ -126,53 +123,64 @@ public class ReflectUtils {
 
     // 7.1.6
 
-    @SuppressWarnings("unchecked")
-    public static<T> T cache(T object) {
-        if (object == null)  throw new IllegalArgumentException("object равен null");
+
+    public static <T> T cache(T object) {
+        if (object == null) throw new IllegalArgumentException("object равен null");
 
         Class<?> clz = object.getClass();
         ClassLoader classLoader = clz.getClassLoader();
 
-        Map<Method, Object> cacheMethods = new HashMap<>();
-        Map<Field, Object> fieldValueMap = new HashMap<>();
 
         if (clz.isInterface())
-            return (T) Proxy.newProxyInstance(classLoader, new Class[]{clz}, new CacheHandler(object));
+            return (T) Proxy.newProxyInstance(classLoader,
+                    new Class[]{clz},
+                    new CacheHandler<>(object)
+            );
 
-        T resultProxyObject = (T) Proxy.newProxyInstance(clz.getClassLoader(), clz.getInterfaces(), new InvocationHandler() {
-            @Override
-            public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-                for (Field field : clz.getDeclaredFields()) {
-
-                    if (!fieldValueMap.containsKey(field)) {
-                        fieldValueMap.put(field, field.get(object));
-                        cacheMethods.put(method, method.invoke(object));
-                    } else if (fieldValueMap.containsKey(field) &&
-                            fieldValueMap.get(field) != clz.getDeclaredField(field.getName()).get(object)) {
-
-                        fieldValueMap.put(field, field.get(object));
-                        cacheMethods.put(method, method.invoke(object));
-                    } /*else {
-                        Object value = clz
-                                .getMethod(method.getName())
-                                .invoke(object);
-                        if (value != cacheMethods.get(method)) {
-                            cacheMethods.put(method, value);
-                        }
-                    }*/
-                }
-
-                return cacheMethods.get(method);
-
-            }
-        });
-
-        return (T) resultProxyObject;
+        return (T) Proxy.newProxyInstance(classLoader,
+                clz.getInterfaces(),
+                new CacheHandler<>(object)
+        );
 
     }
 
+    private static class CacheHandler<T> implements InvocationHandler {
+        private final T object;
+        private int hashCodeObject;
+
+        Map<Method, Object> cacheMethods = new HashMap<>();
+
+
+        public CacheHandler(T object) {
+            if (object == null) throw new IllegalArgumentException("object равен null");
+
+            this.object = object;
+            hashCodeObject = object.hashCode();
+        }
+
+
+        @Override
+        public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+            if (args != null && args.length > 0)
+                throw new IllegalArgumentException("У метода не должны быть аргументы");
+
+            if (!cacheMethods.containsKey(method) ||
+                    (cacheMethods.containsKey(method) && hashCodeObject != object.hashCode())) {
+
+                Object result = method.invoke(object);
+                cacheMethods.put(method, result);
+
+                return result;
+            }
+
+            return cacheMethods.get(method);
+        }
+
+    }
+
+
     // 7.3.1
-    public static Map<String, Object> collect(Class...classes) {
+    public static Map<String, Object> collect(Class... classes) {
         Map<String, Object> resultMap = new HashMap<>();
 
         for (Class clz : classes) {
@@ -192,8 +200,7 @@ public class ReflectUtils {
 
                     if (Modifier.isStatic(method.getModifiers())) {
                         resultMap.put(method.getName(), method.invoke(null));
-                    }
-                    else if (!method.getReturnType().isPrimitive()) {
+                    } else if (!method.getReturnType().isPrimitive()) {
                         resultMap.put(method.getName(), method.invoke(clz.getDeclaredConstructor().newInstance()));
                     }
 
@@ -209,7 +216,7 @@ public class ReflectUtils {
 
 
     // 7.3.2
-    public static void reset(Object...objects) {
+    public static void reset(Object... objects) {
         for (Object obj : objects) {
             List<Field> fields = fieldCollection(obj);
 
