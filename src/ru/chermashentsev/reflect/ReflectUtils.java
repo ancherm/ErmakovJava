@@ -123,7 +123,7 @@ public class ReflectUtils {
 
     // 7.1.6
 
-
+    @SuppressWarnings("unchecked")
     public static <T> T cache(T object) {
         if (object == null) throw new IllegalArgumentException("object равен null");
 
@@ -131,11 +131,6 @@ public class ReflectUtils {
         ClassLoader classLoader = clz.getClassLoader();
 
 
-        if (clz.isInterface())
-            return (T) Proxy.newProxyInstance(classLoader,
-                    new Class[]{clz},
-                    new CacheHandler<>(object)
-            );
 
         return (T) Proxy.newProxyInstance(classLoader,
                 clz.getInterfaces(),
