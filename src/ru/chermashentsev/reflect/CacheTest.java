@@ -1,5 +1,7 @@
 package ru.chermashentsev.reflect;
 
+import ru.chermashentsev.reflect.annotation.Cache;
+
 import java.util.Objects;
 
 public class CacheTest implements Cacheable{
@@ -8,11 +10,11 @@ public class CacheTest implements Cacheable{
     public CacheTest(String str) {
         this.str = str;
     }
-
+    @Cache
     @Override
-    public int test() {
+    public String test() {
         System.out.println("original");
-        return 52;
+        return str;
     }
 
     @Override

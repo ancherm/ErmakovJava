@@ -122,15 +122,11 @@ public class ReflectUtils {
 
 
     // 7.1.6
-
-    @SuppressWarnings("unchecked")
     public static <T> T cache(T object) {
         if (object == null) throw new IllegalArgumentException("object равен null");
 
         Class<?> clz = object.getClass();
         ClassLoader classLoader = clz.getClassLoader();
-
-
 
         return (T) Proxy.newProxyInstance(classLoader,
                 clz.getInterfaces(),
@@ -150,25 +146,42 @@ public class ReflectUtils {
             if (object == null) throw new IllegalArgumentException("object равен null");
 
             this.object = object;
-            hashCodeObject = object.hashCode();
         }
 
 
         @Override
         public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-            if (args != null && args.length > 0)
-                throw new IllegalArgumentException("У метода не должны быть аргументы");
+//            if (args != null && args.length > 0)
+//                throw new IllegalArgumentException("У метода не должны быть аргументы");
 
-            if (!cacheMethods.containsKey(method) ||
+           /* if (!cacheMethods.containsKey(method) ||
                     (cacheMethods.containsKey(method) && hashCodeObject != object.hashCode())) {
 
+                hashCodeObject = object.hashCode();
                 Object result = method.invoke(object);
                 cacheMethods.put(method, result);
 
                 return result;
+            }*/
+
+            method = object.getClass().getMethod(method.getName(), method.getParameterTypes());
+
+            if (method.isAnnotationPresent(Mutator.class)) {
+                cacheMethods.clear();
+
+            }
+            if (cacheMethods.containsKey(method)) {
+                return cacheMethods.get(method);
+            }
+            if (method.isAnnotationPresent(Cache.class)) {
+                cacheMethods.put(method, method.invoke(object, args));
+
+                return cacheMethods.get(method);
             }
 
-            return cacheMethods.get(method);
+
+
+            return method.invoke(object, args);
         }
 
     }
@@ -216,21 +229,11 @@ public class ReflectUtils {
             List<Field> fields = fieldCollection(obj);
 
             if (obj.getClass().isAnnotationPresent(Default.class)) {
-                for (Field field : fields) {
-                    DefaultValues.setFieldValue(obj, field, field.getType());
-                }
-
+                fields.forEach(field -> DefaultValues.setFieldValue(obj, field, field.getType()));
             } else {
-
-                for (Field field : fields) {
-                    Default fieldDefaultAnnotation = field.getAnnotation(Default.class);
-
-                    if (fieldDefaultAnnotation != null) {
-                        Class fieldDefaultValue = fieldDefaultAnnotation.value();
-                        DefaultValues.setFieldValue(obj, field, fieldDefaultValue);
-                    }
-
-                }
+                fields.stream()
+                        .filter(field -> field.getAnnotation(Default.class) != null)
+                        .forEach(field -> DefaultValues.setFieldValue(obj, field, field.getAnnotation(Default.class).value()));
             }
 
         }

@@ -1,6 +1,9 @@
 package ru.chermashentsev.reflect;
 
+import ru.chermashentsev.reflect.annotation.Cache;
+
 public interface Cacheable {
-    int test();
+
+    String test();
     void setValue(String obj);
 }

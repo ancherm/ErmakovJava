@@ -1376,6 +1376,7 @@ public class TestCases {
         Cacheable cache = ReflectUtils.cache(new CacheTest("qwerty"));
         System.out.println(cache.test());
         System.out.println(cache.test());
+        cache.setValue("qwwwww");
         System.out.println(cache.test());
 
         System.out.println();
